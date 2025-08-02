@@ -1,0 +1,162 @@
+import { useNavigate, useLocation } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import { useEffect } from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+
+const plans = [
+  {
+    title: "Pro",
+    price: "9€/mes",
+    features: [
+      "Prompts ilimitados",
+      "Personalización del bot (colores, saludos, fuentes)",
+      "Estadísticas del bot (conversaciones, mensajes)",
+    ],
+    cta: "Hazte Pro",
+    bg: "bg-blue-800",
+    textColor: "text-white",
+    border: "border-blue-500",
+  },
+  {
+    title: "Full",
+    price: "19€/mes",
+    features: [
+      "Todo lo incluido en Pro",
+      "Integración con Google Calendar",
+      "Soporte para archivos de hoja de cálculo",
+    ],
+    cta: "Obtener Full",
+    bg: "bg-purple-700",
+    textColor: "text-white",
+    border: "border-purple-500",
+    badge: "Mejor oferta",
+  },
+  {
+    title: "Lifetime",
+    price: "79€ único pago",
+    features: [
+      "Todo lo incluido en Full",
+      "Sin pagos recurrentes",
+      "Soporte prioritario",
+    ],
+    cta: "Comprar acceso vitalicio",
+    bg: "bg-yellow-700",
+    textColor: "text-white",
+    border: "border-yellow-500",
+    badge: "Popular",
+  },
+];
+
+export default function Pricing() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const redirectPlan = new URLSearchParams(location.search).get("redirectPlan");
+
+  useEffect(() => {
+    if (redirectPlan && localStorage.getItem("token")) {
+      handlePlanSelect(redirectPlan);
+    }
+  }, [redirectPlan]);
+
+  if (redirectPlan) {
+    navigate(`/pricing?redirectPlan=${redirectPlan}`);
+  } else {
+    navigate("/home");
+  }
+
+  const handlePlanSelect = async (plan) => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      navigate(`/register?redirectPlan=${plan}`);
+      return;
+    }
+
+    try {
+      const res = await fetch(
+        "http://localhost:3000/api/stripe/create-checkout-session",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ plan }),
+        }
+      );
+
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert("Error al iniciar el pago");
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-900 text-white">
+      <Navbar />
+      <button
+        onClick={() => navigate(-1)}
+        className="text-purple-400 hover:text-purple-600 px-6 py-2"
+      >
+        <ArrowLeft className="" /> Volver
+      </button>
+
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold mb-4">Selecciona tu plan</h1>
+        <p className="text-gray-300">
+          Empieza gratis y mejora cuando lo necesites. Sin permanencia.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto py-5">
+        {plans.map((plan) => (
+          <div
+            key={plan.title}
+            className={`flex flex-col justify-between rounded-2xl shadow-lg p-6 border h-full ${plan.bg} ${plan.border} transition hover:scale-105 duration-300 relative`}
+          >
+            {plan.badge && (
+              <div className="absolute top-4 right-4 bg-white text-black text-xs font-semibold px-2 py-1 rounded-full shadow">
+                {plan.badge}
+              </div>
+            )}
+
+            <div>
+              <h2 className="text-2xl font-semibold mb-2">{plan.title}</h2>
+              <p className="text-3xl font-bold mb-6">{plan.price}</p>
+              <ul className="space-y-2 mb-6">
+                {plan.features.map((feature, i) => (
+                  <li key={i} className="text-sm">
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <button
+              onClick={() => handlePlanSelect(plan.title.toLowerCase())}
+              className="w-full py-2 font-semibold rounded-md bg-black bg-opacity-20 hover:bg-opacity-40 transition duration-200"
+            >
+              {plan.cta}
+            </button>
+          </div>
+        ))}
+      </div>
+
+      <div className="text-center mt-8 px-4 text-gray-300 text-sm">
+        <p>
+          Todos nuestros planes incluyen garantía de devolución durante los primeros <strong className="text-white">30 días</strong>.
+          Puedes cancelar tu suscripción <strong className="text-white">en cualquier momento</strong> desde tu panel de usuario.
+        </p>
+      </div>
+
+      <Footer />
+    </div>
+  );
+}
