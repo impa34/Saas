@@ -22,7 +22,7 @@ function Home() {
     const authHeader = { Authorization: `Bearer ${token}` };
 
     // 3) obtener mensaje de bienvenida
-    fetch("http://localhost:3000/api/auth/home", { headers: authHeader })
+    fetch("https://saas-backend-xrkb.onrender.com/api/auth/home", { headers: authHeader })
       .then((r) => r.json())
       .catch(() => {
         localStorage.removeItem("token");
@@ -32,7 +32,7 @@ function Home() {
     // 4) obtener bots
     const fetchBots = async () => {
       try {
-        const { data } = await axios.get("http://localhost:3000/api/chatbots", {
+        const { data } = await axios.get("https://saas-backend-xrkb.onrender.com/api/chatbots", {
           headers: authHeader,
         });
         setBots(data);
@@ -43,7 +43,7 @@ function Home() {
       }
     };
     const fetchUser = async () => {
-      const res = await fetch("http://localhost:3000/api/user/me", {
+      const res = await fetch("https://saas-backend-xrkb.onrender.com/api/user/me", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -58,7 +58,7 @@ function Home() {
   }, []);
 
   const deleteBot = async (id) => {
-    await fetch(`http://localhost:3000/api/chatbots/${id}`, {
+    await fetch(`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
@@ -151,7 +151,7 @@ function Home() {
               <h3
                 onClick={() =>
                   window.open(
-                    `http://localhost:3000/embed/${bot._id}`,
+                    `https://saas-backend-xrkb.onrender.com/embed/${bot._id}`,
                     "_blank"
                   )
                 }
@@ -168,7 +168,7 @@ function Home() {
                 <button
                   onClick={() =>
                     window.open(
-                      `http://localhost:3000/embed/${bot._id}`,
+                      `https://saas-backend-xrkb.onrender.com/embed/${bot._id}`,
                       "_blank"
                     )
                   }

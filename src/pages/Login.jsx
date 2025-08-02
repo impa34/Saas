@@ -14,7 +14,7 @@ function Login() {
     e.preventDefault();
     setError("");
     setSuccess("");
-    const res = await fetch("http://localhost:3000/api/auth/login", {
+    const res = await fetch("https://saas-backend-xrkb.onrender.com/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +33,7 @@ function Login() {
   };
 
   const handleGoogleLogin = () => {
-window.location.href = "http://localhost:3000/api/auth/google";
+window.location.href = "https://saas-backend-xrkb.onrender.com/api/auth/google";
 
     
   };

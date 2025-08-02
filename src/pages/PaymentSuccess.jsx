@@ -14,7 +14,7 @@ const PaymentSuccess = () => {
     }
 
     // refrescar user info (ej. plan)
-    fetch("http://localhost:3000/api/user/me", {
+    fetch("https://saas-backend-xrkb.onrender.com/api/user/me", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

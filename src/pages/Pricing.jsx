@@ -76,7 +76,7 @@ export default function Pricing() {
 
     try {
       const res = await fetch(
-        "http://localhost:3000/api/stripe/create-checkout-session",
+        "https://saas-backend-xrkb.onrender.com/api/stripe/create-checkout-session",
         {
           method: "POST",
           headers: {

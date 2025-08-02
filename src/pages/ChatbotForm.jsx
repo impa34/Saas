@@ -33,7 +33,7 @@ function ChatbotForm() {
 
     const fetchStats = async () => {
       const res = await fetch(
-        `http://localhost:3000/api/chatbots/${id}/stats`,
+        `https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/stats`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -51,7 +51,7 @@ function ChatbotForm() {
     };
     if (id) {
       axios
-        .get(`http://localhost:3000/api/chatbots/${id}`)
+        .get(`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}`)
         .then((res) => {
           const bot = res.data;
           setName(bot.name);
@@ -70,7 +70,7 @@ function ChatbotForm() {
     if (!id) return;
 
     await axios.put(
-      `http://localhost:3000/api/chatbots/${id}/config`,
+      `https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/config`,
       {
         backgroundColor: bgColor,
         textColor,
@@ -98,7 +98,7 @@ function ChatbotForm() {
     try {
       if (id) {
         await axios.put(
-          `http://localhost:3000/api/chatbots/${id}`,
+          `https://saas-backend-xrkb.onrender.com/api/chatbots/${id}`,
           { name, prompts },
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -107,7 +107,7 @@ function ChatbotForm() {
         setSuccessMessage("✅ Bot actualizado correctamente");
       } else {
         await axios.post(
-          "http://localhost:3000/api/chatbots",
+          "https://saas-backend-xrkb.onrender.com/api/chatbots",
           { name, prompts },
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -152,7 +152,7 @@ function ChatbotForm() {
     const formData = new FormData();
     formData.append("file", file);
     const token = localStorage.getItem("token");
-    await fetch(`http://localhost:3000/api/chatbots/${id}/upload`, {
+    await fetch(`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/upload`, {
       method: "POST",
       headers: { Authorization: `Bearer ${token}` },
       body: formData,
@@ -174,7 +174,7 @@ function ChatbotForm() {
 
   const handleGoogleConnect = () => {
     const token = localStorage.getItem("token");
-    window.location.href = `http://localhost:3000/api/google-auth?auth=${token}`;
+    window.location.href = `https://saas-backend-xrkb.onrender.com/api/google-auth?auth=${token}`;
   };
 
   return (
@@ -396,7 +396,7 @@ function ChatbotForm() {
                 {((status === "Pro" && id) || (status === "Full" && id)) && (
                   <div>
                     <a
-                      href={`http://localhost:3000/api/chatbots/${id}/conversations/export`}
+                      href={`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/conversations/export`}
                       className="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition duration-200"
                     >
                       Descargar historial de conversaciones (CSV)

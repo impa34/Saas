@@ -19,7 +19,7 @@ function Register() {
       return;
     }
     try {
-      const res = await fetch("http://localhost:3000/api/auth/register", {
+      const res = await fetch("https://saas-backend-xrkb.onrender.com/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,7 +43,7 @@ function Register() {
   };
 
   const handleGoogleLogin = () => {
-window.location.href = "http://localhost:3000/api/auth/google";
+window.location.href = "https://saas-backend-xrkb.onrender.com/api/auth/google";
     
   };
 

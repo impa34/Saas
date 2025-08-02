@@ -16,7 +16,7 @@ function Profile() {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("token")
-        const res = await axios.get("http://localhost:3000/api/user/me", {
+        const res = await axios.get("https://saas-backend-xrkb.onrender.com/api/user/me", {
             headers:
             {Authorization:`Bearer ${token}`}
         });
@@ -32,7 +32,7 @@ function Profile() {
     try {
         const token = localStorage.getItem("token")
       const res = await axios.post(
-        "http://localhost:3000/api/stripe/cancel-subscription",{},
+        "https://saas-backend-xrkb.onrender.com/api/stripe/cancel-subscription",{},
         { headers:
             {Authorization:`Bearer ${token}`}
         },
