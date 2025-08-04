@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import Footer from "../components/Footer";
 
 function Home() {
@@ -22,7 +23,9 @@ function Home() {
     const authHeader = { Authorization: `Bearer ${token}` };
 
     // 3) obtener mensaje de bienvenida
-    fetch("https://saas-backend-xrkb.onrender.com/api/auth/home", { headers: authHeader })
+    fetch("https://saas-backend-xrkb.onrender.com/api/auth/home", {
+      headers: authHeader,
+    })
       .then((r) => r.json())
       .catch(() => {
         localStorage.removeItem("token");
@@ -32,9 +35,12 @@ function Home() {
     // 4) obtener bots
     const fetchBots = async () => {
       try {
-        const { data } = await axios.get("https://saas-backend-xrkb.onrender.com/api/chatbots", {
-          headers: authHeader,
-        });
+        const { data } = await axios.get(
+          "https://saas-backend-xrkb.onrender.com/api/chatbots",
+          {
+            headers: authHeader,
+          }
+        );
         setBots(data);
       } catch (e) {
         localStorage.removeItem("token");
@@ -43,11 +49,14 @@ function Home() {
       }
     };
     const fetchUser = async () => {
-      const res = await fetch("https://saas-backend-xrkb.onrender.com/api/user/me", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await fetch(
+        "https://saas-backend-xrkb.onrender.com/api/user/me",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       const user = await res.json();
       console.log("👉 Usuario recibido:", user);
       setUser(user);
@@ -122,12 +131,12 @@ function Home() {
           </p>
         </section>
         {showBotLimitMsg && (
-  <div className="mt-2 text-sm bg-red-600 text-white px-4 py-2 mb-2 rounded-md shadow">
-    🚫 El plan gratuito solo permite un chatbot. Actualiza tu plan para crear más.
-  </div>
-)}
+          <div className="mt-2 text-sm bg-red-600 text-white px-4 py-2 mb-2 rounded-md shadow">
+            🚫 El plan gratuito solo permite un chatbot. Actualiza tu plan para
+            crear más.
+          </div>
+        )}
         <div className="flex justify-center mb-6">
-          
           <button
             onClick={() => {
               if (user?.status === "free" && bots.length >= 1) {
@@ -144,8 +153,11 @@ function Home() {
 
         <div className="grid sm:grid-cols-3 gap-6">
           {bots.map((bot) => (
-            <div
+            <motion.div
               key={bot._id}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.05 * bots.indexOf(bot) }}
               className="bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-purple-500/30 transition duration-300"
             >
               <h3
@@ -189,7 +201,7 @@ function Home() {
                   Eliminar
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </main>
