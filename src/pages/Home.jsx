@@ -2,13 +2,14 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Footer from "../components/Footer";
 
 function Home() {
   const [bots, setBots] = useState([]);
   const [user, setUser] = useState("");
   const [showBotLimitMsg, setShowBotLimitMsg] = useState(false);
+  const [showIntegration, setShowIntegration] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -110,31 +111,48 @@ function Home() {
             </button>
           </div>
         </div>
-        <section className="bg-gray-800 rounded-lg p-6 mb-8 text-center">
-          <h2 className="text-2xl font-semibold text-purple-400 mb-2">
-            ¿Cómo integrar tu chatbot en tu página web?
-          </h2>
-          <p className="text-gray-300 mb-4">
-            Pega este fragmento en el{" "}
-            <span className="font-mono bg-gray-700 px-1 rounded">
-              {"</body>"}
-            </span>{" "}
-            de tu sitio:
-          </p>
+        <div className="bg-gray-800 rounded-lg p-4 mb-6">
+  <button
+    onClick={() => setShowIntegration(!showIntegration)}
+    className="w-full text-left text-purple-400 font-semibold text-lg flex justify-between items-center"
+  >
+    ¿Cómo integrar tu chatbot en tu página web?
+    <span className="text-gray-400">
+      {showIntegration ? "▲" : "▼"}
+    </span>
+  </button>
 
-          <pre className="bg-black text-sm text-green-400 p-4 rounded-md overflow-auto">
-            {`<script 
+  <AnimatePresence>
+    {showIntegration && (
+      <motion.div
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ opacity: 1, height: "auto" }}
+        exit={{ opacity: 0, height: 0 }}
+        transition={{ duration: 0.3 }}
+        className="overflow-hidden mt-4 text-sm text-gray-300"
+      >
+        <p className="mb-4">
+          Pega este fragmento en el{" "}
+          <span className="font-mono bg-gray-700 px-1 rounded">
+            {"</body>"}
+          </span>{" "}
+          de tu sitio:
+        </p>
+
+        <pre className="bg-black text-green-400 p-4 rounded-md overflow-auto text-xs">
+{`<script 
   src="https://talochatbot.com/chatbot.js" 
   data-chatbot-id="TU_CHATBOT_ID">
 </script>`}
-          </pre>
+        </pre>
 
-          <p className="text-sm text-gray-400 mt-4">
-            Este código mostrará el botón del chatbot automáticamente en la
-            esquina inferior derecha. Puedes personalizar todo desde el panel:
-            colores, fuente, tamaño y respuestas.
-          </p>
-        </section>
+        <p className="text-gray-400 mt-4">
+          Este código mostrará el botón del chatbot automáticamente en la esquina inferior derecha. Puedes personalizar todo desde el panel: colores, fuente, tamaño y respuestas.
+        </p>
+      </motion.div>
+    )}
+  </AnimatePresence>
+</div>
         {showBotLimitMsg && (
           <div className="mt-2 text-sm bg-red-600 text-white px-4 py-2 mb-2 rounded-md shadow">
             🚫 El plan gratuito solo permite un chatbot. Actualiza tu plan para
