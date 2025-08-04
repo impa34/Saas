@@ -29,21 +29,28 @@ function Profile() {
   }, []);
 
   const cancelSubscription = async () => {
-    try {
-        const token = localStorage.getItem("token")
-      const res = await axios.post(
-        "https://saas-backend-xrkb.onrender.com/api/stripe/cancel-subscription",{},
-        { headers:
-            {Authorization:`Bearer ${token}`}
-        },
-      );
-      setCancelMsg(res.data.message);
-      setUser((prev) => ({ ...prev, status: "Free" }));
-    } catch (e) {
-      console.error(e);
-      setCancelMsg("Error al cancelar");
-    }
-  };
+  const confirmCancel = window.confirm(
+    "¿Estás seguro de que quieres cancelar tu suscripción? Esta acción no se puede deshacer."
+  );
+
+  if (!confirmCancel) return;
+
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axios.post(
+      "https://saas-backend-xrkb.onrender.com/api/stripe/cancel-subscription",
+      {},
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    setCancelMsg(res.data.message);
+    setUser((prev) => ({ ...prev, status: "Free" }));
+  } catch (e) {
+    console.error(e);
+    setCancelMsg("Error al cancelar");
+  }
+};
 
   if (!user) return <p className="text-white text-center mt-10">Cargando perfil...</p>;
 
