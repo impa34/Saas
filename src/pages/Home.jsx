@@ -137,7 +137,10 @@ function Home() {
           </div>
         )}
         <div className="flex justify-center mb-6">
-          <button
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
             onClick={() => {
               if (user?.status === "free" && bots.length >= 1) {
                 setShowBotLimitMsg(true);
@@ -148,7 +151,7 @@ function Home() {
             className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-medium transition"
           >
             + Nuevo Chatbot
-          </button>
+          </motion.button>
         </div>
 
         <div className="grid sm:grid-cols-3 gap-6">
