@@ -111,15 +111,13 @@ function Home() {
             </button>
           </div>
         </div>
-        <div className="bg-gray-800 rounded-lg p-4 mb-6">
+        <div className="bg-gray-800 rounded-lg p-4 mb-6 text-center">
   <button
     onClick={() => setShowIntegration(!showIntegration)}
-    className="w-full text-left text-purple-400 font-semibold text-lg flex justify-between items-center"
+    className="w-full text-purple-400 font-semibold text-lg flex justify-between items-center"
   >
-    ¿Cómo integrar tu chatbot en tu página web?
-    <span className="text-gray-400">
-      {showIntegration ? "▲" : "▼"}
-    </span>
+    <span className="mx-auto">¿Cómo integrar tu chatbot en tu página web?</span>
+    <span className="text-gray-400">{showIntegration ? "▲" : "▼"}</span>
   </button>
 
   <AnimatePresence>
@@ -129,30 +127,35 @@ function Home() {
         animate={{ opacity: 1, height: "auto" }}
         exit={{ opacity: 0, height: 0 }}
         transition={{ duration: 0.3 }}
-        className="overflow-hidden mt-4 text-sm text-gray-300"
+        className="overflow-hidden mt-4"
       >
-        <p className="mb-4">
-          Pega este fragmento en el{" "}
-          <span className="font-mono bg-gray-700 px-1 rounded">
-            {"</body>"}
-          </span>{" "}
-          de tu sitio:
-        </p>
+        <div className="text-sm text-gray-300 text-center">
+          <p className="mb-4">
+            Pega este fragmento en el{" "}
+            <span className="font-mono bg-gray-700 px-1 rounded">
+              {"</body>"}
+            </span>{" "}
+            de tu sitio:
+          </p>
 
-        <pre className="bg-black text-green-400 p-4 rounded-md overflow-auto text-xs">
+          <pre className="bg-black text-green-400 p-4 rounded-md overflow-auto text-xs inline-block text-left max-w-full">
 {`<script 
   src="https://talochatbot.com/chatbot.js" 
   data-chatbot-id="TU_CHATBOT_ID">
 </script>`}
-        </pre>
+          </pre>
 
-        <p className="text-gray-400 mt-4">
-          Este código mostrará el botón del chatbot automáticamente en la esquina inferior derecha. Puedes personalizar todo desde el panel: colores, fuente, tamaño y respuestas.
-        </p>
+          <p className="text-gray-400 mt-4">
+            Este código mostrará el botón del chatbot automáticamente en la
+            esquina inferior derecha. Puedes personalizar todo desde el panel:
+            colores, fuente, tamaño y respuestas.
+          </p>
+        </div>
       </motion.div>
     )}
   </AnimatePresence>
 </div>
+
         {showBotLimitMsg && (
           <div className="mt-2 text-sm bg-red-600 text-white px-4 py-2 mb-2 rounded-md shadow">
             🚫 El plan gratuito solo permite un chatbot. Actualiza tu plan para
