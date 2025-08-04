@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import {motion} from "framer-motion"
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
 function Profile() {
   const [user, setUser] = useState(null);
   const [cancelMsg, setCancelMsg] = useState("");
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate()
   
 
@@ -119,7 +121,7 @@ function Profile() {
 
           {user.status !== "free" && (
             <button
-              onClick={cancelSubscription}
+              onClick={() => setShowModal(true)}
               className="mt-6 bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition"
             >
               Cancelar suscripción
@@ -131,6 +133,36 @@ function Profile() {
           )}
         </div>
       </main>
+      {showModal && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.3 }}
+      className="bg-gray-800 text-white p-6 rounded-xl shadow-lg w-full max-w-md"
+    >
+      <h2 className="text-xl font-bold mb-4 text-center">¿Cancelar suscripción?</h2>
+      <p className="text-sm text-gray-300 mb-6 text-center">
+        Esta acción no se puede deshacer. ¿Estás seguro de que deseas continuar?
+      </p>
+      <div className="flex justify-center gap-4">
+        <button
+          onClick={cancelSubscription}
+          className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition"
+        >
+          Sí, cancelar
+        </button>
+        <button
+          onClick={() => setShowModal(false)}
+          className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md transition"
+        >
+          No, volver
+        </button>
+      </div>
+    </motion.div>
+  </div>
+)}
       <Footer />
     </div>
   );
