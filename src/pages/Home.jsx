@@ -82,9 +82,14 @@ function Home() {
       <main className="flex-1 p-8 max-w-5xl mx-auto min-w-full">
         <div className="flex justify-between items-center mb-10">
           <div>
-            <h1 className="text-4xl font-bold text-purple-500 flex justify-center">
-              Tus Chatbots
-            </h1>
+            <motion.h1
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+  className="text-4xl font-bold text-purple-500 flex justify-center"
+>
+  Tus Chatbots
+</motion.h1>
           </div>
           <div className="space-x-4">
             <button
