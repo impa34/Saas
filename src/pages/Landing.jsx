@@ -4,6 +4,7 @@ import Whychooseus from "../components/Whychooseus";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import InteractiveFeatureSection from "../components/InteractiveFeatureSection";
+import {motion} from "framer-motion"
 
 function Landing() {
   const navigate = useNavigate();
@@ -19,7 +20,11 @@ function Landing() {
         style={{ backgroundImage: "url('/hero1.jpg')" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-80"></div>
-        <div className="relative z-10">
+        <motion.div 
+        initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+        className="relative z-10">
           <Typewriter text="Tu asistente de chat personal para tu negocio." speed={60} />
           <p className="text-lg md:text-xl text-gray-300 mb-6 py-6">
             Genera tu chatbot inteligente con IA en minutos.
@@ -30,7 +35,7 @@ function Landing() {
           >
             ¡Pruébalo gratis!
           </button>
-        </div>
+        </motion.div>
       </header>
          <section className="bg-purple-600 text-white py-12 text-center">
         <h2 className="text-3xl font-bold mb-4">¿Listo para mejorar tu atención al cliente?</h2>
