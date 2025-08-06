@@ -21,7 +21,7 @@ function Landing() {
       >
         <div className="absolute inset-0 bg-black bg-opacity-80"></div>
         <motion.div 
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
         className="relative z-10">
