@@ -15,7 +15,7 @@ return(
        {isLoggedIn && (
   <button
     onClick={() => navigate("/home")}
-    className=" bg-purple-600 text-gray-900 font-semibold py-2 px-5 rounded-md shadow hover:bg-purple-700 transition"
+    className="ml-5 bg-purple-600 text-white font-semibold py-2 px-5 rounded-md shadow hover:bg-purple-700 transition"
   >
     Ir al panel
   </button>
