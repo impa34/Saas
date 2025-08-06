@@ -96,16 +96,22 @@ function Home() {
 
   {/* Columna central - Botón Inicio */}
   <div className="w-1/3 flex justify-center">
-    <button
+    <motion.button
+    initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
       onClick={() => navigate("/")}
-      className="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition"
+      className="bg-purple-600 text-white py-2 px-4 font-medium rounded-lg hover:bg-purple-700 transition"
     >
       Inicio
-    </button>
+    </motion.button>
   </div>
 
   {/* Columna derecha - Perfil y Cerrar sesión */}
-  <div className="w-1/3 flex justify-end space-x-4">
+  <motion.div 
+  initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}className="w-1/3 flex justify-end space-x-4">
     <button
       onClick={() => navigate("/profile")}
       className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-medium transition"
@@ -122,7 +128,7 @@ function Home() {
     >
       Cerrar sesión
     </button>
-  </div>
+  </motion.div>
 </div>
         <div className="bg-gray-800 rounded-lg p-4 mb-6 text-center">
   <button
