@@ -81,43 +81,49 @@ function Home() {
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col ">
       <main className="flex-1 p-8 max-w-5xl mx-auto min-w-full">
-        <div className="flex justify-between items-center mb-10">
-          <div>
-            <motion.h1
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5 }}
-  className="text-4xl font-bold text-purple-500 flex justify-center"
->
-  Tus Chatbots
-</motion.h1>
-<button
-  onClick={() => navigate("/")}
-  className="top-4 left-4 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition"
->
- Inicio
-</button>
-          </div>
-          <div className="space-x-4">
-            
-            <button
-              onClick={() => navigate("/profile")}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-medium transition"
-            >
-              Perfil
-            </button>
-            <button
-              onClick={() => {
-                localStorage.removeItem("token");
-                localStorage.removeItem("googleLoggedIn");
-                navigate("/landing");
-              }}
-              className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-md font-medium transition"
-            >
-              Cerrar sesión
-            </button>
-          </div>
-        </div>
+       <div className="flex justify-between items-center mb-10">
+  {/* Columna izquierda - Título */}
+  <div className="w-1/3">
+    <motion.h1
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="text-4xl font-bold text-purple-500"
+    >
+      Tus Chatbots
+    </motion.h1>
+  </div>
+
+  {/* Columna central - Botón Inicio */}
+  <div className="w-1/3 flex justify-center">
+    <button
+      onClick={() => navigate("/")}
+      className="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition"
+    >
+      Inicio
+    </button>
+  </div>
+
+  {/* Columna derecha - Perfil y Cerrar sesión */}
+  <div className="w-1/3 flex justify-end space-x-4">
+    <button
+      onClick={() => navigate("/profile")}
+      className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-medium transition"
+    >
+      Perfil
+    </button>
+    <button
+      onClick={() => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("googleLoggedIn");
+        navigate("/landing");
+      }}
+      className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-md font-medium transition"
+    >
+      Cerrar sesión
+    </button>
+  </div>
+</div>
         <div className="bg-gray-800 rounded-lg p-4 mb-6 text-center">
   <button
     onClick={() => setShowIntegration(!showIntegration)}
