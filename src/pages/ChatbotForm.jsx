@@ -205,7 +205,7 @@ function ChatbotForm() {
                 transition={{ duration: 0.3 }}
                 className="space-y-4"
               >
-                <h2 className="text-xl font-bold">Bot basics</h2>
+                <h2 className="text-xl font-bold">Ajustes del bot</h2>
 
                 <input
                   value={name}
