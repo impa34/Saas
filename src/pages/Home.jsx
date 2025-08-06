@@ -192,7 +192,7 @@ function Home() {
               <h3
                 onClick={() =>
                   window.open(
-                    `https://saas-backend-xrkb.onrender.com/embed/${bot._id}`,
+                    `https://www.talochatbot.com/embed/${bot._id}`,
                     "_blank"
                   )
                 }
@@ -209,7 +209,7 @@ function Home() {
                 <button
                   onClick={() =>
                     window.open(
-                      `https://saas-backend-xrkb.onrender.com/embed/${bot._id}`,
+                      `https://www.talochatbot.com/embed/${bot._id}`,
                       "_blank"
                     )
                   }

@@ -11,7 +11,7 @@ function ChatbotEmbed() {
   const [input, setInput] = useState("");
 
   useEffect(() => {
-    axios.post(`/api/chatbots/${id}`).then((res) => setBot(res.data));
+    axios.post(`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}`).then((res) => setBot(res.data));
   }, [id]);
 
   const sendMessage = async () => {
