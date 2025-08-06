@@ -43,7 +43,7 @@ function Landing() {
 
       {/* Características destacadas */}
       <section className="bg-gray-900 py-20 space-y-24">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center px-4">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-16 items-center px-4">
           <img src="/feature1.png" className="rounded-lg shadow-xl" />
           <div>
             <h2 className="text-3xl font-bold mb-4 text-purple-400">Automatiza tus reservas</h2>
@@ -51,8 +51,8 @@ function Landing() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center px-4 md:flex-row-reverse">
-          <img src="/feature2.jpg" className="rounded-lg shadow-xl" />
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-16 items-center px-4 md:flex-row-reverse">
+          <img src="/feature2.png" className="rounded-lg shadow-xl" />
           <div>
             <h2 className="text-3xl font-bold mb-4 text-purple-400">Capta clientes sin esfuerzo</h2>
             <p className="text-lg text-gray-300">Recoge emails y datos de contacto automáticamente con cada conversación.</p>

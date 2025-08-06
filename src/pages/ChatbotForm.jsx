@@ -210,7 +210,7 @@ function ChatbotForm() {
                 <input
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Bot Name"
+                  placeholder="Nombre del bot"
                   className="w-full bg-gray-700 px-4 py-2 rounded focus:ring-2 focus:ring-purple-500"
                   required
                 />
@@ -223,11 +223,11 @@ function ChatbotForm() {
                   />
                 ) : (
                   <p className="text-gray-400 italic">
-                    Integration with Excel only available for Full users
+                    Integración con Excel solo disponible para usuarios Full
                   </p>
                 )}
                 {fileName && (
-                  <p className="text-sm text-green-400">Uploaded: {fileName}</p>
+                  <p className="text-sm text-green-400">Subido: {fileName}</p>
                 )}
 
                 {isGoogleUser ? (
@@ -237,11 +237,11 @@ function ChatbotForm() {
                       onClick={handleGoogleConnect}
                       className="w-full bg-green-600 hover:bg-green-700 py-2 rounded"
                     >
-                      Connect Google Calendar
+                      Conectar con Google Calendar
                     </button>
                   ) : (
                     <p className="text-gray-400 italic ">
-                      Google Calendar only available for Full users
+                      Integración Google Calendar solo disponible para usuarios Full
                     </p>
                   )
                 ) : (
@@ -250,13 +250,13 @@ function ChatbotForm() {
                     onClick={handleGoogleConnect}
                     className="w-full bg-green-600 hover:bg-green-700 py-2 rounded"
                   >
-                    Connect with Google
+                    Conectar con Google
                   </button>
                 )}
                 {isProOrFull ? (
                   <div className="space-y-4">
                     <label className="block">
-                      Background Color:
+                      Color del fondo:
                       <input
                         type="color"
                         value={bgColor}
@@ -265,7 +265,7 @@ function ChatbotForm() {
                       />
                     </label>
                     <label className="block">
-                      Text Color:
+                      Color del texto:
                       <input
                         type="color"
                         value={textColor}
@@ -274,7 +274,7 @@ function ChatbotForm() {
                       />
                     </label>
                     <label className="block">
-                      Font:
+                      Fuente:
                       <select
                         value={font}
                         onChange={(e) => setFont(e.target.value)}
@@ -287,7 +287,7 @@ function ChatbotForm() {
                       </select>
                     </label>
                     <label className="block">
-                      Font Size:
+                      Tamaño de fuente:
                       <input
                         className="ml-2 mt-2 text-black rounded-sm px-1 size-12"
                         value={fontSize}
@@ -300,12 +300,12 @@ function ChatbotForm() {
                       onClick={handleSaveConfig}
                       className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded transition duration-200"
                     >
-                      Save Settings
+                      Guardar cambios
                     </button>
                   </div>
                 ) : (
                   <p className="text-gray-400 italic">
-                    Chatbot customization only available for Pro or Full users
+                    Personalización del bot solo disponible para los usuarios Pro y Full
                   </p>
                 )}
               </motion.div>
@@ -330,7 +330,7 @@ function ChatbotForm() {
                       onChange={(e) =>
                         updatePrompt(i, "question", e.target.value)
                       }
-                      placeholder="Question"
+                      placeholder="Pregunta"
                       className="flex-1 bg-gray-700 px-3 py-2 rounded"
                       required
                     />
@@ -339,7 +339,7 @@ function ChatbotForm() {
                       onChange={(e) =>
                         updatePrompt(i, "answer", e.target.value)
                       }
-                      placeholder="Answer"
+                      placeholder="Respuesta"
                       className="flex-1 bg-gray-700 px-3 py-2 rounded"
                       required
                     />
@@ -368,7 +368,7 @@ function ChatbotForm() {
   }}
   className="bg-gray-600 hover:bg-gray-700 px-4 py-1 rounded text-sm"
 >
-  + Add Line
+  + Añadir línea
 </button>
               </motion.div>
             )}
@@ -386,14 +386,14 @@ function ChatbotForm() {
               >
                 <h2 className="text-xl font-bold mb-2">Review</h2>
 
-                <p className="text-purple-400 font-semibold">Name: {name}</p>
+                <p className="text-purple-400 font-semibold">Nombre: {name}</p>
                 <p>Prompts: {prompts.length}</p>
 
-                <p>{fileName ? `File: ${fileName}` : "No file uploaded"}</p>
+                <p>{fileName ? `File: ${fileName}` : "Ningún archivo cargado"}</p>
                 <p className="text-sm text-gray-400">
-                  Click “{id ? "Update" : "Create"}” to finish.
+                  Click “{id ? "Update" : "Create"}” para finalizar.
                 </p>
-                {((status === "Pro" && id) || (status === "Full" && id)) && (
+                {(status === "full" && id) && (
                   <div>
                     <a
                       href={`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/conversations/export`}
@@ -449,7 +449,7 @@ function ChatbotForm() {
                 onClick={prev}
                 className="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded transition duration-200"
               >
-                Back
+                Atrás
               </button>
             )}
             {step === 1 && (
@@ -458,7 +458,7 @@ function ChatbotForm() {
                 onClick={() => navigate("/home")}
                 className="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded transition duration-200"
               >
-                Back
+                Atrás
               </button>
             )}
             {step < 3 && (
@@ -467,7 +467,7 @@ function ChatbotForm() {
                 onClick={next}
                 className="px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded transition duration-200"
               >
-                Next
+                Siguiente
               </button>
             )}
 
@@ -483,11 +483,11 @@ function ChatbotForm() {
               >
                 {loading
                   ? id
-                    ? "Updating..."
-                    : "Creating..."
+                    ? "Actualizando..."
+                    : "Creando..."
                   : id
-                  ? "Update"
-                  : "Create"}
+                  ? "Actualizar"
+                  : "Crear"}
               </button>
             )}
           </div>
