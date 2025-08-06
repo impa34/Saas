@@ -12,14 +12,7 @@ return(
           <a href="/landing" className="flex items-center">
         <img src={logo} alt="Talo Chatbot logo" className="h-12 ml-2 w-auto" />
       </a>
-       {isLoggedIn && (
-  <button
-    onClick={() => navigate("/home")}
-    className="ml-5 bg-purple-600 text-white font-semibold py-2 px-5 rounded-md shadow hover:bg-purple-700 transition"
-  >
-    Ir al panel
-  </button>
-)}
+      
 
 
         {/* Nav links */}
@@ -37,6 +30,14 @@ return(
           </div>
          
           {/* Action buttons */}
+           {isLoggedIn && (
+  <button
+    onClick={() => navigate("/home")}
+    className=" bg-purple-600 text-white font-semibold py-2 px-5 rounded-md shadow hover:bg-purple-700 transition"
+  >
+    Ir al panel
+  </button>
+)}
           {isLoggedIn && (
             <div className="space-x-4">
                           <button
