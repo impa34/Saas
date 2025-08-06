@@ -41,9 +41,13 @@ export default function InteractiveFeatureSection() {
         <div
           key={feature.id}
           onMouseEnter={() => setActiveFeature(feature)}
-          className="cursor-pointer bg-gray-800 hover:bg-purple-600 rounded-xl w-20 h-20 flex items-center justify-center transition"
+          className="cursor-pointer bg-gray-800 hover:bg-purple-600 rounded-xl w-24 h-24 flex items-center justify-center transition"
         >
-          <img src={feature.image} alt={feature.name} className="w-16 h-16 object-contain" />
+          <img
+            src={feature.image}
+            alt={feature.name}
+            className="w-[72px] h-[72px] object-contain transition-transform duration-300 ease-in-out hover:scale-110"
+          />
         </div>
       ))}
     </div>
@@ -54,9 +58,13 @@ export default function InteractiveFeatureSection() {
         <div
           key={feature.id}
           onMouseEnter={() => setActiveFeature(feature)}
-          className="cursor-pointer bg-gray-800 hover:bg-purple-600 rounded-xl w-20 h-20 flex items-center justify-center transition"
+          className="cursor-pointer bg-gray-800 hover:bg-purple-600 rounded-xl w-24 h-24 flex items-center justify-center transition"
         >
-          <img src={feature.image} alt={feature.name} className="w-16 h-16 object-contain" />
+          <img
+            src={feature.image}
+            alt={feature.name}
+            className="w-[72px] h-[72px] object-contain transition-transform duration-300 ease-in-out hover:scale-110"
+          />
         </div>
       ))}
     </div>
