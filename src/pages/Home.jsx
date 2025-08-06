@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import {  motion, AnimatePresence } from "framer-motion";
 import Footer from "../components/Footer";
 
 function Home() {
@@ -81,99 +81,105 @@ function Home() {
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col ">
       <main className="flex-1 p-8 max-w-5xl mx-auto min-w-full">
-       <div className="flex justify-between items-center mb-10">
-  {/* Columna izquierda - Título */}
-  <div className="w-1/3">
-    <motion.h1
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="text-4xl font-bold text-purple-500"
-    >
-      Tus Chatbots
-    </motion.h1>
-  </div>
+        <div className="flex justify-between items-center mb-10">
+          {/* Columna izquierda - Título */}
+          <motion.div className="w-1/3">
+            <h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl font-bold text-purple-500"
+            >
+              Tus Chatbots
+            </h1>
+          </motion.div>
 
-  {/* Columna central - Botón Inicio */}
-  <div className="w-1/3 flex justify-center">
-    <motion.button
-    initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      onClick={() => navigate("/")}
-      className="bg-purple-600 text-white py-2 px-4 font-medium rounded-lg hover:bg-purple-700 transition"
-    >
-      Inicio
-    </motion.button>
-  </div>
+          {/* Columna central - Botón Inicio */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="w-1/3 flex justify-center"
+          >
+            <button
+              onClick={() => navigate("/")}
+              className="bg-purple-600 text-white py-2 px-4 font-medium rounded-lg hover:bg-purple-700 transition"
+            >
+              Inicio
+            </button>
+          </motion.div>
 
-  {/* Columna derecha - Perfil y Cerrar sesión */}
-  <motion.div 
-  initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}className="w-1/3 flex justify-end space-x-4">
-    <button
-      onClick={() => navigate("/profile")}
-      className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-medium transition"
-    >
-      Perfil
-    </button>
-    <button
-      onClick={() => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("googleLoggedIn");
-        navigate("/landing");
-      }}
-      className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-md font-medium transition"
-    >
-      Cerrar sesión
-    </button>
-  </motion.div>
-</div>
+          {/* Columna derecha - Perfil y Cerrar sesión */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="w-1/3 flex justify-end space-x-4"
+          >
+            <button
+              onClick={() => navigate("/profile")}
+              className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-medium transition"
+            >
+              Perfil
+            </button>
+            <button
+              onClick={() => {
+                localStorage.removeItem("token");
+                localStorage.removeItem("googleLoggedIn");
+                navigate("/landing");
+              }}
+              className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-md font-medium transition"
+            >
+              Cerrar sesión
+            </button>
+          </motion.div>
+        </div>
         <div className="bg-gray-800 rounded-lg p-4 mb-6 text-center">
-  <button
-    onClick={() => setShowIntegration(!showIntegration)}
-    className="w-full text-purple-400 font-semibold text-lg flex justify-between items-center"
-  >
-    <span className="mx-auto">¿Cómo integrar tu chatbot en tu página web?</span>
-    <span className="text-gray-400">{showIntegration ? "▲" : "▼"}</span>
-  </button>
+          <button
+            onClick={() => setShowIntegration(!showIntegration)}
+            className="w-full text-purple-400 font-semibold text-lg flex justify-between items-center"
+          >
+            <span className="mx-auto">
+              ¿Cómo integrar tu chatbot en tu página web?
+            </span>
+            <span className="text-gray-400">{showIntegration ? "▲" : "▼"}</span>
+          </button>
 
-  <AnimatePresence>
-    {showIntegration && (
-      <motion.div
-        initial={{ opacity: 0, height: 0 }}
-        animate={{ opacity: 1, height: "auto" }}
-        exit={{ opacity: 0, height: 0 }}
-        transition={{ duration: 0.3 }}
-        className="overflow-hidden mt-4"
-      >
-        <div className="text-sm text-gray-300 text-center">
-          <p className="mb-4">
-            Pega este fragmento en el{" "}
-            <span className="font-mono bg-gray-700 px-1 rounded">
-              {"</body>"}
-            </span>{" "}
-            de tu sitio:
-          </p>
+          <AnimatePresence>
+            {showIntegration && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden mt-4"
+              >
+                <div className="text-sm text-gray-300 text-center">
+                  <p className="mb-4">
+                    Pega este fragmento en el{" "}
+                    <span className="font-mono bg-gray-700 px-1 rounded">
+                      {"</body>"}
+                    </span>{" "}
+                    de tu sitio:
+                  </p>
 
-          <pre className="bg-black text-green-400 p-4 rounded-md overflow-auto text-xs inline-block text-left max-w-full">
-{`<script 
+                  <pre className="bg-black text-green-400 p-4 rounded-md overflow-auto text-xs inline-block text-left max-w-full">
+                    {`<script 
   src="https://talochatbot.com/widget.js" 
   data-chatbot-id="TU_CHATBOT_ID">
 </script>`}
-          </pre>
+                  </pre>
 
-          <p className="text-gray-400 mt-4">
-            Este código mostrará el botón del chatbot automáticamente en la
-            esquina inferior derecha. Puedes personalizar todo desde el panel:
-            colores, fuente, tamaño y respuestas.
-          </p>
+                  <p className="text-gray-400 mt-4">
+                    Este código mostrará el botón del chatbot automáticamente en
+                    la esquina inferior derecha. Puedes personalizar todo desde
+                    el panel: colores, fuente, tamaño y respuestas.
+                  </p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </motion.div>
-    )}
-  </AnimatePresence>
-</div>
 
         {showBotLimitMsg && (
           <div className="mt-2 text-sm bg-red-600 text-white px-4 py-2 mb-2 rounded-md shadow">
@@ -181,11 +187,13 @@ function Home() {
             crear más.
           </div>
         )}
-        <div className="flex justify-center mb-6">
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex justify-center mb-6"
+        >
+          <button
             onClick={() => {
               if (user?.status === "free" && bots.length >= 1) {
                 setShowBotLimitMsg(true);
@@ -196,8 +204,8 @@ function Home() {
             className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-medium transition"
           >
             + Nuevo Chatbot
-          </motion.button>
-        </div>
+          </button>
+        </motion.div>
 
         <div className="grid sm:grid-cols-3 gap-6">
           {bots.map((bot) => (
