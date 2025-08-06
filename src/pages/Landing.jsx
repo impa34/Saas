@@ -10,34 +10,117 @@ function Landing() {
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col">
       <Navbar />
+
       {/* Hero Section */}
-<header className="relative flex-1 flex flex-col justify-center items-center text-center px-6 bg-cover bg-center" style={{ backgroundImage: "url('/hero1.jpg')" }}>
-  {/* Overlay oscuro */}
-  <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+      <header
+        className="relative flex-1 flex flex-col justify-center items-center text-center px-6 bg-cover bg-center min-h-[80vh]"
+        style={{ backgroundImage: "url('/hero1.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+        <div className="relative z-10">
+          <Typewriter text="Tu asistente de chat personal para tu negocio." speed={60} />
+          <p className="text-lg md:text-xl text-gray-300 mb-6 py-6">
+            Genera tu chatbot inteligente con IA en minutos.
+          </p>
+          <button
+            onClick={() => navigate("/register")}
+            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition"
+          >
+            ¡Pruébalo gratis!
+          </button>
+        </div>
+      </header>
+         <section className="bg-purple-600 text-white py-12 text-center">
+        <h2 className="text-3xl font-bold mb-4">¿Listo para mejorar tu atención al cliente?</h2>
+        <p className="text-lg mb-6">Crea tu asistente en menos de 5 minutos. No necesitas conocimientos técnicos.</p>
+        <button
+          onClick={() => navigate("/register")}
+          className="bg-white text-purple-600 font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition"
+        >
+          ¡Crear mi chatbot!
+        </button>
+      </section>
 
-  {/* Contenido por encima del overlay */}
-  <div className="relative z-10">
-    <Typewriter text="Tu asistente de chat personal para tu negocio." speed={60} />
-    <p className="text-lg md:text-xl text-gray-300 mb-6 py-6">
-      Genera tu chatbot inteligente con IA en minutos.
-    </p>
-    <button
-      onClick={() => navigate("/register")}
-      className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition"
-    >
-      ¡Pruébalo gratis!
-    </button>
-  </div>
-</header>
+      {/* Características destacadas */}
+      <section className="bg-gray-900 py-20 space-y-24">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center px-4">
+          <img src="/feature1.png" className="rounded-lg shadow-xl" />
+          <div>
+            <h2 className="text-3xl font-bold mb-4 text-purple-400">Automatiza tus reservas</h2>
+            <p className="text-lg text-gray-300">Integra con Google Calendar y gestiona tus citas sin esfuerzo.</p>
+          </div>
+        </div>
 
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center px-4 md:flex-row-reverse">
+          <img src="/feature2.jpg" className="rounded-lg shadow-xl" />
+          <div>
+            <h2 className="text-3xl font-bold mb-4 text-purple-400">Capta clientes sin esfuerzo</h2>
+            <p className="text-lg text-gray-300">Recoge emails y datos de contacto automáticamente con cada conversación.</p>
+          </div>
+        </div>
 
-      {/* Placeholder Section */}
-      <section className="bg-gray-800 py-3 text-center">
-        <h3 className="text-3xl font-semibold">¿Por qué elegirnos?</h3>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center px-4">
+          <img src="/feature3.jpg" className="rounded-lg shadow-xl" />
+          <div>
+            <h2 className="text-3xl font-bold mb-4 text-purple-400">Personaliza tu asistente</h2>
+            <p className="text-lg text-gray-300">Ajusta colores, texto, comportamiento y diseño según tu marca.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="bg-gray-800 py-12 text-center px-4">
+        <h3 className="text-3xl font-semibold mb-6">¿Por qué elegirnos?</h3>
         <Whychooseus />
       </section>
 
-    <Footer />
+      {/* Planes */}
+      <section className="bg-gray-900 py-20 px-4">
+        <h2 className="text-3xl font-bold text-center text-white mb-12">Elige tu plan</h2>
+        <div className="max-w-6xl mx-auto grid sm:grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          {[
+            {
+              name: "Pro",
+              price: "9€/mes",
+              features: ["3 chatbots", "Estadísticas detalladas", "Diseño personalizable", "Prompts ilimitados"],
+              color: "purple",
+            },
+            {
+              name: "Full",
+              price: "19€/mes",
+              features: ["Chatbots ilimitados", "Integración de Google Calendar y Excel", "Prompts ilimitados", "Historial de conversaciones"],
+              color: "purple",
+            },
+            {
+              name: "Lifetime",
+              price: "79€ único",
+              features: ["Versión permanente de Full", "Soporte prioritario"],
+              color: "purple",
+            },
+          ].map((plan) => (
+            <div key={plan.name} className="bg-gray-800 rounded-xl p-6 shadow-lg">
+              <h3 className={`text-2xl font-semibold text-${plan.color}-400 mb-4`}>{plan.name}</h3>
+              <p className="text-3xl font-bold mb-6">{plan.price}</p>
+              <ul className="space-y-2 text-sm text-gray-300 mb-6">
+                {plan.features.map((feat, idx) => (
+                  <li key={idx}>✅ {feat}</li>
+                ))}
+              </ul>
+              <button
+                onClick={() => navigate("/register")}
+                className={`bg-${plan.color}-600 hover:bg-${plan.color}-700 text-white px-4 py-2 rounded-md font-medium transition`}
+              >
+                Empezar ahora
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA final */}
+   
+
+      <Footer />
     </div>
   );
 }

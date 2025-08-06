@@ -50,11 +50,11 @@ window.location.href = "https://saas-backend-xrkb.onrender.com/api/auth/google";
   return (
   <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
       <div className="bg-gray-700 shadow-xl rounded-2xl p-8 max-w-md w-full">
-        <h2 className="text-3xl font-semibold mb-6 text-center text-white">Sign up</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-center text-white">Registrarse</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Nombre"
             className="w-full px-4 py-2 border text-white border-gray-300 rounded-sm focus:outline-none bg-gray-700 focus:ring-2 focus:ring-purple-500"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -70,7 +70,7 @@ window.location.href = "https://saas-backend-xrkb.onrender.com/api/auth/google";
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             className="w-full px-4 py-2 border text-white border-gray-300 rounded-sm focus:outline-none bg-gray-700 focus:ring-2 focus:ring-purple-500"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -78,7 +78,7 @@ window.location.href = "https://saas-backend-xrkb.onrender.com/api/auth/google";
           />
           <input
             type="password"
-            placeholder="Confirm password"
+            placeholder="Confirmar contraseña"
             className="w-full px-4 py-2 border text-white border-gray-300 rounded-sm focus:outline-none bg-gray-700 focus:ring-2 focus:ring-purple-500"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -101,19 +101,19 @@ window.location.href = "https://saas-backend-xrkb.onrender.com/api/auth/google";
             type="submit"
             className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-sm transition duration-200"
           >
-            Register
+            Registrarse
           </button>
         </form>
     <button
           onClick={handleGoogleLogin}
           className="flex items-center w-full justify-center gap-2 bg-white text-gray-800 px-4 py-2 mt-2 rounded-sm shadow hover:shadow-md hover:bg-gray-200 transition duration-200"
         >
-          <img src="/google.webp" alt="Google" className="w-5 h-5" /> Connect with Google
+          <img src="/google.webp" alt="Google" className="w-5 h-5" /> Iniciar sesión con Google
         </button>
         <p className="text-sm text-center text-white mt-4">
-          Already have an account?{" "}
+          ¿Ya tienes cuenta?{" "}
           <Link to="/login" className="text-purple-600 hover:underline">
-            Log in
+            Iniciar sesión
           </Link>
         </p>
       </div>

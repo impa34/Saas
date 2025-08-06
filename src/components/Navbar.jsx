@@ -1,4 +1,6 @@
 import { useNavigate, Link } from "react-router-dom"
+import logo from "/logo1.png"
+
 
 function Navbar() {
     const navigate = useNavigate()
@@ -6,8 +8,10 @@ function Navbar() {
 
 
 return(
-      <nav className="flex justify-between items-center px-8 py-3 bg-gray-800 shadow-md">
-        <a href="/landing"><h1 className="text-2xl font-bold text-purple-500">Talo Chatbot</h1></a>
+      <nav className="flex justify-between items-center px-8 py-4 bg-gray-800 shadow-md">
+          <a href="/landing" className="flex items-center">
+        <img src={logo} alt="Talo Chatbot logo" className="h-12 ml-2 w-auto" />
+      </a>
 
         {/* Nav links */}
         <div className="flex items-center space-x-6">

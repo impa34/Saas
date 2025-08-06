@@ -22,7 +22,7 @@ function ChatbotEmbed() {
   setInput("");
 
   try {
-    const { data } = await axios.post(`/api/chatbots/${id}/reply`, {
+    const { data } = await axios.post(`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/reply`, {
       message: userMessage,
     });
      console.log("Respuesta del bot:", data);

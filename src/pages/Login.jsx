@@ -45,7 +45,7 @@ window.location.href = "https://saas-backend-xrkb.onrender.com/api/auth/google";
       <div className="bg-gray-700 shadow-xl rounded-2xl p-8 max-w-md w-full">
 
         <h2 className="text-3xl font-semibold mb-6 text-center text-white">
-          Log in
+          Iniciar sesión
         </h2>
         <form className="space-y-4">
           <input
@@ -58,7 +58,7 @@ window.location.href = "https://saas-backend-xrkb.onrender.com/api/auth/google";
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             className="w-full px-4 py-2 border border-gray-300 rounded-sm text-white focus:outline-none bg-gray-700 focus:ring-2 focus:ring-purple-500"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -82,19 +82,19 @@ window.location.href = "https://saas-backend-xrkb.onrender.com/api/auth/google";
             className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-sm transition duration-200"
             onClick={handleClick}
           >
-            Log in
+            Iniciar sesión
           </button>
         </form>
         <button
           onClick={handleGoogleLogin}
           className="flex items-center w-full justify-center gap-2 bg-white text-gray-800 px-4 py-2 mt-2 rounded-sm shadow hover:shadow-md hover:bg-gray-200 transition duration-200"
         >
-          <img src="/google.webp" alt="Google" className="w-5 h-5" /> Connect with Google
+          <img src="/google.webp" alt="Google" className="w-5 h-5" /> Iniciar sesión con Google
         </button>
         <p className="text-sm text-center text-white mt-4">
-          Don't have an account?{" "}
+          ¿No tienes cuenta?{" "}
           <Link to="/register" className="text-purple-600 hover:underline">
-            Sign up
+            Registrarse
           </Link>
         </p>
       </div>
