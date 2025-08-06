@@ -83,11 +83,12 @@ function Home() {
       <main className="flex-1 p-8 max-w-5xl mx-auto min-w-full">
         <div className="flex justify-between items-center mb-10">
           {/* Columna izquierda - Título */}
-          <motion.div className="w-1/3">
-            <h1
-              initial={{ opacity: 0, y: 20 }}
+          <motion.div
+          initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5 }} className="w-1/3">
+            <h1
+              
               className="text-4xl font-bold text-purple-500"
             >
               Tus Chatbots
