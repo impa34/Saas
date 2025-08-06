@@ -13,6 +13,7 @@ import About from "./pages/About";
 import Redirecting from "./pages/Redirecting";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentCancel from "./pages/PaymentCancel";
+import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./pages/Profile";
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
       <Route path="/payment-cancel" element={<PaymentCancel />} />
       <Route path="/form" element={<ChatbotForm />}></Route>
       <Route path="/embed/:id" element={<ChatbotEmbed />}></Route>
-      <Route path="/profile" element={<Profile />}></Route>
+      <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>}></Route>
       <Route path="/edit/:id" element={<ChatbotForm />}></Route>
       <Route path="/pricing" element={<Pricing />}></Route>
       <Route path="/about" element={<About />}></Route>
