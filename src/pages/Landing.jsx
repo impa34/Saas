@@ -61,7 +61,7 @@ function Landing() {
         </div>
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center px-4">
-          <img src="/feature3.jpg" className="rounded-lg shadow-xl" />
+          <img src="/feature3.png" className="rounded-lg shadow-xl" />
           <div>
             <h2 className="text-3xl font-bold mb-4 text-purple-400">Personaliza tu asistente</h2>
             <p className="text-lg text-gray-300">Ajusta colores, texto, comportamiento y diseño según tu marca.</p>
