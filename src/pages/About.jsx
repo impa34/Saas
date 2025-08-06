@@ -49,7 +49,7 @@ function About() {
             atención 24/7 sin contratar más personal, haciendo tu negocio más
             escalable y eficiente.
           </p>
-          <p className="text-gray-400 mb-6">
+          <p className="text-gray-400 mt-4">
             El plan gratuito te da un chatbot y
             cinco preguntas para que veas como funciona, puedes
             ampliar tu suscripción cuando lo desees.
