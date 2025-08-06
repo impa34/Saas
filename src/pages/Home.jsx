@@ -93,7 +93,7 @@ function Home() {
 </motion.h1>
 <button
   onClick={() => navigate("/")}
-  className="fixed top-4 left-4 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition"
+  className="top-4 left-4 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition"
 >
  Inicio
 </button>
