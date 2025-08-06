@@ -43,7 +43,7 @@ export default function InteractiveFeatureSection() {
           onMouseEnter={() => setActiveFeature(feature)}
           className="cursor-pointer bg-gray-800 hover:bg-purple-600 rounded-xl w-20 h-20 flex items-center justify-center transition"
         >
-          <img src={feature.image} alt={feature.name} className="w-10 h-10 object-contain" />
+          <img src={feature.image} alt={feature.name} className="w-16 h-16 object-contain" />
         </div>
       ))}
     </div>
@@ -56,7 +56,7 @@ export default function InteractiveFeatureSection() {
           onMouseEnter={() => setActiveFeature(feature)}
           className="cursor-pointer bg-gray-800 hover:bg-purple-600 rounded-xl w-20 h-20 flex items-center justify-center transition"
         >
-          <img src={feature.image} alt={feature.name} className="w-10 h-10 object-contain" />
+          <img src={feature.image} alt={feature.name} className="w-16 h-16 object-contain" />
         </div>
       ))}
     </div>
