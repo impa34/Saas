@@ -23,7 +23,7 @@
   document.body.appendChild(button);
 
   const iframe = document.createElement("iframe");
-  iframe.src = `https://saas-backend-xrkb.onrender.com/embed/${chatbotId}`;
+  iframe.src = `https://www.talochatbot.com/embed/${chatbotId}`;
   Object.assign(iframe.style, {
     position: "fixed",
     bottom: "80px",
