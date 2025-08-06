@@ -83,19 +83,19 @@ function Landing() {
             {
               name: "Pro",
               price: "9€/mes",
-              features: ["3 chatbots", "Estadísticas detalladas", "Diseño personalizable", "Prompts ilimitados"],
+              features: ["Estadísticas detalladas", "Diseño personalizable", "Prompts ilimitados"],
               color: "purple",
             },
             {
               name: "Full",
               price: "19€/mes",
-              features: ["Chatbots ilimitados", "Integración de Google Calendar y Excel", "Prompts ilimitados", "Historial de conversaciones"],
+              features: ["Todo de Pro", "Integración de Google Calendar y Excel",  "Historial de conversaciones"],
               color: "purple",
             },
             {
               name: "Lifetime",
               price: "79€ único",
-              features: ["Versión permanente de Full", "Soporte prioritario"],
+              features: ["Versión permanente de Full", "Soporte prioritario", "Sin mensualidades"],
               color: "purple",
             },
           ].map((plan) => (
