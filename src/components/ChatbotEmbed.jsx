@@ -99,7 +99,7 @@ function ChatbotEmbed() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-          placeholder="Type a message..."
+          placeholder="Escribe un mensaje..."
           style={{
             flex: 1,
             padding: "0.5rem",
@@ -119,7 +119,7 @@ function ChatbotEmbed() {
             fontFamily: bot.config?.font,
           }}
         >
-          Send
+          Enviar
         </button>
       </div>
     </div>

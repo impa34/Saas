@@ -140,7 +140,7 @@ function Home() {
 
           <pre className="bg-black text-green-400 p-4 rounded-md overflow-auto text-xs inline-block text-left max-w-full">
 {`<script 
-  src="https://talochatbot.com/chatbot.js" 
+  src="https://talochatbot.com/widget.js" 
   data-chatbot-id="TU_CHATBOT_ID">
 </script>`}
           </pre>
