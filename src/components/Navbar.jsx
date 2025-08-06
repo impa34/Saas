@@ -26,6 +26,14 @@ return(
               Contacto
             </Link>
           </div>
+          {isLoggedIn && (
+  <button
+    onClick={() => navigate("/home")}
+    className="mt-6 bg-white text-gray-900 font-semibold py-2 px-4 rounded-lg shadow hover:bg-gray-200 transition"
+  >
+    Ir al panel
+  </button>
+)}
 
           {/* Action buttons */}
           {isLoggedIn && (

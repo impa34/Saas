@@ -91,8 +91,15 @@ function Home() {
 >
   Tus Chatbots
 </motion.h1>
+<button
+  onClick={() => navigate("/")}
+  className="fixed top-4 left-4 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition"
+>
+ Inicio
+</button>
           </div>
           <div className="space-x-4">
+            
             <button
               onClick={() => navigate("/profile")}
               className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-medium transition"

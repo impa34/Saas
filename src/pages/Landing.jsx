@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 function Landing() {
   const navigate = useNavigate();
 
+
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col">
       <Navbar />
