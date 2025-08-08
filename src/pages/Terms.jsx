@@ -32,21 +32,21 @@ function Terms() {
 
           <section className="space-y-4">
             <p className="text-gray-300">
-              Bienvenido a Talo Chatbot. Al acceder o utilizar nuestro sitio web y servicios, aceptas estar sujeto a estos Términos de Uso y a todas las leyes y regulaciones aplicables. Si no estás de acuerdo con alguno de estos términos, no debes utilizar nuestros servicios.
+              Bienvenido a Talobot. Al acceder o utilizar nuestro sitio web y servicios, aceptas estar sujeto a estos Términos de Uso y a todas las leyes y regulaciones aplicables. Si no estás de acuerdo con alguno de estos términos, no debes utilizar nuestros servicios.
             </p>
           </section>
 
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-purple-400">1. Uso del servicio</h2>
             <p className="text-gray-300">
-              Al usar Talo Chatbot, aceptas no utilizar el servicio para ningún propósito ilegal o no autorizado. Te comprometes a no violar ninguna ley local, nacional o internacional durante el uso de nuestros servicios.
+              Al usar Talobot, aceptas no utilizar el servicio para ningún propósito ilegal o no autorizado. Te comprometes a no violar ninguna ley local, nacional o internacional durante el uso de nuestros servicios.
             </p>
           </section>
 
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-purple-400">2. Propiedad intelectual</h2>
             <p className="text-gray-300">
-              Todo el contenido disponible en nuestro sitio web, incluyendo pero no limitado a texto, imágenes, logotipos y software, es propiedad de Talo Chatbot o de sus licenciantes y está protegido por leyes de derechos de autor y otras leyes de propiedad intelectual.
+              Todo el contenido disponible en nuestro sitio web, incluyendo pero no limitado a texto, imágenes, logotipos y software, es propiedad de Talobot o de sus licenciantes y está protegido por leyes de derechos de autor y otras leyes de propiedad intelectual.
             </p>
           </section>
 
@@ -60,7 +60,7 @@ function Terms() {
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-purple-400">4. Limitación de responsabilidad</h2>
             <p className="text-gray-300">
-              Talo Chatbot no será responsable de ningún daño indirecto, incidental o consecuente que resulte del uso o la imposibilidad de usar el servicio. No garantizamos que el servicio esté libre de errores o interrupciones.
+              Talobot no será responsable de ningún daño indirecto, incidental o consecuente que resulte del uso o la imposibilidad de usar el servicio. No garantizamos que el servicio esté libre de errores o interrupciones.
             </p>
           </section>
 

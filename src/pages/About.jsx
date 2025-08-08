@@ -22,10 +22,10 @@ function About() {
       <div className="flex-1 px-6 py-4 flex flex-col items-center justify-center mb-20">
         <div className="max-w-3xl text-center">
           <h1 className="text-4xl font-bold mb-6 text-purple-500">
-            Sobre Talo Chatbot
+            Sobre Talobot
           </h1>
           <p className="text-lg text-gray-300 mb-4">
-            Talo Chatbot es un asistente con inteligencia artificial que ayuda a
+            Talobot es un asistente con inteligencia artificial que ayuda a
             tu negocio a conectar con los clientes de forma más inteligente y
             eficiente.
           </p>

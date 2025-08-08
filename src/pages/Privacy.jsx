@@ -33,7 +33,7 @@ function Privacy() {
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-purple-400">1. Introducción</h2>
             <p className="text-gray-300">
-              Esta Política de Privacidad describe nuestras políticas sobre la recopilación, uso y divulgación de tus datos cuando usas Talo Chatbot. Al utilizar el servicio, aceptas el uso de tu información de acuerdo con esta política.
+              Esta Política de Privacidad describe nuestras políticas sobre la recopilación, uso y divulgación de tus datos cuando usas Talobot. Al utilizar el servicio, aceptas el uso de tu información de acuerdo con esta política.
             </p>
           </section>
 

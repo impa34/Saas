@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <nav className="flex justify-between items-center px-8 py-4 bg-gray-800 shadow-md">
       <a href="/landing" className="flex items-center">
-        <img src={logo} alt="Talo Chatbot logo" className="h-12 ml-2 w-auto" />
+        <img src={logo} alt="Talobot logo" className="h-12 ml-2 w-auto" />
       </a>
 
       <div className="flex items-center space-x-6">

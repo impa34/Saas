@@ -10,7 +10,7 @@ function Footer() {
     <Link to="/privacy" className="hover:text-white">Políticas de privacidad</Link>
     <Link to="/terms" className="hover:text-white">Términos de uso</Link>
   </div>
-  <p>© 2025 - Talo Chatbot. Todos los derechos reservados.</p>
+  <p>© 2025 - Talobot. Todos los derechos reservados.</p>
 </footer>
   )
 }
