@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {  motion, AnimatePresence } from "framer-motion";
 import Footer from "../components/Footer";
-import { HiUserCircle, HiLogin, HiLogout, HiUser, HiViewGrid } from "react-icons/hi";
+import { HiLogout, HiUser, HiViewGrid } from "react-icons/hi";
 
 
 function Home() {
@@ -79,7 +79,11 @@ function Home() {
 
     setBots(bots.filter((bot) => bot._id !== id));
   };
+  const iconButtonClasses =
+    "text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
 
+  const logoutButtonClasses =
+    "text-white bg-red-600 hover:bg-red-700 p-2 rounded-md transition flex items-center justify-center";
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col ">
       <main className="flex-1 p-8 max-w-5xl mx-auto min-w-full">
