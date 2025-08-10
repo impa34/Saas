@@ -108,14 +108,14 @@ export default function Pricing() {
         <ArrowLeft className="" /> Volver
       </button>
 
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 px-4">
         <h1 className="text-4xl font-bold mb-4">Selecciona tu plan</h1>
         <p className="text-gray-300">
           Empieza gratis y mejora cuando lo necesites. Sin permanencia.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto py-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto py-5 px-4 md:px-8">
         {plans.map((plan) => (
           <div
             key={plan.title}
@@ -151,8 +151,11 @@ export default function Pricing() {
 
       <div className="text-center mt-8 px-4 text-gray-300 text-sm">
         <p>
-          Todos nuestros planes incluyen garantía de devolución durante los primeros <strong className="text-white">30 días</strong>.
-          Puedes cancelar tu suscripción <strong className="text-white">en cualquier momento</strong> desde tu panel de usuario.
+          Todos nuestros planes incluyen garantía de devolución durante los
+          primeros <strong className="text-white">30 días</strong>. Puedes
+          cancelar tu suscripción{" "}
+          <strong className="text-white">en cualquier momento</strong> desde tu
+          panel de usuario.
         </p>
       </div>
 
