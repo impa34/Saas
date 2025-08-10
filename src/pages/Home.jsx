@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {  motion, AnimatePresence } from "framer-motion";
 import Footer from "../components/Footer";
+import { HiUserCircle, HiLogin, HiLogout, HiUser, HiViewGrid } from "react-icons/hi";
+
 
 function Home() {
   const [bots, setBots] = useState([]);
@@ -102,12 +104,14 @@ function Home() {
             transition={{ duration: 0.5 }}
             className="flex-1 min-w-[100px] flex justify-center"
           >
-            <button
-              onClick={() => navigate("/")}
-              className="bg-purple-600 text-white py-2 px-4 font-medium rounded-lg hover:bg-purple-700 transition"
-            >
-              Inicio
-            </button>
+                   <button
+                        onClick={() => navigate("/home")}
+                        className={iconButtonClasses}
+                        aria-label="Ir al panel"
+                        title="Panel"
+                      >
+                        <HiViewGrid size={24} />
+                      </button>
           </motion.div>
 
           {/* Columna derecha - Perfil y Cerrar sesión */}
@@ -117,22 +121,25 @@ function Home() {
             transition={{ duration: 0.5 }}
             className="flex-1 min-w-[150px] flex justify-end space-x-4"
           >
-            <button
-              onClick={() => navigate("/profile")}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-medium transition"
-            >
-              Perfil
-            </button>
-            <button
-              onClick={() => {
-                localStorage.removeItem("token");
-                localStorage.removeItem("googleLoggedIn");
-                navigate("/landing");
-              }}
-              className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-md font-medium transition"
-            >
-              Cerrar sesión
-            </button>
+                   <button
+                     onClick={() => navigate("/profile")}
+                     className={iconButtonClasses}
+                     aria-label="Perfil"
+                     title="Perfil"
+                   >
+                     <HiUser size={24} />
+                   </button>
+                   <button
+                     onClick={() => {
+                       logout();
+                       navigate("/landing");
+                     }}
+                     className={logoutButtonClasses}
+                     aria-label="Cerrar sesión"
+                     title="Cerrar sesión"
+                   >
+                     <HiLogout size={24} />
+                   </button>
           </motion.div>
         </div>
         <div className="bg-gray-800 rounded-lg p-4 mb-6 text-center">

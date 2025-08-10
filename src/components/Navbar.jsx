@@ -2,9 +2,17 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
 import logo from "/logo1.png";
 
+import { HiUserCircle, HiLogin, HiLogout, HiUser, HiViewGrid } from "react-icons/hi";
+
 function Navbar() {
   const navigate = useNavigate();
   const { isLoggedIn, logout } = useAuth();
+
+  const iconButtonClasses =
+    "text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
+
+  const logoutButtonClasses =
+    "text-white bg-red-600 hover:bg-red-700 p-2 rounded-md transition flex items-center justify-center";
 
   return (
     <nav className="flex justify-between items-center px-4 md:px-8 py-4 bg-gray-800 shadow-md">
@@ -12,50 +20,66 @@ function Navbar() {
         <img src={logo} alt="Talobot logo" className="h-12 ml-2 w-auto" />
       </a>
 
-    <div className="ml-auto flex items-center">
-    <div className="hidden md:flex space-x-4 text-sm text-gray-300 mr-6">
-      <Link to="/pricing" className="hover:text-white transition">Planes</Link>
-      <Link to="/about" className="hover:text-white transition">Acerca de</Link>
-      <Link to="/contact" className="hover:text-white transition">Contacto</Link>
-    </div>
+      <div className="ml-auto flex items-center">
+        <div className="hidden md:flex space-x-4 text-sm text-gray-300 mr-6">
+          <Link to="/pricing" className="hover:text-white transition">
+            Planes
+          </Link>
+          <Link to="/about" className="hover:text-white transition">
+            Acerca de
+          </Link>
+          <Link to="/contact" className="hover:text-white transition">
+            Contacto
+          </Link>
+        </div>
 
         {isLoggedIn ? (
-          <div className="flex flex-wrap gap-2">
+          <div className="flex space-x-3">
             <button
               onClick={() => navigate("/home")}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-3 md:px-5 py-2 rounded-md font-medium transition min-w-0"
+              className={iconButtonClasses}
+              aria-label="Ir al panel"
+              title="Panel"
             >
-              Ir al panel
+              <HiViewGrid size={24} />
             </button>
             <button
               onClick={() => navigate("/profile")}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-3 md:px-5 py-2 rounded-md font-medium transition min-w-0"
+              className={iconButtonClasses}
+              aria-label="Perfil"
+              title="Perfil"
             >
-              Perfil
+              <HiUser size={24} />
             </button>
             <button
               onClick={() => {
                 logout();
                 navigate("/landing");
               }}
-              className="bg-red-600 hover:bg-red-700 text-white px-3 md:px-5 py-2 rounded-md font-medium transition min-w-0"
+              className={logoutButtonClasses}
+              aria-label="Cerrar sesión"
+              title="Cerrar sesión"
             >
-              Cerrar sesión
+              <HiLogout size={24} />
             </button>
           </div>
         ) : (
-          <div className="flex flex-wrap gap-2">
+          <div className="flex space-x-3">
             <button
               onClick={() => navigate("/login")}
-              className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-3 md:px-4 py-2 rounded-lg transition min-w-0"
+              className={iconButtonClasses}
+              aria-label="Iniciar sesión"
+              title="Iniciar sesión"
             >
-              Iniciar sesión
+              <HiLogin size={24} />
             </button>
             <button
               onClick={() => navigate("/register")}
-              className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-3 md:px-4 py-2 rounded-lg transition min-w-0"
+              className={iconButtonClasses}
+              aria-label="Registrarse"
+              title="Registrarse"
             >
-              Registrarse
+              <HiUserCircle size={24} />
             </button>
           </div>
         )}
@@ -63,6 +87,5 @@ function Navbar() {
     </nav>
   );
 }
-
 
 export default Navbar;
