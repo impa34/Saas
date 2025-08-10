@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
+import { HiDocumentDownload } from "react-icons/hi";
 
 function ChatbotForm() {
   const { id } = useParams();
@@ -124,6 +125,9 @@ function ChatbotForm() {
       setLoading(false);
     }
   };
+
+  const iconButtonClasses =
+    "text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
 
   const updatePrompt = (index, field, value) => {
     const updated = [...prompts];
@@ -395,7 +399,7 @@ function ChatbotForm() {
                       href={`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/conversations/export`}
                       className="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition duration-200"
                     >
-                      Descargar historial de conversaciones (CSV)
+                      <HiDocumentDownload size={24}/> conversaciones
                     </a>
                   </div>
                 )}
