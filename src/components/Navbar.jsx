@@ -1,3 +1,7 @@
+import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../context/AuthProvider";
+import logo from "/logo1.png";
+
 function Navbar() {
   const navigate = useNavigate();
   const { isLoggedIn, logout } = useAuth();
@@ -65,3 +69,6 @@ function Navbar() {
     </nav>
   );
 }
+
+
+export default Navbar;
