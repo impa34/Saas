@@ -395,12 +395,12 @@ function ChatbotForm() {
                 </p>
                 {(status === "full" && id) && (
                   <div>
-                    <a
-                      href={`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/conversations/export`}
+                    <button
+                      onClick={() =>{`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/conversations/export`}}
                       className="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition duration-200 w-full"
                     >
                       <HiDocumentDownload size={24}/> conversaciones
-                    </a>
+                    </button>
                   </div>
                 )}
                 <motion.div
