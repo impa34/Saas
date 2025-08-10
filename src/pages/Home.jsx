@@ -2,10 +2,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import {  motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Footer from "../components/Footer";
-import { HiLogout, HiUser, HiViewGrid } from "react-icons/hi";
-
+import { HiLogout, HiUser, HiViewGrid, HiHome } from "react-icons/hi";
 
 function Home() {
   const [bots, setBots] = useState([]);
@@ -90,15 +89,12 @@ function Home() {
         <div className="flex flex-wrap justify-between items-center mb-10 gap-4">
           {/* Columna izquierda - Título */}
           <motion.div
-          initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }} className="flex-1 min-w-[150px]">
-            <h1
-              
-              className="text-4xl font-bold text-purple-500"
-            >
-              Tus Chatbots
-            </h1>
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex-1 min-w-[150px]"
+          >
+            <h1 className="text-4xl font-bold text-purple-500">Tus Chatbots</h1>
           </motion.div>
 
           {/* Columna central - Botón Inicio */}
@@ -108,14 +104,14 @@ function Home() {
             transition={{ duration: 0.5 }}
             className="flex-1 min-w-[100px] flex justify-center"
           >
-                   <button
-                        onClick={() => navigate("/home")}
-                        className={iconButtonClasses}
-                        aria-label="Ir al panel"
-                        title="Panel"
-                      >
-                        <HiViewGrid size={24} />
-                      </button>
+            <button
+              onClick={() => navigate("/landing")}
+              className={iconButtonClasses}
+              aria-label="Ir a la página principal"
+              title="Página principal"
+            >
+              <HiHome size={24} />
+            </button>
           </motion.div>
 
           {/* Columna derecha - Perfil y Cerrar sesión */}
@@ -125,25 +121,25 @@ function Home() {
             transition={{ duration: 0.5 }}
             className="flex-1 min-w-[150px] flex justify-end space-x-4"
           >
-                   <button
-                     onClick={() => navigate("/profile")}
-                     className={iconButtonClasses}
-                     aria-label="Perfil"
-                     title="Perfil"
-                   >
-                     <HiUser size={24} />
-                   </button>
-                   <button
-                     onClick={() => {
-                       logout();
-                       navigate("/landing");
-                     }}
-                     className={logoutButtonClasses}
-                     aria-label="Cerrar sesión"
-                     title="Cerrar sesión"
-                   >
-                     <HiLogout size={24} />
-                   </button>
+            <button
+              onClick={() => navigate("/profile")}
+              className={iconButtonClasses}
+              aria-label="Perfil"
+              title="Perfil"
+            >
+              <HiUser size={24} />
+            </button>
+            <button
+              onClick={() => {
+                logout();
+                navigate("/landing");
+              }}
+              className={logoutButtonClasses}
+              aria-label="Cerrar sesión"
+              title="Cerrar sesión"
+            >
+              <HiLogout size={24} />
+            </button>
           </motion.div>
         </div>
         <div className="bg-gray-800 rounded-lg p-4 mb-6 text-center">
