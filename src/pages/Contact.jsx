@@ -45,11 +45,11 @@ function Contact() {
           onClick={() => navigate(-1)}
           className="text-purple-400 hover:text-purple-600 px-6 py-2"
         >
-          <ArrowLeft className="" /> Atrás
+          <ArrowLeft className="" /> Volver
         </button>
       </div>
 
-      <div className="max-w-xl mx-auto text-center">
+      <div className="max-w-xl mx-auto text-center px-4">
         <h1 className="text-4xl font-bold mb-6 text-purple-500">Contáctanos</h1>
         <p className="text-lg text-gray-300 mb-4">
           Nos encantaría saber de ti. Ya sea una duda, comentario o propuesta de colaboración, ¡escríbenos sin compromiso!
