@@ -399,7 +399,7 @@ function ChatbotForm() {
                       onClick={() =>{`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/conversations/export`}}
                       className={iconButtonClasses}
                     >
-                      <HiDocumentDownload size={24}/> conversaciones
+                      <HiDocumentDownload size={24}/> Conversaciones del bot
                     </button>
                   </div>
                 )}
