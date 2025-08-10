@@ -12,18 +12,12 @@ function Navbar() {
         <img src={logo} alt="Talobot logo" className="h-12 ml-2 w-auto" />
       </a>
 
-      <div className="flex items-center space-x-6">
-        <div className="hidden md:flex space-x-4 text-sm text-gray-300">
-          <Link to="/pricing" className="hover:text-white transition">
-            Planes
-          </Link>
-          <Link to="/about" className="hover:text-white transition">
-            Acerca de
-          </Link>
-          <Link to="/contact" className="hover:text-white transition">
-            Contacto
-          </Link>
-        </div>
+    <div className="ml-auto flex items-center">
+    <div className="hidden md:flex space-x-4 text-sm text-gray-300 mr-6">
+      <Link to="/pricing" className="hover:text-white transition">Planes</Link>
+      <Link to="/about" className="hover:text-white transition">Acerca de</Link>
+      <Link to="/contact" className="hover:text-white transition">Contacto</Link>
+    </div>
 
         {isLoggedIn ? (
           <div className="flex flex-wrap gap-2">

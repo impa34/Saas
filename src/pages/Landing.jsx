@@ -81,7 +81,7 @@ function Landing() {
               color: "purple",
             },
           ].map((plan) => (
-            <div key={plan.name} className="bg-gray-800 rounded-xl p-6 shadow-lg">
+            <div key={plan.name} className="bg-gray-800 rounded-xl p-6 shadow-lg w-full max-w-full break-words">
               <h3 className={`text-2xl font-semibold text-${plan.color}-400 mb-4`}>{plan.name}</h3>
               <p className="text-3xl font-bold mb-6">{plan.price}</p>
               <ul className="space-y-2 text-sm text-gray-300 mb-6">

@@ -81,12 +81,12 @@ function Home() {
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col ">
       <main className="flex-1 p-8 max-w-5xl mx-auto min-w-full">
-        <div className="flex justify-between items-center mb-10">
+        <div className="flex flex-wrap justify-between items-center mb-10 gap-4">
           {/* Columna izquierda - Título */}
           <motion.div
           initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }} className="w-1/3">
+              transition={{ duration: 0.5 }} className="flex-1 min-w-[150px]">
             <h1
               
               className="text-4xl font-bold text-purple-500"
@@ -100,7 +100,7 @@ function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="w-1/3 flex justify-center"
+            className="flex-1 min-w-[100px] flex justify-center"
           >
             <button
               onClick={() => navigate("/")}
@@ -115,7 +115,7 @@ function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="w-1/3 flex justify-end space-x-4"
+            className="flex-1 min-w-[150px] flex justify-end space-x-4"
           >
             <button
               onClick={() => navigate("/profile")}

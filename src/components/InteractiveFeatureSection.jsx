@@ -106,7 +106,7 @@ export default function InteractiveFeatureSection() {
                 key={feature.id}
                 onClick={() => setActiveFeature(feature)}
                 className={`min-w-[250px] flex-shrink-0 rounded-xl p-6 bg-gray-800 cursor-pointer transition transform ${
-                  activeFeature.id === feature.id ? "scale-105 bg-purple-700" : "hover:bg-purple-600"
+                  activeFeature.id === feature.id ? "scale-105 bg-purple-700" : "md:hover:bg-purple-600"
                 }`}
               >
                 <img
