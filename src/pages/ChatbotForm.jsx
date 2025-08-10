@@ -324,33 +324,29 @@ function ChatbotForm() {
               >
                 <h2 className="text-xl font-bold">Prompts</h2>
                 {prompts.map((p, i) => (
-                  <div key={i} className="flex gap-2">
-                    <input
-                      value={p.question}
-                      onChange={(e) =>
-                        updatePrompt(i, "question", e.target.value)
-                      }
-                      placeholder="Pregunta"
-                      className="flex-1 bg-gray-700 px-3 py-2 rounded"
-                      required
-                    />
-                    <input
-                      value={p.answer}
-                      onChange={(e) =>
-                        updatePrompt(i, "answer", e.target.value)
-                      }
-                      placeholder="Respuesta"
-                      className="flex-1 bg-gray-700 px-3 py-2 rounded"
-                      required
-                    />
-                    <button
-                      type="button"
-                      onClick={() => removePrompt(i)}
-                      className="text-red-400 hover:text-red-600"
-                    >
-                      ❌
-                    </button>
-                  </div>
+                  <div key={i} className="flex gap-2 flex-wrap">
+  <input
+    value={p.question}
+    onChange={(e) => updatePrompt(i, "question", e.target.value)}
+    placeholder="Pregunta"
+    className="flex-grow min-w-[120px] max-w-[45%] bg-gray-700 px-3 py-2 rounded"
+    required
+  />
+  <input
+    value={p.answer}
+    onChange={(e) => updatePrompt(i, "answer", e.target.value)}
+    placeholder="Respuesta"
+    className="flex-grow min-w-[120px] max-w-[45%] bg-gray-700 px-3 py-2 rounded"
+    required
+  />
+  <button
+    type="button"
+    onClick={() => removePrompt(i)}
+    className="text-red-400 hover:text-red-600"
+  >
+    ❌
+  </button>
+</div>
                 ))}
                 {showPromptLimitMsg && (
   <div className="bg-red-600 text-white px-4 py-2 rounded-md text-sm mb-2">
