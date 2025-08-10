@@ -32,66 +32,113 @@ export default function InteractiveFeatureSection() {
   const [activeFeature, setActiveFeature] = useState(features[0]);
 
   return (
-    <section className="relative bg-gray-900 py-24 px-4 text-white overflow-hidden">
-  <div className="max-w-6xl mx-auto relative flex justify-center items-center min-h-[500px]">
-    
-    {/* Logos a la izquierda */}
-    <div className="absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col gap-8">
-      {features.slice(0, 2).map((feature) => (
-        <div
-          key={feature.id}
-          onMouseEnter={() => setActiveFeature(feature)}
-          className="cursor-pointer bg-gray-800 hover:bg-purple-600 rounded-xl w-24 h-24 flex items-center justify-center transition"
-        >
-          <img
-            src={feature.image}
-            alt={feature.name}
-            className="w-[72px] h-[72px] object-contain transition-transform duration-300 ease-in-out hover:scale-110"
-          />
+    <section className="relative bg-gray-900 py-16 px-4 text-white overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        {/* Desktop layout */}
+        <div className="hidden md:flex justify-center items-center min-h-[500px] relative">
+          {/* Left icons */}
+          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col gap-8">
+            {features.slice(0, 2).map((feature) => (
+              <div
+                key={feature.id}
+                onMouseEnter={() => setActiveFeature(feature)}
+                className={`cursor-pointer rounded-xl w-24 h-24 flex items-center justify-center transition ${
+                  activeFeature.id === feature.id ? "bg-purple-600" : "bg-gray-800 hover:bg-purple-600"
+                }`}
+              >
+                <img
+                  src={feature.image}
+                  alt={feature.name}
+                  className="w-[72px] h-[72px] object-contain transition-transform duration-300 ease-in-out hover:scale-110"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Right icons */}
+          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex flex-col gap-8">
+            {features.slice(2, 4).map((feature) => (
+              <div
+                key={feature.id}
+                onMouseEnter={() => setActiveFeature(feature)}
+                className={`cursor-pointer rounded-xl w-24 h-24 flex items-center justify-center transition ${
+                  activeFeature.id === feature.id ? "bg-purple-600" : "bg-gray-800 hover:bg-purple-600"
+                }`}
+              >
+                <img
+                  src={feature.image}
+                  alt={feature.name}
+                  className="w-[72px] h-[72px] object-contain transition-transform duration-300 ease-in-out hover:scale-110"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Central content */}
+          <div className="w-full max-w-xl text-center z-10">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeFeature.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="p-8 rounded-lg bg-gray-800 shadow-xl"
+              >
+                <img
+                  src={activeFeature.image}
+                  alt={activeFeature.name}
+                  className="mx-auto w-64 h-auto mb-6 rounded"
+                />
+                <h3 className="text-2xl font-semibold text-purple-400 mb-2">{activeFeature.name}</h3>
+                <p className="text-gray-300 text-md">{activeFeature.description}</p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
-      ))}
-    </div>
 
-    {/* Logos a la derecha */}
-    <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex flex-col gap-8">
-      {features.slice(2, 4).map((feature) => (
-        <div
-          key={feature.id}
-          onMouseEnter={() => setActiveFeature(feature)}
-          className="cursor-pointer bg-gray-800 hover:bg-purple-600 rounded-xl w-24 h-24 flex items-center justify-center transition"
-        >
-          <img
-            src={feature.image}
-            alt={feature.name}
-            className="w-[72px] h-[72px] object-contain transition-transform duration-300 ease-in-out hover:scale-110"
-          />
+        {/* Mobile layout: slider horizontal */}
+        <div className="md:hidden">
+          <h2 className="text-3xl font-semibold mb-8 text-center">Características</h2>
+          <div className="flex space-x-6 overflow-x-auto px-2 pb-4 scrollbar-thin scrollbar-thumb-purple-600 scrollbar-track-gray-700">
+            {features.map((feature) => (
+              <div
+                key={feature.id}
+                onClick={() => setActiveFeature(feature)}
+                className={`min-w-[250px] flex-shrink-0 rounded-xl p-6 bg-gray-800 cursor-pointer transition transform ${
+                  activeFeature.id === feature.id ? "scale-105 bg-purple-700" : "hover:bg-purple-600"
+                }`}
+              >
+                <img
+                  src={feature.image}
+                  alt={feature.name}
+                  className="w-24 h-24 mx-auto mb-4 object-contain"
+                />
+                <h3 className="text-xl font-semibold text-center mb-2">{feature.name}</h3>
+                <p className="text-gray-300 text-center text-sm">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Contenido detalle abajo */}
+          <motion.div
+            key={activeFeature.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+            className="mt-8 p-6 rounded-lg bg-gray-800 shadow-xl text-center"
+          >
+            <img
+              src={activeFeature.image}
+              alt={activeFeature.name}
+              className="mx-auto w-32 h-auto mb-4 rounded"
+            />
+            <h3 className="text-2xl font-semibold text-purple-400 mb-2">{activeFeature.name}</h3>
+            <p className="text-gray-300">{activeFeature.description}</p>
+          </motion.div>
         </div>
-      ))}
-    </div>
-
-    {/* Contenido central */}
-    <div className="w-full max-w-xl text-center z-10">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeFeature.id}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.4 }}
-          className="p-8 rounded-lg bg-gray-800 shadow-xl"
-        >
-          <img
-            src={activeFeature.image}
-            alt={activeFeature.name}
-            className="mx-auto w-64 h-auto mb-6 rounded"
-          />
-          <h3 className="text-2xl font-semibold text-purple-400 mb-2">{activeFeature.name}</h3>
-          <p className="text-gray-300 text-md">{activeFeature.description}</p>
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  </div>
-</section>
-
+      </div>
+    </section>
   );
 }

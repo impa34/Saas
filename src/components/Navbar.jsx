@@ -26,7 +26,7 @@ function Navbar() {
         </div>
 
         {isLoggedIn ? (
-          <div className="space-x-4">
+          <div className="flex flex-row flex-wrap space-x-2">
             <button
               onClick={() => navigate("/home")}
               className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-medium transition"
@@ -50,20 +50,20 @@ function Navbar() {
             </button>
           </div>
         ) : (
-          <div className="space-x-2">
-            <button
-              onClick={() => navigate("/login")}
-              className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-4 py-2 rounded-lg transition"
-            >
-              Iniciar sesión
-            </button>
-            <button
-              onClick={() => navigate("/register")}
-              className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-4 py-2 rounded-lg transition"
-            >
-              Registrarse
-            </button>
-          </div>
+        <div className="flex flex-row flex-wrap space-x-2">
+  <button
+    onClick={() => navigate("/login")}
+    className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-4 py-2 rounded-lg transition"
+  >
+    Iniciar sesión
+  </button>
+  <button
+    onClick={() => navigate("/register")}
+    className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-4 py-2 rounded-lg transition"
+  >
+    Registrarse
+  </button>
+</div>
         )}
       </div>
     </nav>
