@@ -1,13 +1,9 @@
-import { useNavigate, Link } from "react-router-dom";
-import { useAuth } from "../context/AuthProvider";
-import logo from "/logo1.png";
-
 function Navbar() {
   const navigate = useNavigate();
   const { isLoggedIn, logout } = useAuth();
 
   return (
-    <nav className="flex justify-between items-center px-8 py-4 bg-gray-800 shadow-md">
+    <nav className="flex justify-between items-center px-4 md:px-8 py-4 bg-gray-800 shadow-md">
       <a href="/landing" className="flex items-center">
         <img src={logo} alt="Talobot logo" className="h-12 ml-2 w-auto" />
       </a>
@@ -26,16 +22,16 @@ function Navbar() {
         </div>
 
         {isLoggedIn ? (
-          <div className="flex flex-row flex-wrap space-x-2">
+          <div className="flex flex-wrap gap-2">
             <button
               onClick={() => navigate("/home")}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-medium transition"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-3 md:px-5 py-2 rounded-md font-medium transition min-w-0"
             >
               Ir al panel
             </button>
             <button
               onClick={() => navigate("/profile")}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-medium transition"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-3 md:px-5 py-2 rounded-md font-medium transition min-w-0"
             >
               Perfil
             </button>
@@ -44,30 +40,28 @@ function Navbar() {
                 logout();
                 navigate("/landing");
               }}
-              className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-md font-medium transition"
+              className="bg-red-600 hover:bg-red-700 text-white px-3 md:px-5 py-2 rounded-md font-medium transition min-w-0"
             >
               Cerrar sesión
             </button>
           </div>
         ) : (
-        <div className="flex flex-row flex-wrap space-x-2">
-  <button
-    onClick={() => navigate("/login")}
-    className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-4 py-2 rounded-lg transition"
-  >
-    Iniciar sesión
-  </button>
-  <button
-    onClick={() => navigate("/register")}
-    className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-4 py-2 rounded-lg transition"
-  >
-    Registrarse
-  </button>
-</div>
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => navigate("/login")}
+              className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-3 md:px-4 py-2 rounded-lg transition min-w-0"
+            >
+              Iniciar sesión
+            </button>
+            <button
+              onClick={() => navigate("/register")}
+              className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-3 md:px-4 py-2 rounded-lg transition min-w-0"
+            >
+              Registrarse
+            </button>
+          </div>
         )}
       </div>
     </nav>
   );
 }
-
-export default Navbar;
