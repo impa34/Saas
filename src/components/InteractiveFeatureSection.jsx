@@ -97,46 +97,23 @@ export default function InteractiveFeatureSection() {
           </div>
         </div>
 
-        {/* Mobile layout: slider horizontal */}
-        <div className="md:hidden">
-          <h2 className="text-3xl font-semibold mb-8 text-center">Características</h2>
-          <div className="flex space-x-6 overflow-x-auto px-2 pb-4 scrollbar-thin scrollbar-thumb-purple-600 scrollbar-track-gray-700">
-            {features.map((feature) => (
-              <div
-                key={feature.id}
-                onClick={() => setActiveFeature(feature)}
-                className={`min-w-[250px] flex-shrink-0 rounded-xl p-6 bg-gray-800 cursor-pointer transition transform ${
-                  activeFeature.id === feature.id ? "scale-105 bg-purple-700" : "md:hover:bg-purple-600"
-                }`}
-              >
-                <img
-                  src={feature.image}
-                  alt={feature.name}
-                  className="w-24 h-24 mx-auto mb-4 object-contain"
-                />
-                <h3 className="text-xl font-semibold text-center mb-2">{feature.name}</h3>
-                <p className="text-gray-300 text-center text-sm">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Contenido detalle abajo */}
-          <motion.div
-            key={activeFeature.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-            className="mt-8 p-6 rounded-lg bg-gray-800 shadow-xl text-center"
-          >
-            <img
-              src={activeFeature.image}
-              alt={activeFeature.name}
-              className="mx-auto w-32 h-auto mb-4 rounded"
-            />
-            <h3 className="text-2xl font-semibold text-purple-400 mb-2">{activeFeature.name}</h3>
-            <p className="text-gray-300">{activeFeature.description}</p>
-          </motion.div>
+        {/* Mobile layout: vertical list */}
+        <div className="md:hidden flex flex-col gap-8">
+          <h2 className="text-3xl font-semibold mb-6 text-center">Características</h2>
+          {features.map((feature) => (
+            <div
+              key={feature.id}
+              className="bg-gray-800 rounded-xl p-6 flex flex-col items-center text-center"
+            >
+              <img
+                src={feature.image}
+                alt={feature.name}
+                className="w-24 h-24 mb-4 object-contain"
+              />
+              <h3 className="text-xl font-semibold text-purple-400 mb-2">{feature.name}</h3>
+              <p className="text-gray-300">{feature.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
