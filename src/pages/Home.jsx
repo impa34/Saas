@@ -5,12 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Footer from "../components/Footer";
 import { HiLogout, HiUser, HiViewGrid, HiHome } from "react-icons/hi";
+import { useAuth } from "../context/AuthProvider";
 
 function Home() {
   const [bots, setBots] = useState([]);
   const [user, setUser] = useState("");
   const [showBotLimitMsg, setShowBotLimitMsg] = useState(false);
   const [showIntegration, setShowIntegration] = useState(false);
+  const { logout } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
