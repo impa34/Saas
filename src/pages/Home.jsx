@@ -12,6 +12,8 @@ function Home() {
   const [user, setUser] = useState("");
   const [showBotLimitMsg, setShowBotLimitMsg] = useState(false);
   const [showIntegration, setShowIntegration] = useState(false);
+    const [showModal, setShowModal] = useState(false); // ⬅ Modal visible
+  const [botToDelete, setBotToDelete] = useState(null);
   const { logout } = useAuth();
   const navigate = useNavigate();
 
@@ -79,6 +81,11 @@ function Home() {
     });
 
     setBots(bots.filter((bot) => bot._id !== id));
+  };
+
+    const confirmDelete = (id) => {
+    setBotToDelete(id);
+    setShowModal(true);
   };
   const iconButtonClasses =
     "text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
@@ -261,7 +268,7 @@ function Home() {
                   Editar
                 </button>
                 <button
-                  onClick={() => deleteBot(bot._id)}
+                  onClick={() => confirmDelete(bot._id)}
                   className="bg-gray-600 hover:bg-gray-700 px-4 py-1 rounded-md text-sm"
                 >
                   Eliminar
@@ -271,6 +278,44 @@ function Home() {
           ))}
         </div>
       </main>
+            <AnimatePresence>
+        {showModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+              className="bg-gray-800 text-white p-6 rounded-xl shadow-lg w-full max-w-md"
+            >
+              <h2 className="text-xl font-bold mb-4 text-center">
+                ¿Eliminar chatbot?
+              </h2>
+              <p className="text-sm text-gray-300 mb-6 text-center">
+                Esta acción no se puede deshacer. ¿Estás seguro de que deseas
+                continuar?
+              </p>
+              <div className="flex justify-center gap-4">
+                <button
+                  onClick={() => {
+                    deleteBot(botToDelete);
+                    setShowModal(false);
+                  }}
+                  className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition"
+                >
+                  Sí, eliminar
+                </button>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md transition"
+                >
+                  No, volver
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
       <Footer />
     </div>
   );

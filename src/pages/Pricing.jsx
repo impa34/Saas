@@ -10,8 +10,8 @@ const plans = [
     price: "9€/mes",
     features: [
       "Prompts ilimitados",
-      "Personalización del bot (colores, saludos, fuentes)",
-      "Estadísticas del bot (conversaciones, mensajes)",
+      "Personalización del bot (colores, estadísticas, fuentes)",
+      "Integración de Google Calendar",
     ],
     cta: "Hazte Pro",
     bg: "bg-blue-800",
@@ -23,7 +23,7 @@ const plans = [
     price: "19€/mes",
     features: [
       "Todo lo incluido en Pro",
-      "Integración con Google Calendar",
+      "Descarga de conversaciones",
       "Soporte para archivos de hoja de cálculo",
     ],
     cta: "Obtener Full",

@@ -21,6 +21,7 @@ function ChatbotForm() {
   const status = localStorage.getItem("status");
   const [stats, setStats] = useState("");
   const [showPromptLimitMsg, setShowPromptLimitMsg] = useState(false);
+  const [showValidationModal, setShowValidationModal] = useState(false);
   const isFull = status === "full" ||status === "lifetime";
   const isProOrFull = status === "full" || status === "pro" || status === "lifetime";
 
@@ -86,15 +87,17 @@ function ChatbotForm() {
     );
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (loading) return;
-    const token = localStorage.getItem("token");
 
-    if (prompts.some((p) => !p.question.trim() || !p.answer.trim())) {
-      alert("Todos los prompts deben tener pregunta y respuesta.");
-      return;
-    }
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (loading) return;
+  const token = localStorage.getItem("token");
+
+  if (prompts.some((p) => !p.question.trim() || !p.answer.trim())) {
+    setShowValidationModal(true); // Muestra el modal
+    return;
+  }
     setLoading(true);
     try {
       if (id) {
@@ -371,7 +374,42 @@ function ChatbotForm() {
   + Añadir línea
 </button>
               </motion.div>
+              
             )}
+            <AnimatePresence>
+  {showValidationModal && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.95, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="bg-gray-800 text-white p-6 rounded-xl shadow-lg w-full max-w-md"
+      >
+        <h2 className="text-xl font-bold mb-4 text-center">
+          Campos incompletos
+        </h2>
+        <p className="text-sm text-gray-300 mb-6 text-center">
+          Todos los prompts deben tener pregunta y respuesta antes de continuar.
+        </p>
+        <div className="flex justify-center">
+          <button
+            onClick={() => setShowValidationModal(false)}
+            className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition"
+          >
+            OK
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
 
             {/* ---------- STEP 3 ---------- */}
             {step === 3 && (
