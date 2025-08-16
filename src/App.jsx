@@ -13,6 +13,7 @@ import About from "./pages/About";
 import Redirecting from "./pages/Redirecting";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentCancel from "./pages/PaymentCancel";
+import Checkout from "./pages/Checkout"
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./pages/Profile";
 
@@ -28,6 +29,7 @@ function App() {
       <Route path="/landing" element={<Landing />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/register" element={<Register />}></Route>
+      <Route path="/checkout" element={<Checkout />}></Route>
       <Route
         path="/home"
         element={

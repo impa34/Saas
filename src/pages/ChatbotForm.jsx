@@ -231,7 +231,7 @@ function ChatbotForm() {
                   className="w-full bg-gray-700 px-4 py-2 rounded focus:ring-2 focus:ring-purple-500"
                   required
                 />
-                {status === "full" ? (
+                {isFull ? (
                   <input
                     type="file"
                     accept=".csv,.xlsx"
@@ -248,7 +248,7 @@ function ChatbotForm() {
                 )}
 
                 {isGoogleUser ? (
-                  isFull ? (
+                  isProOrFull ? (
                     <button
                       type="button"
                       onClick={handleGoogleConnect}
@@ -259,7 +259,7 @@ function ChatbotForm() {
                   ) : (
                     <p className="text-gray-400 italic ">
                       Integración Google Calendar solo disponible para usuarios
-                      Full
+                      Pro o Full
                     </p>
                   )
                 ) : (

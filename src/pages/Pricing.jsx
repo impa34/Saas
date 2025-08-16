@@ -67,36 +67,37 @@ export default function Pricing() {
   }
 
   const handlePlanSelect = async (plan) => {
-    const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
-    if (!token) {
-      navigate(`/register?redirectPlan=${plan}`);
-      return;
-    }
+  if (!token) {
+    navigate(`/register?redirectPlan=${plan}`);
+    return;
+  }
 
-    try {
-      const res = await fetch(
-        "https://saas-backend-xrkb.onrender.com/api/stripe/create-checkout-session",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ plan }),
-        }
-      );
-
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert("Error al iniciar el pago");
+  try {
+    const res = await fetch(
+      "https://saas-backend-xrkb.onrender.com/api/paypal/create-order",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ plan }),
       }
-    } catch (e) {
-      console.error(e);
+    );
+
+    const data = await res.json();
+    if (data?.approvalUrl) {
+      // Redirige al checkout de PayPal
+      window.location.href = data.approvalUrl;
+    } else {
+      alert("Error al iniciar el pago con PayPal");
     }
-  };
+  } catch (e) {
+    console.error("❌ Error en handlePlanSelect:", e);
+  }
+};
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
