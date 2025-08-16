@@ -47,7 +47,7 @@ const handleClick = async (e) => {
 
 
   const handleGoogleLogin = () => {
-window.location.href = "https://saas-backend-xrkb.onrender.com/api/auth/google";
+window.location.href = "https://saas-backend-xrkb.onrender.com/api/google-auth";
 
     
   };
