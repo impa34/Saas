@@ -105,17 +105,6 @@ window.location.href = "https://saas-backend-xrkb.onrender.com/api/auth/google";
         >
           <img src="/google.webp" alt="Google" className="w-5 h-5" /> Iniciar sesión con Google
         </button>
-        {error && (
-  <div className="text-red-400 text-sm bg-red-900/40 px-4 py-2 rounded-md border border-red-600">
-    {error}
-  </div>
-)}
-
-{success && (
-  <div className="text-green-400 text-sm bg-green-900/40 px-4 py-2 rounded-md border border-green-600">
-    {success}
-  </div>
-)}
 
         <p className="text-sm text-center text-white mt-4">
           ¿No tienes cuenta?{" "}
