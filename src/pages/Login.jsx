@@ -9,11 +9,12 @@ function Login() {
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
   
+const handleClick = async (e) => {
+  e.preventDefault();
+  setError("");
+  setSuccess("");
 
-  const handleClick = async (e) => {
-    e.preventDefault();
-    setError("");
-    setSuccess("");
+  try {
     const res = await fetch("https://saas-backend-xrkb.onrender.com/api/auth/login", {
       method: "POST",
       headers: {
@@ -23,14 +24,27 @@ function Login() {
     });
 
     const data = await res.json();
+
+    if (!res.ok) {
+      // Si la API devuelve error de credenciales u otro
+      setError(data.message || "Error al iniciar sesión. Verifica tus datos.");
+      return;
+    }
+
     if (data?.token && data?.user?.status) {
       localStorage.setItem("token", data.token);
-      localStorage.setItem("status", data.user.status)
-      navigate("/home");
+      localStorage.setItem("status", data.user.status);
+      setSuccess("Inicio de sesión exitoso 🎉");
+      setTimeout(() => navigate("/home"), 1000); // Pequeño delay para mostrar mensaje
     } else {
-      console.log(data);
+      setError("Respuesta inesperada del servidor.");
     }
-  };
+  } catch (err) {
+    console.error(err);
+    setError("No se pudo conectar con el servidor. Intenta más tarde.");
+  }
+};
+
 
   const handleGoogleLogin = () => {
 window.location.href = "https://saas-backend-xrkb.onrender.com/api/auth/google";
@@ -91,6 +105,18 @@ window.location.href = "https://saas-backend-xrkb.onrender.com/api/auth/google";
         >
           <img src="/google.webp" alt="Google" className="w-5 h-5" /> Iniciar sesión con Google
         </button>
+        {error && (
+  <div className="text-red-400 text-sm bg-red-900/40 px-4 py-2 rounded-md border border-red-600">
+    {error}
+  </div>
+)}
+
+{success && (
+  <div className="text-green-400 text-sm bg-green-900/40 px-4 py-2 rounded-md border border-green-600">
+    {success}
+  </div>
+)}
+
         <p className="text-sm text-center text-white mt-4">
           ¿No tienes cuenta?{" "}
           <Link to="/register" className="text-purple-600 hover:underline">
