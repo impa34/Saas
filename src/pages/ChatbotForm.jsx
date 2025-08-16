@@ -22,8 +22,9 @@ function ChatbotForm() {
   const [stats, setStats] = useState("");
   const [showPromptLimitMsg, setShowPromptLimitMsg] = useState(false);
   const [showValidationModal, setShowValidationModal] = useState(false);
-  const isFull = status === "full" ||status === "lifetime";
-  const isProOrFull = status === "full" || status === "pro" || status === "lifetime";
+  const isFull = status === "full" || status === "lifetime";
+  const isProOrFull =
+    status === "full" || status === "pro" || status === "lifetime";
 
   const stepVariants = {
     initial: { opacity: 0, y: 20 },
@@ -32,7 +33,6 @@ function ChatbotForm() {
   };
 
   useEffect(() => {
-
     const fetchStats = async () => {
       const res = await fetch(
         `https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/stats`,
@@ -87,17 +87,15 @@ function ChatbotForm() {
     );
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (loading) return;
+    const token = localStorage.getItem("token");
 
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (loading) return;
-  const token = localStorage.getItem("token");
-
-  if (prompts.some((p) => !p.question.trim() || !p.answer.trim())) {
-    setShowValidationModal(true); // Muestra el modal
-    return;
-  }
+    if (prompts.some((p) => !p.question.trim() || !p.answer.trim())) {
+      setShowValidationModal(true); // Muestra el modal
+      return;
+    }
     setLoading(true);
     try {
       if (id) {
@@ -147,7 +145,16 @@ const handleSubmit = async (e) => {
     setPrompts(updated.length > 0 ? updated : [{ question: "", answer: "" }]);
   };
 
-  const next = () => setStep((s) => Math.min(s + 1, 3));
+ const next = () => {
+  if (step === 2) {
+    // Validamos prompts
+    if (prompts.some((p) => !p.question.trim() || !p.answer.trim())) {
+      setShowValidationModal(true); // Mostramos modal
+      return; // 🚫 Detenemos el avance
+    }
+  }
+  setStep(step + 1); // Avanzamos solo si todo está OK
+};
   const prev = () => setStep((s) => Math.max(s - 1, 1));
 
   const [fileName, setFileName] = useState(null);
@@ -159,11 +166,14 @@ const handleSubmit = async (e) => {
     const formData = new FormData();
     formData.append("file", file);
     const token = localStorage.getItem("token");
-    await fetch(`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/upload`, {
-      method: "POST",
-      headers: { Authorization: `Bearer ${token}` },
-      body: formData,
-    });
+    await fetch(
+      `https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/upload`,
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+        body: formData,
+      }
+    );
   };
 
   const StepBadge = ({ n, label }) => (
@@ -248,7 +258,8 @@ const handleSubmit = async (e) => {
                     </button>
                   ) : (
                     <p className="text-gray-400 italic ">
-                      Integración Google Calendar solo disponible para usuarios Full
+                      Integración Google Calendar solo disponible para usuarios
+                      Full
                     </p>
                   )
                 ) : (
@@ -312,7 +323,8 @@ const handleSubmit = async (e) => {
                   </div>
                 ) : (
                   <p className="text-gray-400 italic">
-                    Personalización del bot solo disponible para los usuarios Pro y Full
+                    Personalización del bot solo disponible para los usuarios
+                    Pro y Full
                   </p>
                 )}
               </motion.div>
@@ -332,84 +344,87 @@ const handleSubmit = async (e) => {
                 <h2 className="text-xl font-bold">Prompts</h2>
                 {prompts.map((p, i) => (
                   <div key={i} className="flex gap-2 flex-wrap">
-  <input
-    value={p.question}
-    onChange={(e) => updatePrompt(i, "question", e.target.value)}
-    placeholder="Pregunta"
-    className="flex-grow min-w-[120px] max-w-[45%] bg-gray-700 px-3 py-2 rounded"
-    required
-  />
-  <input
-    value={p.answer}
-    onChange={(e) => updatePrompt(i, "answer", e.target.value)}
-    placeholder="Respuesta"
-    className="flex-grow min-w-[120px] max-w-[45%] bg-gray-700 px-3 py-2 rounded"
-    required
-  />
-  <button
-    type="button"
-    onClick={() => removePrompt(i)}
-    className="text-red-400 hover:text-red-600"
-  >
-    ❌
-  </button>
-</div>
+                    <input
+                      value={p.question}
+                      onChange={(e) =>
+                        updatePrompt(i, "question", e.target.value)
+                      }
+                      placeholder="Pregunta"
+                      className="flex-grow min-w-[120px] max-w-[45%] bg-gray-700 px-3 py-2 rounded"
+                      required
+                    />
+                    <input
+                      value={p.answer}
+                      onChange={(e) =>
+                        updatePrompt(i, "answer", e.target.value)
+                      }
+                      placeholder="Respuesta"
+                      className="flex-grow min-w-[120px] max-w-[45%] bg-gray-700 px-3 py-2 rounded"
+                      required
+                    />
+                    <button
+                      type="button"
+                      onClick={() => removePrompt(i)}
+                      className="text-red-400 hover:text-red-600"
+                    >
+                      ❌
+                    </button>
+                  </div>
                 ))}
                 {showPromptLimitMsg && (
-  <div className="bg-red-600 text-white px-4 py-2 rounded-md text-sm mb-2">
-    🚫 El plan gratuito solo permite hasta 5 prompts.
-  </div>
-)}
- <button
-  type="button"
-  onClick={() => {
-   if (status === "free" && prompts.length >= 5) {
-  setShowPromptLimitMsg(true);
-  return;
-}
-    addPrompt();
-  }}
-  className="bg-gray-600 hover:bg-gray-700 px-4 py-1 rounded text-sm"
->
-  + Añadir línea
-</button>
+                  <div className="bg-red-600 text-white px-4 py-2 rounded-md text-sm mb-2">
+                    🚫 El plan gratuito solo permite hasta 5 prompts.
+                  </div>
+                )}
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (status === "free" && prompts.length >= 5) {
+                      setShowPromptLimitMsg(true);
+                      return;
+                    }
+                    addPrompt();
+                  }}
+                  className="bg-gray-600 hover:bg-gray-700 px-4 py-1 rounded text-sm"
+                >
+                  + Añadir línea
+                </button>
               </motion.div>
-              
             )}
             <AnimatePresence>
-  {showValidationModal && (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-    >
-      <motion.div
-        initial={{ scale: 0.95, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.95, opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="bg-gray-800 text-white p-6 rounded-xl shadow-lg w-full max-w-md"
-      >
-        <h2 className="text-xl font-bold mb-4 text-center">
-          Campos incompletos
-        </h2>
-        <p className="text-sm text-gray-300 mb-6 text-center">
-          Todos los prompts deben tener pregunta y respuesta antes de continuar.
-        </p>
-        <div className="flex justify-center">
-          <button
-            onClick={() => setShowValidationModal(false)}
-            className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition"
-          >
-            OK
-          </button>
-        </div>
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
-
+              {showValidationModal && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+                >
+                  <motion.div
+                    initial={{ scale: 0.95, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.95, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-gray-800 text-white p-6 rounded-xl shadow-lg w-full max-w-md"
+                  >
+                    <h2 className="text-xl font-bold mb-4 text-center">
+                      Campos incompletos
+                    </h2>
+                    <p className="text-sm text-gray-300 mb-6 text-center">
+                      Todos los prompts deben tener pregunta y respuesta antes
+                      de continuar.
+                    </p>
+                    <div className="flex justify-center">
+                      <button
+                        onClick={() => setShowValidationModal(false)}
+                        className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-md transition"
+                      >
+                        OK
+                      </button>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {/* ---------- STEP 3 ---------- */}
             {step === 3 && (
@@ -427,17 +442,19 @@ const handleSubmit = async (e) => {
                 <p className="text-purple-400 font-semibold">Nombre: {name}</p>
                 <p>Prompts: {prompts.length}</p>
 
-                <p>{fileName ? `File: ${fileName}` : "Ningún archivo cargado"}</p>
+                <p>
+                  {fileName ? `File: ${fileName}` : "Ningún archivo cargado"}
+                </p>
                 <p className="text-sm text-gray-400">
                   Click “{id ? "Update" : "Create"}” para finalizar.
                 </p>
-                {(status === "full" && id) && (
+                {status === "full" && id && (
                   <div>
                     <a
                       href={`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/conversations/export`}
                       className={iconButtonClasses}
                     >
-                      <HiDocumentDownload size={24}/> Conversaciones del bot
+                      <HiDocumentDownload size={24} /> Conversaciones del bot
                     </a>
                   </div>
                 )}
@@ -473,7 +490,10 @@ const handleSubmit = async (e) => {
                       </p>{" "}
                     </div>
                   ) : (
-                    <p className="">Estadísticas del bot solo disponibles para usuarios Pro o Full</p>
+                    <p className="">
+                      Estadísticas del bot solo disponibles para usuarios Pro o
+                      Full
+                    </p>
                   )}
                 </motion.div>
               </motion.div>
