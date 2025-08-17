@@ -60,44 +60,43 @@ export default function Pricing() {
     }
   }, [redirectPlan]);
 
-  if (redirectPlan) {
-    navigate(`/pricing?redirectPlan=${redirectPlan}`);
-  } else {
-    navigate("/home");
-  }
-
   const handlePlanSelect = async (plan) => {
-  const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
 
-  if (!token) {
-    navigate(`/register?redirectPlan=${plan}`);
-    return;
-  }
-
-  try {
-    const res = await fetch(
-      "https://saas-backend-xrkb.onrender.com/api/paypal/create-order",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ plan }),
-      }
-    );
-
-    const data = await res.json();
-    if (data?.approvalUrl) {
-      // Redirige al checkout de PayPal
-      window.location.href = data.approvalUrl;
-    } else {
-      alert("Error al iniciar el pago con PayPal");
+    if (!token) {
+      // Si no está logueado → guardar plan en la URL
+      navigate(`/register?redirectPlan=${plan}`);
+      return;
     }
-  } catch (e) {
-    console.error("❌ Error en handlePlanSelect:", e);
-  }
-};
+
+    try {
+      // ✅ Guardar plan seleccionado en localStorage
+      localStorage.setItem("selectedPlan", plan);
+
+      const res = await fetch(
+        "https://saas-backend-xrkb.onrender.com/api/paypal/create-order",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ plan }),
+        }
+      );
+
+      const data = await res.json();
+      if (data?.approvalUrl) {
+        // Redirige al checkout de PayPal
+        window.location.href = data.approvalUrl;
+      } else {
+        console.error("❌ Error al iniciar el pago:", data);
+        alert("Error al iniciar el pago con PayPal");
+      }
+    } catch (e) {
+      console.error("❌ Error en handlePlanSelect:", e);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -106,7 +105,7 @@ export default function Pricing() {
         onClick={() => navigate(-1)}
         className="text-purple-400 hover:text-purple-600 px-6 py-2"
       >
-        <ArrowLeft className="" /> Volver
+        <ArrowLeft /> Volver
       </button>
 
       <div className="text-center mb-12 px-4">
@@ -164,4 +163,3 @@ export default function Pricing() {
     </div>
   );
 }
-//comment
