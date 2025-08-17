@@ -76,7 +76,7 @@ export default function Pricing() {
 
   try {
     const res = await fetch(
-      "https://saas-backend-xrkb.onrender.com/api/paypal/capture-order",
+      "https://saas-backend-xrkb.onrender.com/api/paypal/create-order",
       {
         method: "POST",
         headers: {
