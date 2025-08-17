@@ -165,12 +165,13 @@ function Home() {
           <AnimatePresence>
             {showIntegration && (
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden mt-4"
-              >
+  initial={{ opacity: 0, maxHeight: 0 }}
+  animate={{ opacity: 1, maxHeight: 500 }}
+  exit={{ opacity: 0, maxHeight: 0 }}
+  transition={{ duration: 0.3 }}
+  className="overflow-hidden mt-4"
+>
+
                 <div className="text-sm text-gray-300 text-center">
                   <p className="mb-4">
                     Pega este fragmento en el{" "}
@@ -180,12 +181,13 @@ function Home() {
                     de tu sitio:
                   </p>
 
-                  <pre className="bg-black text-green-400 p-4 rounded-md overflow-auto text-xs inline-block text-left max-w-full">
-                    {`<script 
+                  <pre className="bg-black text-green-400 p-4 rounded-md overflow-x-auto text-xs block text-left w-full break-words">
+  {`<script 
   src="https://talochatbot.com/widget.js" 
   data-chatbot-id="TU_CHATBOT_ID">
 </script>`}
-                  </pre>
+</pre>
+
 
                   <p className="text-gray-400 mt-4">
                     Este código mostrará el botón del chatbot automáticamente en

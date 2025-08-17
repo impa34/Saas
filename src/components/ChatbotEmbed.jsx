@@ -36,94 +36,114 @@ function ChatbotEmbed() {
   if (!bot) return <p>Loading...</p>;
 
   return (
-    <div
+  <div
+    style={{
+      backgroundColor: bot.config?.backgroundColor,
+      color: bot.config?.textColor,
+      fontFamily: bot.config?.font,
+      fontSize: bot.config?.fontSize || 14,
+      height: "100vh", // ocupa toda la pantalla
+      display: "flex",
+      flexDirection: "column",
+      boxSizing: "border-box",
+      overflow: "hidden", // evita overflow lateral
+    }}
+  >
+    {/* Header */}
+    <h2
       style={{
-        backgroundColor: bot.config?.backgroundColor,
-        color: bot.config?.textColor,
-        fontFamily: bot.config?.font,
-        fontSize: bot.config?.fontSize || 14,
-        height: "100vh", // pantalla completa si no está embebido
-        display: "flex",
-        flexDirection: "column",
+        textAlign: "center",
         padding: "1rem",
-        boxSizing: "border-box",
+        margin: 0,
+        flexShrink: 0,
       }}
     >
-      <h2 style={{ textAlign: "center", marginBottom: "1rem" }}>{bot.name}</h2>
+      {bot.name}
+    </h2>
 
-      <div
-        style={{
-          flex: 1,
-          overflowY: "auto",
-          display: "flex",
-          flexDirection: "column",
-          gap: "0.5rem",
-          padding: "0.5rem",
-          background: "#f5f5f5",
-          borderRadius: "8px",
-          marginBottom: "1rem",
-        }}
-      >
-        {messages.map((msg, i) => (
-          <div
-            key={i}
-            style={{
-              display: "flex",
-              flexDirection: msg.from === "user" ? "row-reverse" : "row",
-              alignItems: "flex-start",
-              gap: "0.5rem",
-            }}
-          >
-            <img
-              src={`/${msg.from}.webp`}
-              alt={`${msg.from} avatar`}
-              style={{ width: 32, height: 32, borderRadius: "50%" }}
-            />
-            <div
-              style={{
-                backgroundColor: msg.from === "user" ? "#6c47ff" : "#e0e0e0",
-                color: msg.from === "user" ? "#fff" : "#000",
-                padding: "0.5rem 0.75rem",
-                borderRadius: "1rem",
-                maxWidth: "70%",
-              }}
-            >
-              {msg.text}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div style={{ display: "flex", gap: "0.5rem" }}>
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-          placeholder="Escribe un mensaje..."
+    {/* Chat messages */}
+    <div
+      style={{
+        flex: 1,
+        overflowY: "auto", // solo aquí se activa scroll
+        display: "flex",
+        flexDirection: "column",
+        gap: "0.5rem",
+        padding: "0.5rem",
+        background: "#f5f5f5",
+        borderRadius: "8px",
+        margin: "0 1rem 1rem 1rem",
+      }}
+    >
+      {messages.map((msg, i) => (
+        <div
+          key={i}
           style={{
-            flex: 1,
-            padding: "0.5rem",
-            borderRadius: "8px",
-            border: "1px solid #ccc",
-            fontFamily: bot.config?.font,
-          }}
-        />
-        <button
-          onClick={sendMessage}
-          style={{
-            backgroundColor: "#6c47ff",
-            color: "#fff",
-            padding: "0.5rem 1rem",
-            borderRadius: "8px",
-            border: "none",
-            fontFamily: bot.config?.font,
+            display: "flex",
+            flexDirection: msg.from === "user" ? "row-reverse" : "row",
+            alignItems: "flex-start",
+            gap: "0.5rem",
           }}
         >
-          Enviar
-        </button>
-      </div>
+          <img
+            src={`/${msg.from}.webp`}
+            alt={`${msg.from} avatar`}
+            style={{ width: 32, height: 32, borderRadius: "50%" }}
+          />
+          <div
+            style={{
+              backgroundColor: msg.from === "user" ? "#6c47ff" : "#e0e0e0",
+              color: msg.from === "user" ? "#fff" : "#000",
+              padding: "0.5rem 0.75rem",
+              borderRadius: "1rem",
+              maxWidth: "70%",
+              wordBreak: "break-word", // evita overflow de palabras largas
+            }}
+          >
+            {msg.text}
+          </div>
+        </div>
+      ))}
     </div>
-  );
+
+    {/* Input */}
+    <div
+      style={{
+        display: "flex",
+        gap: "0.5rem",
+        padding: "0.5rem 1rem 1rem 1rem",
+        flexShrink: 0,
+      }}
+    >
+      <input
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+        placeholder="Escribe un mensaje..."
+        style={{
+          flex: 1,
+          padding: "0.5rem",
+          borderRadius: "8px",
+          border: "1px solid #ccc",
+          fontFamily: bot.config?.font,
+        }}
+      />
+      <button
+        onClick={sendMessage}
+        style={{
+          backgroundColor: "#6c47ff",
+          color: "#fff",
+          padding: "0.5rem 1rem",
+          borderRadius: "8px",
+          border: "none",
+          fontFamily: bot.config?.font,
+        }}
+      >
+        Enviar
+      </button>
+    </div>
+  </div>
+);
 }
 
 export default ChatbotEmbed
