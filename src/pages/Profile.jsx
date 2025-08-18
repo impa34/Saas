@@ -122,7 +122,7 @@ function Profile() {
           {user.status !== "free" && (
             <button
               onClick={() => setShowModal(true)}
-              className="mt-6 bg-red-600 hover:bg-red-700 text-gray-900 dark:text-white font-medium py-2 px-4 rounded-lg transition"
+              className="mt-6 bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition"
             >
               Cancelar suscripción
             </button>
