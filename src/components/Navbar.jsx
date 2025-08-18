@@ -21,7 +21,7 @@ function Navbar() {
   <img
     src="/logo1.webp"
     alt="Talobot logo"
-    className="h-12 ml-2 w-auto dark:block"
+    className="h-12 ml-2 w-auto hidden dark:block"
   />
 
   {/* Logo oscuro (visible en dark mode) */}
