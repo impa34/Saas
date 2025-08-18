@@ -88,10 +88,10 @@ function Home() {
     setShowModal(true);
   };
   const iconButtonClasses =
-    "text-gray-900 dark:text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
+    "text-gray-900 bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
 
   const logoutButtonClasses =
-    "text-gray-900 dark:text-white bg-red-600 hover:bg-red-700 p-2 rounded-md transition flex items-center justify-center";
+    "text-gray-900 bg-red-600 hover:bg-red-700 p-2 rounded-md transition flex items-center justify-center";
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col ">
       <main className="flex-1 p-8 max-w-5xl mx-auto min-w-full">
@@ -172,7 +172,7 @@ function Home() {
   className="overflow-hidden mt-4"
 >
 
-                <div className="text-sm text-gray-700 dark:text-gray-300 text-center">
+                <div className="text-sm text-gray-700 text-center">
                   <p className="mb-4">
                     Pega este fragmento en el{" "}
                     <span className="font-mono bg-gray-700 px-1 rounded">
@@ -220,7 +220,7 @@ function Home() {
               }
               navigate("/form");
             }}
-            className="bg-purple-600 hover:bg-purple-700 text-gray-900 dark:text-white px-5 py-2 rounded-md font-medium transition"
+            className="bg-purple-600 hover:bg-purple-700 text-gray-900 px-5 py-2 rounded-md font-medium transition"
           >
             + Nuevo Chatbot
           </button>

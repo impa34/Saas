@@ -16,7 +16,7 @@ function Typewriter({ text, speed = 100 }) {
   }, [index, text, speed]);
 
   return (
-    <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-white">
+    <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900">
       {displayedText}
       <span className="animate-pulse text-purple-500">|</span>
     </h2>
