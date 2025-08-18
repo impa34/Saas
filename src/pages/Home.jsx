@@ -88,12 +88,12 @@ function Home() {
     setShowModal(true);
   };
   const iconButtonClasses =
-    "text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
+    "text-gray-900 dark:text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
 
   const logoutButtonClasses =
-    "text-white bg-red-600 hover:bg-red-700 p-2 rounded-md transition flex items-center justify-center";
+    "text-gray-900 dark:text-white bg-red-600 hover:bg-red-700 p-2 rounded-md transition flex items-center justify-center";
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col ">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col ">
       <main className="flex-1 p-8 max-w-5xl mx-auto min-w-full">
         <div className="flex flex-wrap justify-between items-center mb-10 gap-4">
           {/* Columna izquierda - Título */}
@@ -151,7 +151,7 @@ function Home() {
             </button>
           </motion.div>
         </div>
-        <div className="bg-gray-800 rounded-lg p-4 mb-6 text-center">
+        <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 mb-6 text-center">
           <button
             onClick={() => setShowIntegration(!showIntegration)}
             className="w-full text-purple-400 font-semibold text-lg flex justify-between items-center"
@@ -172,7 +172,7 @@ function Home() {
   className="overflow-hidden mt-4"
 >
 
-                <div className="text-sm text-gray-300 text-center">
+                <div className="text-sm text-gray-700 dark:text-gray-300 text-center">
                   <p className="mb-4">
                     Pega este fragmento en el{" "}
                     <span className="font-mono bg-gray-700 px-1 rounded">
@@ -201,7 +201,7 @@ function Home() {
         </div>
 
         {showBotLimitMsg && (
-          <div className="mt-2 text-sm bg-red-600 text-white px-4 py-2 mb-2 rounded-md shadow">
+          <div className="mt-2 text-sm bg-red-600 text-gray-900 dark:text-white px-4 py-2 mb-2 rounded-md shadow">
             🚫 El plan gratuito solo permite un chatbot. Actualiza tu plan para
             crear más.
           </div>
@@ -220,7 +220,7 @@ function Home() {
               }
               navigate("/form");
             }}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-medium transition"
+            className="bg-purple-600 hover:bg-purple-700 text-gray-900 dark:text-white px-5 py-2 rounded-md font-medium transition"
           >
             + Nuevo Chatbot
           </button>
@@ -233,7 +233,7 @@ function Home() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.05 * bots.indexOf(bot) }}
-              className="bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-purple-500/30 transition duration-300"
+              className="bg-gray-100 dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-purple-500/30 transition duration-300"
             >
               <h3
                 onClick={() =>
@@ -288,12 +288,12 @@ function Home() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3 }}
-              className="bg-gray-800 text-white p-6 rounded-xl shadow-lg w-full max-w-md"
+              className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white p-6 rounded-xl shadow-lg w-full max-w-md"
             >
               <h2 className="text-xl font-bold mb-4 text-center">
                 ¿Eliminar chatbot?
               </h2>
-              <p className="text-sm text-gray-300 mb-6 text-center">
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 text-center">
                 Esta acción no se puede deshacer. ¿Estás seguro de que deseas
                 continuar?
               </p>
@@ -303,13 +303,13 @@ function Home() {
                     deleteBot(botToDelete);
                     setShowModal(false);
                   }}
-                  className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition"
+                  className="bg-red-600 hover:bg-red-700 text-gray-900 dark:text-white py-2 px-4 rounded-md transition"
                 >
                   Sí, eliminar
                 </button>
                 <button
                   onClick={() => setShowModal(false)}
-                  className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md transition"
+                  className="bg-gray-600 hover:bg-gray-700 text-gray-900 dark:text-white py-2 px-4 rounded-md transition"
                 >
                   No, volver
                 </button>

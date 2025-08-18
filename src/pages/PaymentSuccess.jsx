@@ -26,7 +26,7 @@ const PaymentSuccess = () => {
       });
   }, []);
 
-  return <p className="text-center mt-10 text-lg text-white">¡Pago exitoso! Redirigiendo...</p>;
+  return <p className="text-center mt-10 text-lg text-gray-900 dark:text-white">¡Pago exitoso! Redirigiendo...</p>;
 };
 
 export default PaymentSuccess;*/}
@@ -70,7 +70,7 @@ const PaymentSuccess = () => {
       .catch((err) => console.error("❌ Error en capture-order:", err));
   }, []);
 
-  return <p className="text-center mt-10 text-lg text-white">¡Pago exitoso! Redirigiendo...</p>;
+  return <p className="text-center mt-10 text-lg text-gray-900 dark:text-white">¡Pago exitoso! Redirigiendo...</p>;
 };
 
 export default PaymentSuccess;

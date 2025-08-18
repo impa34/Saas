@@ -31,10 +31,10 @@ function Whychooseus() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="bg-gray-800 text-white p-6 text-center"
+        className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white p-6 text-center"
       >
         <h3 className="text-xl font-semibold mb-2">{cards[index].title}</h3>
-        <p className="text-sm text-gray-300">{cards[index].description}</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300">{cards[index].description}</p>
       </motion.div>
 
       <div className="flex justify-between mt-4">

@@ -7,7 +7,7 @@ function About() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col">
       <Navbar />
 
       <div className="px-6 py-2">
@@ -24,7 +24,7 @@ function About() {
           <h1 className="text-4xl font-bold mb-6 text-purple-500">
             Sobre Talobot
           </h1>
-          <p className="text-lg text-gray-300 mb-4">
+          <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
             Talobot es un asistente con inteligencia artificial que ayuda a
             tu negocio a conectar con los clientes de forma más inteligente y
             eficiente.
@@ -32,7 +32,7 @@ function About() {
           <p className="text-gray-400 mb-6">
             Nuestra misión es simplificar el soporte y la automatización
             mediante conversaciones naturales e inteligentes. Ya seas un pequeño
-            equipo o una gran empresa, Talo se adapta a tus necesidades.
+            equipo o una gran empresa, Talobot se adapta a tus necesidades.
             Disfruta de integraciones fluidas como Google Calendar o Excel,
             junto con una interfaz completamente personalizable para adaptarse a
             tu marca.
@@ -45,7 +45,7 @@ function About() {
             Empezar es muy fácil: solo nombra tu bot, añade las preguntas
             frecuentes que puedan hacer tus clientes y proporciona las
             respuestas. No necesitas respuestas perfectas, ya que la IA se
-            encarga de entender variaciones y matices. Con Talo, puedes ofrecer
+            encarga de entender variaciones y matices. Con Talobot, puedes ofrecer
             atención 24/7 sin contratar más personal, haciendo tu negocio más
             escalable y eficiente.
           </p>

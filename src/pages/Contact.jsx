@@ -38,7 +38,7 @@ function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col">
       <Navbar />
       <div className="">
         <button
@@ -51,7 +51,7 @@ function Contact() {
 
       <div className="max-w-xl mx-auto text-center px-4">
         <h1 className="text-4xl font-bold mb-6 text-purple-500">Contáctanos</h1>
-        <p className="text-lg text-gray-300 mb-4">
+        <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
           Nos encantaría saber de ti. Ya sea una duda, comentario o propuesta de colaboración, ¡escríbenos sin compromiso!
         </p>
          {isSent ? (
@@ -64,7 +64,7 @@ function Contact() {
               placeholder="Tu nombre"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-2 rounded-sm bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-2 rounded-sm bg-gray-100 dark:bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
             <input
@@ -73,7 +73,7 @@ function Contact() {
               placeholder="Tu correo electrónico"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 rounded-sm bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-2 rounded-sm bg-gray-100 dark:bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
             <textarea
@@ -81,13 +81,13 @@ function Contact() {
               placeholder="Tu mensaje"
               value={formData.message}
               onChange={handleChange}
-              className="w-full px-4 py-2 rounded-sm bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+              className="w-full px-4 py-2 rounded-sm bg-gray-100 dark:bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
               rows={5}
               required
             />
             <button
               type="submit"
-              className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-6 rounded-sm transition"
+              className="bg-purple-600 hover:bg-purple-700 text-gray-900 dark:text-white font-semibold py-2 px-6 rounded-sm transition"
             >
               Enviar mensaje
             </button>

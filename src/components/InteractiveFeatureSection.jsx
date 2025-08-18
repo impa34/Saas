@@ -32,7 +32,7 @@ export default function InteractiveFeatureSection() {
   const [activeFeature, setActiveFeature] = useState(features[0]);
 
   return (
-    <section className="relative bg-gray-900 py-16 px-4 text-white overflow-hidden">
+    <section className="relative bg-white dark:bg-gray-900 py-16 px-4 text-gray-900 dark:text-white overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Desktop layout */}
         <div className="hidden md:flex justify-center items-center min-h-[500px] relative">
@@ -43,7 +43,7 @@ export default function InteractiveFeatureSection() {
                 key={feature.id}
                 onMouseEnter={() => setActiveFeature(feature)}
                 className={`cursor-pointer rounded-xl w-24 h-24 flex items-center justify-center transition ${
-                  activeFeature.id === feature.id ? "bg-purple-600" : "bg-gray-800 hover:bg-purple-600"
+                  activeFeature.id === feature.id ? "bg-purple-600" : "bg-gray-100 dark:bg-gray-800 hover:bg-purple-600"
                 }`}
               >
                 <img
@@ -62,7 +62,7 @@ export default function InteractiveFeatureSection() {
                 key={feature.id}
                 onMouseEnter={() => setActiveFeature(feature)}
                 className={`cursor-pointer rounded-xl w-24 h-24 flex items-center justify-center transition ${
-                  activeFeature.id === feature.id ? "bg-purple-600" : "bg-gray-800 hover:bg-purple-600"
+                  activeFeature.id === feature.id ? "bg-purple-600" : "bg-gray-100 dark:bg-gray-800 hover:bg-purple-600"
                 }`}
               >
                 <img
@@ -83,7 +83,7 @@ export default function InteractiveFeatureSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4 }}
-                className="p-8 rounded-lg bg-gray-800 shadow-xl"
+                className="p-8 rounded-lg bg-gray-100 dark:bg-gray-800 shadow-xl"
               >
                 <img
                   src={activeFeature.image}
@@ -91,7 +91,7 @@ export default function InteractiveFeatureSection() {
                   className="mx-auto w-64 h-auto mb-6 rounded"
                 />
                 <h3 className="text-2xl font-semibold text-purple-400 mb-2">{activeFeature.name}</h3>
-                <p className="text-gray-300 text-md">{activeFeature.description}</p>
+                <p className="text-gray-700 dark:text-gray-300 text-md">{activeFeature.description}</p>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -103,7 +103,7 @@ export default function InteractiveFeatureSection() {
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="bg-gray-800 rounded-xl p-6 flex flex-col items-center text-center"
+              className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 flex flex-col items-center text-center"
             >
               <img
                 src={feature.image}
@@ -111,7 +111,7 @@ export default function InteractiveFeatureSection() {
                 className="w-24 h-24 mb-4 object-contain"
               />
               <h3 className="text-xl font-semibold text-purple-400 mb-2">{feature.name}</h3>
-              <p className="text-gray-300">{feature.description}</p>
+              <p className="text-gray-700 dark:text-gray-300">{feature.description}</p>
             </div>
           ))}
         </div>

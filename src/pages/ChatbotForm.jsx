@@ -128,7 +128,7 @@ function ChatbotForm() {
   };
 
   const iconButtonClasses =
-    "text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
+    "text-gray-900 dark:text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
 
   const updatePrompt = (index, field, value) => {
     const updated = [...prompts];
@@ -195,7 +195,7 @@ function ChatbotForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col">
       <main className="flex-1 flex flex-col items-center p-6">
         {/* --------- Indicator --------- */}
         <div className="flex gap-6 mb-8">
@@ -207,7 +207,7 @@ function ChatbotForm() {
         {/* --------- Form --------- */}
         <form
           onSubmit={handleSubmit}
-          className="bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-2xl"
+          className="bg-gray-100 dark:bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-2xl"
           style={loading ? { pointerEvents: "none", opacity: 0.6 } : {}}
         >
           {/* ---------- STEP 1 ---------- */}
@@ -296,7 +296,7 @@ function ChatbotForm() {
                       <select
                         value={font}
                         onChange={(e) => setFont(e.target.value)}
-                        className="ml-2 mt-2 text-white bg-gray-800 border"
+                        className="ml-2 mt-2 text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 border"
                       >
                         <option value="Inter">Inter</option>
                         <option value="Arial">Arial</option>
@@ -316,7 +316,7 @@ function ChatbotForm() {
 
                     <button
                       onClick={handleSaveConfig}
-                      className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded transition duration-200"
+                      className="bg-purple-600 hover:bg-purple-700 text-gray-900 dark:text-white px-4 py-2 rounded transition duration-200"
                     >
                       Guardar cambios
                     </button>
@@ -372,7 +372,7 @@ function ChatbotForm() {
                   </div>
                 ))}
                 {showPromptLimitMsg && (
-                  <div className="bg-red-600 text-white px-4 py-2 rounded-md text-sm mb-2">
+                  <div className="bg-red-600 text-gray-900 dark:text-white px-4 py-2 rounded-md text-sm mb-2">
                     🚫 El plan gratuito solo permite hasta 5 prompts.
                   </div>
                 )}
@@ -404,19 +404,19 @@ function ChatbotForm() {
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.95, opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="bg-gray-800 text-white p-6 rounded-xl shadow-lg w-full max-w-md"
+                    className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white p-6 rounded-xl shadow-lg w-full max-w-md"
                   >
                     <h2 className="text-xl font-bold mb-4 text-center">
                       Campos incompletos
                     </h2>
-                    <p className="text-sm text-gray-300 mb-6 text-center">
+                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 text-center">
                       Todos los prompts deben tener pregunta y respuesta antes
                       de continuar.
                     </p>
                     <div className="flex justify-center">
                       <button
                         onClick={() => setShowValidationModal(false)}
-                        className="bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-md transition"
+                        className="bg-purple-600 hover:bg-purple-700 text-gray-900 dark:text-white py-2 px-4 rounded-md transition"
                       >
                         OK
                       </button>

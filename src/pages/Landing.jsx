@@ -3,6 +3,7 @@ import Typewriter from "../components/Typewriter";
 import Whychooseus from "../components/Whychooseus";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import FeatureCardSection from "../components/FeaturedCardSection";
 import InteractiveFeatureSection from "../components/InteractiveFeatureSection";
 import {motion} from "framer-motion"
 
@@ -11,7 +12,7 @@ function Landing() {
 
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col">
       <Navbar />
 
       {/* Hero Section */}
@@ -26,18 +27,18 @@ function Landing() {
               transition={{ duration: 0.5 }}
         className="relative z-10">
           <Typewriter text="Tu asistente de chat personal para tu negocio." speed={60} />
-          <p className="text-lg md:text-xl text-gray-300 mb-6 py-6">
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 py-6">
             Genera tu chatbot inteligente con IA en minutos.
           </p>
           <button
             onClick={() => navigate("/register")}
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition"
+            className="bg-purple-600 hover:bg-purple-700 text-gray-900 dark:text-white font-semibold py-3 px-6 rounded-lg transition"
           >
             ¡Pruébalo gratis!
           </button>
         </motion.div>
       </header>
-         <section className="bg-purple-600 text-white py-12 text-center">
+         <section className="bg-purple-600 text-gray-900 dark:text-white py-12 text-center">
         <h2 className="text-3xl font-bold mb-4">¿Listo para mejorar tu atención al cliente?</h2>
         <p className="text-lg mb-6">Crea tu asistente en menos de 5 minutos. No necesitas conocimientos técnicos.</p>
         <button
@@ -52,14 +53,15 @@ function Landing() {
 <InteractiveFeatureSection />
 
       {/* Why Choose Us */}
-      <section className="bg-gray-800 py-12 text-center px-4">
+      <section className="bg-gray-100 dark:bg-gray-800 py-12 text-center px-4">
         <h3 className="text-3xl font-semibold mb-6">¿Por qué elegirnos?</h3>
         <Whychooseus />
       </section>
+      <FeatureCardSection />
 
       {/* Planes */}
-      <section className="bg-gray-900 py-20 px-4">
-        <h2 className="text-3xl font-bold text-center text-white mb-12">Elige tu plan</h2>
+      <section className="bg-white dark:bg-gray-900 py-20 px-4">
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">Elige tu plan</h2>
         <div className="max-w-6xl mx-auto grid sm:grid-cols-1 md:grid-cols-3 gap-8 text-center">
           {[
             {
@@ -81,17 +83,17 @@ function Landing() {
               color: "purple",
             },
           ].map((plan) => (
-            <div key={plan.name} className="bg-gray-800 rounded-xl p-6 shadow-lg w-full max-w-full break-words">
+            <div key={plan.name} className="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 shadow-lg w-full max-w-full break-words">
               <h3 className={`text-2xl font-semibold text-${plan.color}-400 mb-4`}>{plan.name}</h3>
               <p className="text-3xl font-bold mb-6">{plan.price}</p>
-              <ul className="space-y-2 text-sm text-gray-300 mb-6">
+              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300 mb-6">
                 {plan.features.map((feat, idx) => (
                   <li key={idx}>✅ {feat}</li>
                 ))}
               </ul>
               <button
                 onClick={() => navigate("/register")}
-                className={`bg-${plan.color}-600 hover:bg-${plan.color}-700 text-white px-4 py-2 rounded-md font-medium transition`}
+                className={`bg-${plan.color}-600 hover:bg-${plan.color}-700 text-gray-900 dark:text-white px-4 py-2 rounded-md font-medium transition`}
               >
                 Empezar ahora
               </button>

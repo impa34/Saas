@@ -53,19 +53,19 @@ window.location.href = "https://saas-backend-xrkb.onrender.com/api/google-auth";
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center px-4">
 
      
       <div className="bg-gray-700 shadow-xl rounded-2xl p-8 max-w-md w-full">
 
-        <h2 className="text-3xl font-semibold mb-6 text-center text-white">
+        <h2 className="text-3xl font-semibold mb-6 text-center text-gray-900 dark:text-white">
           Iniciar sesión
         </h2>
         <form className="space-y-4">
           <input
             type="email"
             placeholder="Email"
-            className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none text-white bg-gray-700 focus:ring-2 focus:ring-purple-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded-sm focus:outline-none text-gray-900 dark:text-white bg-gray-700 focus:ring-2 focus:ring-purple-500"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -73,7 +73,7 @@ window.location.href = "https://saas-backend-xrkb.onrender.com/api/google-auth";
           <input
             type="password"
             placeholder="Contraseña"
-            className="w-full px-4 py-2 border border-gray-300 rounded-sm text-white focus:outline-none bg-gray-700 focus:ring-2 focus:ring-purple-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded-sm text-gray-900 dark:text-white focus:outline-none bg-gray-700 focus:ring-2 focus:ring-purple-500"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -93,7 +93,7 @@ window.location.href = "https://saas-backend-xrkb.onrender.com/api/google-auth";
 
           <button
             type="submit"
-            className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-sm transition duration-200"
+            className="w-full bg-purple-600 hover:bg-purple-700 text-gray-900 dark:text-white font-semibold py-2 rounded-sm transition duration-200"
             onClick={handleClick}
           >
             Iniciar sesión
@@ -106,7 +106,7 @@ window.location.href = "https://saas-backend-xrkb.onrender.com/api/google-auth";
           <img src="/google.webp" alt="Google" className="w-5 h-5" /> Iniciar sesión con Google
         </button>
 
-        <p className="text-sm text-center text-white mt-4">
+        <p className="text-sm text-center text-gray-900 dark:text-white mt-4">
           ¿No tienes cuenta?{" "}
           <Link to="/register" className="text-purple-600 hover:underline">
             Registrarse

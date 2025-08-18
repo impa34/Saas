@@ -90,13 +90,13 @@ export default function CheckoutPage() {
     document.body.appendChild(script);
   }, []);
 
-  if (!plan) return <div className="text-white">Cargando...</div>;
+  if (!plan) return <div className="text-gray-900 dark:text-white">Cargando...</div>;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
-      <div className="bg-gray-800 p-8 rounded-2xl shadow-lg w-full max-w-md text-center">
+    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+      <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-2xl shadow-lg w-full max-w-md text-center">
         <h1 className="text-2xl font-bold mb-2">{plan.name}</h1>
-        <p className="text-gray-300 mb-4">{plan.desc}</p>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">{plan.desc}</p>
         <p className="text-3xl font-bold mb-6">{plan.price} €/mes</p>
 
         {/* Contenedor para PayPal */}
@@ -104,7 +104,7 @@ export default function CheckoutPage() {
 
         <a
           href="/"
-          className="inline-block mt-6 text-gray-400 hover:text-white text-sm"
+          className="inline-block mt-6 text-gray-400 hover:text-gray-900 dark:text-white text-sm"
         >
           ← Volver
         </a>

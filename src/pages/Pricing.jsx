@@ -15,7 +15,7 @@ const plans = [
     ],
     cta: "Hazte Pro",
     bg: "bg-blue-800",
-    textColor: "text-white",
+    textColor: "text-gray-900 dark:text-white",
     border: "border-blue-500",
   },
   {
@@ -28,7 +28,7 @@ const plans = [
     ],
     cta: "Obtener Full",
     bg: "bg-purple-700",
-    textColor: "text-white",
+    textColor: "text-gray-900 dark:text-white",
     border: "border-purple-500",
     badge: "Mejor oferta",
   },
@@ -42,7 +42,7 @@ const plans = [
     ],
     cta: "Comprar acceso vitalicio",
     bg: "bg-yellow-700",
-    textColor: "text-white",
+    textColor: "text-gray-900 dark:text-white",
     border: "border-yellow-500",
     badge: "Popular",
   },
@@ -99,7 +99,7 @@ export default function Pricing() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
       <Navbar />
       <button
         onClick={() => navigate(-1)}
@@ -110,7 +110,7 @@ export default function Pricing() {
 
       <div className="text-center mb-12 px-4">
         <h1 className="text-4xl font-bold mb-4">Selecciona tu plan</h1>
-        <p className="text-gray-300">
+        <p className="text-gray-700 dark:text-gray-300">
           Empieza gratis y mejora cuando lo necesites. Sin permanencia.
         </p>
       </div>
@@ -149,12 +149,12 @@ export default function Pricing() {
         ))}
       </div>
 
-      <div className="text-center mt-8 px-4 text-gray-300 text-sm">
+      <div className="text-center mt-8 px-4 text-gray-700 dark:text-gray-300 text-sm">
         <p>
           Todos nuestros planes incluyen garantía de devolución durante los
-          primeros <strong className="text-white">30 días</strong>. Puedes
+          primeros <strong className="text-gray-900 dark:text-white">30 días</strong>. Puedes
           cancelar tu suscripción{" "}
-          <strong className="text-white">en cualquier momento</strong> desde tu
+          <strong className="text-gray-900 dark:text-white">en cualquier momento</strong> desde tu
           panel de usuario.
         </p>
       </div>
