@@ -155,7 +155,7 @@ function Profile() {
         </button>
         <button
           onClick={() => setShowModal(false)}
-          className="bg-gray-600 hover:bg-gray-700 text-gray-900 dark:text-white py-2 px-4 rounded-md transition"
+          className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md transition"
         >
           No, volver
         </button>

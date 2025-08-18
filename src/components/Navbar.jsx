@@ -21,14 +21,14 @@ function Navbar() {
   <img
     src="/logo1.webp"
     alt="Talobot logo"
-    className="h-12 ml-2 w-auto dark:block "
+    className="h-12 ml-2 w-auto dark:block"
   />
 
   {/* Logo oscuro (visible en dark mode) */}
   <img
     src="/logo1_dark.webp"
     alt="Talobot logo dark"
-    className="h-12 ml-2 w-auto hidden dark:hidden"
+    className="h-12 ml-2 w-auto dark:hidden"
   />
 </a>
 <ThemeToggle className="hidden"/>
