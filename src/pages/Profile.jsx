@@ -76,7 +76,7 @@ function Profile() {
           </div>
           <div className="bg-gray-700 rounded-lg mt-6 p-6 text-left">
   <h2 className="text-xl font-semibold text-purple-400 mb-2">Tu plan incluye:</h2>
-  <ul className="list-disc ml-5 text-gray-700 dark:text-gray-300 space-y-1">
+  <ul className="list-disc ml-5 text-gray-300 space-y-1">
     {user.status === "full" && (
       <>
         <li>Integración con Google Calendar</li>
