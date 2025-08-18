@@ -88,10 +88,10 @@ function Home() {
     setShowModal(true);
   };
   const iconButtonClasses =
-    "text-gray-900 dark:text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
+    "text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
 
   const logoutButtonClasses =
-    "text-gray-900 dark:text-white bg-red-600 hover:bg-red-700 p-2 rounded-md transition flex items-center justify-center";
+    "text-white bg-red-600 hover:bg-red-700 p-2 rounded-md transition flex items-center justify-center";
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col ">
       <main className="flex-1 p-8 max-w-5xl mx-auto min-w-full">
@@ -175,7 +175,7 @@ function Home() {
                 <div className="text-sm text-gray-700 dark:text-gray-300 text-center">
                   <p className="mb-4">
                     Pega este fragmento en el{" "}
-                    <span className="font-mono bg-gray-700 px-1 rounded">
+                    <span className="font-mono bg-gray-700 px-1 dark:text-white rounded">
                       {"</body>"}
                     </span>{" "}
                     de tu sitio:
@@ -189,7 +189,7 @@ function Home() {
 </pre>
 
 
-                  <p className="text-gray-400 mt-4">
+                  <p className="text-gray-400 dark:text-gray-700 mt-4">
                     Este código mostrará el botón del chatbot automáticamente en
                     la esquina inferior derecha. Puedes personalizar todo desde
                     el panel: colores, fuente, tamaño y respuestas.
@@ -220,7 +220,7 @@ function Home() {
               }
               navigate("/form");
             }}
-            className="bg-purple-600 hover:bg-purple-700 text-gray-900 dark:text-white px-5 py-2 rounded-md font-medium transition"
+            className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-md font-medium transition"
           >
             + Nuevo Chatbot
           </button>
@@ -259,19 +259,19 @@ function Home() {
                       "_blank"
                     )
                   }
-                  className="bg-purple-600 hover:bg-purple-700 px-4 py-1 rounded-md text-sm"
+                  className="bg-purple-600 hover:bg-purple-700 px-4 text-white py-1 rounded-md text-sm"
                 >
                   Chat
                 </button>
                 <button
                   onClick={() => navigate(`/edit/${bot._id}`)}
-                  className="bg-blue-600 hover:bg-blue-700 px-4 py-1 rounded-md text-sm"
+                  className="bg-blue-600 hover:bg-blue-700 px-4  text-white py-1 rounded-md text-sm"
                 >
                   Editar
                 </button>
                 <button
                   onClick={() => confirmDelete(bot._id)}
-                  className="bg-gray-600 hover:bg-gray-700 px-4 py-1 rounded-md text-sm"
+                  className="bg-gray-600 hover:bg-gray-700 text-white  px-4 py-1 rounded-md text-sm"
                 >
                   Eliminar
                 </button>
@@ -293,7 +293,7 @@ function Home() {
               <h2 className="text-xl font-bold mb-4 text-center">
                 ¿Eliminar chatbot?
               </h2>
-              <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 text-center">
+              <p className="text-sm text-gray-300 mb-6 text-center">
                 Esta acción no se puede deshacer. ¿Estás seguro de que deseas
                 continuar?
               </p>
@@ -303,13 +303,13 @@ function Home() {
                     deleteBot(botToDelete);
                     setShowModal(false);
                   }}
-                  className="bg-red-600 hover:bg-red-700 text-gray-900 dark:text-white py-2 px-4 rounded-md transition"
+                  className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition"
                 >
                   Sí, eliminar
                 </button>
                 <button
                   onClick={() => setShowModal(false)}
-                  className="bg-gray-600 hover:bg-gray-700 text-gray-900 dark:text-white py-2 px-4 rounded-md transition"
+                  className="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md transition"
                 >
                   No, volver
                 </button>
