@@ -27,18 +27,18 @@ function Landing() {
               transition={{ duration: 0.5 }}
         className="relative z-10">
           <Typewriter text="Tu asistente de chat personal para tu negocio." speed={60} />
-          <p className="text-lg md:text-xl text-gray-700 mb-6 py-6">
+          <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 py-6">
             Genera tu chatbot inteligente con IA en minutos.
           </p>
           <button
             onClick={() => navigate("/register")}
-            className="bg-purple-600 hover:bg-purple-700 text-gray-900  font-semibold py-3 px-6 rounded-lg transition"
+            className="bg-purple-600 hover:bg-purple-700 text-gray-900 dark:text-white font-semibold py-3 px-6 rounded-lg transition"
           >
             ¡Pruébalo gratis!
           </button>
         </motion.div>
       </header>
-         <section className="bg-purple-600 text-gray-900  py-12 text-center">
+         <section className="bg-purple-600 text-gray-900 dark:text-white py-12 text-center">
         <h2 className="text-3xl font-bold mb-4">¿Listo para mejorar tu atención al cliente?</h2>
         <p className="text-lg mb-6">Crea tu asistente en menos de 5 minutos. No necesitas conocimientos técnicos.</p>
         <button
@@ -93,7 +93,7 @@ function Landing() {
               </ul>
               <button
                 onClick={() => navigate("/register")}
-                className={`bg-${plan.color}-600 hover:bg-${plan.color}-700 text-gray-900 px-4 py-2 rounded-md font-medium transition`}
+                className={`bg-${plan.color}-600 hover:bg-${plan.color}-700 text-gray-900 dark:text-white px-4 py-2 rounded-md font-medium transition`}
               >
                 Empezar ahora
               </button>

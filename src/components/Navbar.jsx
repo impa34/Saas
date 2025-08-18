@@ -10,10 +10,10 @@ function Navbar() {
   const { isLoggedIn, logout } = useAuth();
 
   const iconButtonClasses =
-    "text-gray-900 text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
+    "text-gray-900 dark:text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
 
   const logoutButtonClasses =
-    "text-gray-900 text-white bg-red-600 hover:bg-red-700 p-2 rounded-md transition flex items-center justify-center";
+    "text-gray-900 dark:text-white bg-red-600 hover:bg-red-700 p-2 rounded-md transition flex items-center justify-center";
 
   return (
     <nav className="flex justify-between items-center px-4 md:px-8 py-4 bg-gray-100 dark:bg-gray-800 shadow-md">
