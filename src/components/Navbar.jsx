@@ -20,7 +20,7 @@ function Navbar() {
       <a href="/landing" className="flex items-center">
         <img src={logo} alt="Talobot logo" className="h-12 ml-2 w-auto" />
       </a>
-<ThemeToggle />
+
       <div className="ml-auto flex items-center">
         <div className="hidden md:flex space-x-4 text-sm text-gray-700 dark:text-gray-300 mr-6">
           <Link to="/pricing" className="hover:text-gray-900 dark:text-white transition">
