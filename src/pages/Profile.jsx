@@ -149,7 +149,7 @@ function Profile() {
       <div className="flex justify-center gap-4">
         <button
           onClick={cancelSubscription}
-          className="bg-red-600 hover:bg-red-700 text-gray-900 dark:text-white py-2 px-4 rounded-md transition"
+          className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md transition"
         >
           Sí, cancelar
         </button>

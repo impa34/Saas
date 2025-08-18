@@ -1,7 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
 import ThemeToggle from "./ThemeToggle";
-import logo from "/logo1.webp";
 
 import { HiUserCircle, HiLogin, HiLogout, HiUser, HiViewGrid } from "react-icons/hi";
 
@@ -10,16 +9,28 @@ function Navbar() {
   const { isLoggedIn, logout } = useAuth();
 
   const iconButtonClasses =
-    "text-gray-900 dark:text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
+    "text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
 
   const logoutButtonClasses =
-    "text-gray-900 dark:text-white bg-red-600 hover:bg-red-700 p-2 rounded-md transition flex items-center justify-center";
+    "text-white bg-red-600 hover:bg-red-700 p-2 rounded-md transition flex items-center justify-center";
 
   return (
     <nav className="flex justify-between items-center px-4 md:px-8 py-4 bg-gray-100 dark:bg-gray-800 shadow-md">
-      <a href="/landing" className="flex items-center">
-        <img src={logo} alt="Talobot logo" className="h-12 ml-2 w-auto" />
-      </a>
+    <a href="/landing" className="flex items-center">
+  {/* Logo claro (visible en light mode) */}
+  <img
+    src="/logo1.webp"
+    alt="Talobot logo"
+    className="h-12 ml-2 w-auto dark:hidden"
+  />
+
+  {/* Logo oscuro (visible en dark mode) */}
+  <img
+    src="/logo1_dark.webp"
+    alt="Talobot logo dark"
+    className="h-12 ml-2 w-auto hidden dark:block"
+  />
+</a>
 <ThemeToggle className="hidden"/>
       <div className="ml-auto flex items-center">
         <div className="hidden md:flex space-x-4 text-sm text-gray-700 dark:text-gray-300 mr-6">

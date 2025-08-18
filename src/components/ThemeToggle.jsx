@@ -8,7 +8,7 @@ function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="hidden ml-4 p-2 rounded-lg bg-gray-200 dark:bg-gray-700 transition"
+      className="ml-4 p-2 rounded-lg bg-gray-200 dark:bg-gray-700 transition"
     >
       {theme === "dark" ? (
         <Sun className="w-5 h-5 text-yellow-400" />
