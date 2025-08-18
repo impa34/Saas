@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FeatureCardSection from "../components/FeaturedCardSection";
 import InteractiveFeatureSection from "../components/InteractiveFeatureSection";
+import {Helmet} from "react-helmet"
 import {motion} from "framer-motion"
 
 function Landing() {
@@ -13,12 +14,23 @@ function Landing() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col">
+      <Helmet>
+        <title>Talo | Chatbots con IA para tu negocio</title>
+        <meta
+          name="description"
+          content="Crea tu chatbot con IA en minutos. Mejora la atención al cliente sin conocimientos técnicos."
+        />
+        <meta name="keywords" content="chatbot, ia, atención al cliente, automatización, negocios" />
+        <meta property="og:title" content="Talo | Chatbots con IA" />
+        <meta property="og:description" content="Chatbots inteligentes para negocios, fáciles de crear." />
+        <meta property="og:url" content="https://www.talochatbot.com" />
+      </Helmet>
       <Navbar />
 
       {/* Hero Section */}
       <header
         className="relative flex-1 flex flex-col justify-center items-center text-center px-6 bg-cover bg-center min-h-[80vh]"
-        style={{ backgroundImage: "url('/hero1.jpg')" }}
+        style={{ backgroundImage: "url('/hero1.webp')" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-80"></div>
         <motion.div 

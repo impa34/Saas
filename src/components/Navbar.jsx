@@ -1,7 +1,7 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
 import ThemeToggle from "./ThemeToggle";
-import logo from "/logo1.png";
+import logo from "/logo1.webp";
 
 import { HiUserCircle, HiLogin, HiLogout, HiUser, HiViewGrid } from "react-icons/hi";
 

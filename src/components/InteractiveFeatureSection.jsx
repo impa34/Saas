@@ -5,25 +5,25 @@ const features = [
   {
     id: "calendar",
     name: "Google Calendar",
-    image: "/feature-calendar.png",
+    image: "/feature-calendar.webp",
     description: "Conecta con Google Calendar y agenda citas automáticamente.",
   },
   {
     id: "email",
     name: "Captura de Email",
-    image: "/feature-email.png",
+    image: "/feature-email.webp",
     description: "Recoge automáticamente los correos y datos de tus clientes.",
   },
   {
     id: "branding",
     name: "Personalización",
-    image: "/feature-customization.png",
+    image: "/feature-customization.webp",
     description: "Ajusta el estilo del chatbot según la imagen de tu marca.",
   },
   {
     id: "analytics",
     name: "Estadísticas",
-    image: "/feature-analytics.png",
+    image: "/feature-analytics.webp",
     description: "Obtén métricas sobre uso, mensajes y conversiones.",
   },
 ];
