@@ -165,9 +165,9 @@ function Home() {
           <AnimatePresence>
             {showIntegration && (
               <motion.div
-  initial={{ opacity: 0, maxHeight: 0 }}
-  animate={{ opacity: 1, maxHeight: 500 }}
-  exit={{ opacity: 0, maxHeight: 0 }}
+  initial={{ opacity: 0, height: 0 }}
+  animate={{ opacity: 1, height: "auto"}}
+  exit={{ opacity: 0, height: 0 }}
   transition={{ duration: 0.3 }}
   className="overflow-hidden mt-4"
 >
