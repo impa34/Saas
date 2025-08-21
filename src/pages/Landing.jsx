@@ -15,7 +15,7 @@ function Landing() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col">
       <Helmet>
-        <title>Talo | Chatbots con IA para tu negocio</title>
+        <title>Talobot | Chatbots con IA para tu negocio</title>
         <meta
           name="description"
           content="Crea tu chatbot con IA en minutos. Mejora la atención al cliente sin conocimientos técnicos."
