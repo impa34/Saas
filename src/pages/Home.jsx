@@ -12,65 +12,100 @@ function Home() {
   const [user, setUser] = useState("");
   const [showBotLimitMsg, setShowBotLimitMsg] = useState(false);
   const [showIntegration, setShowIntegration] = useState(false);
-    const [showModal, setShowModal] = useState(false); // ⬅ Modal visible
+  const [statsByBot, setStatsByBot] = useState({});
+  const [showModal, setShowModal] = useState(false); // ⬅ Modal visible
   const [botToDelete, setBotToDelete] = useState(null);
+  const isProOrFull = localStorage.getItem("status") === "pro" || localStorage.getItem("status") === "full"
   const { logout } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 1) comprobamos el token nada más montar
-    const token = localStorage.getItem("token");
-    if (!token) {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    window.location.href = "/login";
+    return;
+  }
+
+  const authHeader = { Authorization: `Bearer ${token}` };
+
+  // 1) Verificar sesión
+  fetch("https://saas-backend-xrkb.onrender.com/api/auth/home", {
+    headers: authHeader,
+  })
+    .then((r) => r.json())
+    .catch(() => {
+      localStorage.removeItem("token");
       window.location.href = "/login";
-      return;
-    }
+    });
 
-    // 2) función auxiliar para cabeceras
-    const authHeader = { Authorization: `Bearer ${token}` };
-
-    // 3) obtener mensaje de bienvenida
-    fetch("https://saas-backend-xrkb.onrender.com/api/auth/home", {
-      headers: authHeader,
-    })
-      .then((r) => r.json())
-      .catch(() => {
-        localStorage.removeItem("token");
-        window.location.href = "/login";
+  // 2) Cargar datos del usuario
+  const fetchUser = async () => {
+    try {
+      const res = await fetch("https://saas-backend-xrkb.onrender.com/api/user/me", {
+        headers: authHeader,
       });
-
-    // 4) obtener bots
-    const fetchBots = async () => {
-      try {
-        const { data } = await axios.get(
-          "https://saas-backend-xrkb.onrender.com/api/chatbots",
-          {
-            headers: authHeader,
-          }
-        );
-        setBots(data);
-      } catch (e) {
-        localStorage.removeItem("token");
-        console.error(e);
-        window.location.href = "/login";
-      }
-    };
-    const fetchUser = async () => {
-      const res = await fetch(
-        "https://saas-backend-xrkb.onrender.com/api/user/me",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
       const user = await res.json();
-      console.log("👉 Usuario recibido:", user);
       setUser(user);
       localStorage.setItem("status", user.status || "Free");
-    };
-    fetchUser();
-    fetchBots();
-  }, []);
+    } catch (e) {
+      console.error("Error al cargar usuario", e);
+    }
+  };
+
+  fetchUser();
+}, []); // 👈 solo al montar
+
+
+  useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (!token) return;
+
+  const fetchBots = async () => {
+    try {
+      const { data } = await axios.get(
+        "https://saas-backend-xrkb.onrender.com/api/chatbots",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      setBots(data);
+    } catch (e) {
+      console.error(e);
+      localStorage.removeItem("token");
+      window.location.href = "/login";
+    }
+  };
+
+  fetchBots();
+}, []); // 👈 solo al montar
+
+
+useEffect(() => {
+  const token = localStorage.getItem("token");
+  if (!token || bots.length === 0) return;
+
+  const fetchStats = async (id) => {
+    try {
+      const res = await fetch(
+        `https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/stats`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      if (!res.ok) {
+        console.error("Error al obtener stats del bot", id);
+        return;
+      }
+      const data = await res.json();
+      setStatsByBot((prev) => ({ ...prev, [id]: data }));
+    } catch (error) {
+      console.error("Stats fetch error:", error);
+    }
+  };
+
+  bots.forEach((bot) => fetchStats(bot._id));
+}, [bots]); // 👈 se dispara cuando cambian los bots
+
 
   const deleteBot = async (id) => {
     await fetch(`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}`, {
@@ -277,6 +312,36 @@ function Home() {
                 >
                   Eliminar
                 </button>
+                {isProOrFull ? (
+  <div className="mt-3 text-xs text-gray-600 dark:text-gray-300">
+    {statsByBot[bot._id] ? (
+      <>
+        <p>🗨️ Conversaciones: {statsByBot[bot._id].totalConversations || 0}</p>
+        <p>💬 Mensajes: {statsByBot[bot._id].totalMessages || 0}</p>
+        <p>🤖 Bot: {statsByBot[bot._id].botMessages || 0}</p>
+        <p>👤 Usuario: {statsByBot[bot._id].userMessages || 0}</p>
+        <p>
+          📊 Promedio/conversación:{" "}
+          {typeof statsByBot[bot._id].averageMessages === "number"
+            ? statsByBot[bot._id].averageMessages.toFixed(1)
+            : "0.0"}
+        </p>
+        <p>
+          ⏱️ Última:{" "}
+          {statsByBot[bot._id].lastInteraction
+            ? new Date(statsByBot[bot._id].lastInteraction).toLocaleString()
+            : "Nunca"}
+        </p>
+      </>
+    ) : (
+      <p className="text-gray-400">Cargando estadísticas...</p>
+    )}
+  </div>
+) : (
+  <p className="mt-3 text-xs text-gray-400">
+    📊 Estadísticas solo disponibles para usuarios Pro o Full
+  </p>
+)}
               </div>
             </motion.div>
           ))}
