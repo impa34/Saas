@@ -316,10 +316,11 @@ useEffect(() => {
   <div className="mt-3 text-xs text-gray-600 dark:text-gray-300">
     {statsByBot[bot._id] ? (
       <>
+      <h3 className="font-semibold">Estadísticas</h3>
         <p>🗨️ Conversaciones: {statsByBot[bot._id].totalConversations || 0}</p>
         <p>💬 Mensajes: {statsByBot[bot._id].totalMessages || 0}</p>
-        <p>🤖 Bot: {statsByBot[bot._id].botMessages || 0}</p>
-        <p>👤 Usuario: {statsByBot[bot._id].userMessages || 0}</p>
+        <p>🤖 Mensajes Bot: {statsByBot[bot._id].botMessages || 0}</p>
+        <p>👤 Mensajes Usuario: {statsByBot[bot._id].userMessages || 0}</p>
         <p>
           📊 Promedio/conversación:{" "}
           {typeof statsByBot[bot._id].averageMessages === "number"
