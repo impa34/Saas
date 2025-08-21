@@ -96,7 +96,7 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col overflow-x-hidden">
-      <main className="flex-1 p-8 max-w-5xl mx-auto w-full overflow-x-hidden">
+      <main className="flex-1 p-8 w-full max-w-[1400px] mx-auto overflow-x-hidden">
         <div className="flex flex-wrap justify-between items-center mb-10 gap-4">
           {/* Columna izquierda - Título */}
           <motion.div
