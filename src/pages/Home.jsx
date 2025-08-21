@@ -92,9 +92,11 @@ function Home() {
 
   const logoutButtonClasses =
     "text-white bg-red-600 hover:bg-red-700 p-2 rounded-md transition flex items-center justify-center";
+
+
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col ">
-      <main className="flex-1 p-8 max-w-5xl mx-auto min-w-full">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col overflow-x-hidden">
+      <main className="flex-1 p-8 max-w-5xl mx-auto w-full overflow-x-hidden">
         <div className="flex flex-wrap justify-between items-center mb-10 gap-4">
           {/* Columna izquierda - Título */}
           <motion.div
