@@ -1,15 +1,17 @@
+// components/ThemeToggle.jsx
 import { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
-import { Sun, Moon } from "lucide-react"; // opcional iconos
 
-function ThemeToggle() {
+export default function ThemeToggle() {
   const { theme, toggleTheme } = useContext(ThemeContext);
-
   return (
-    <button onClick={toggleTheme} className="p-2 rounded-lg">
-      {theme === "dark" ? <Sun /> : <Moon />}
+    <button
+      onClick={toggleTheme}
+      className="rounded-md px-3 py-2 border border-gray-300 dark:border-gray-600"
+      aria-label="Cambiar tema"
+      title="Cambiar tema"
+    >
+      {theme === "dark" ? "☀️ Claro" : "🌙 Oscuro"}
     </button>
   );
 }
-
-export default ThemeToggle;
