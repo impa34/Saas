@@ -181,15 +181,15 @@ function Home() {
                     de tu sitio:
                   </p>
 
-                  <pre className="bg-black text-green-400 p-4 rounded-md overflow-x-auto text-xs block text-left w-full break-words">
-  {`<script 
+                 <pre className="bg-black text-green-400 p-4 rounded-md text-xs text-left w-full overflow-x-auto whitespace-pre-wrap break-words">
+{`<script 
   src="https://talochatbot.com/widget.js" 
   data-chatbot-id="TU_CHATBOT_ID">
 </script>`}
 </pre>
 
 
-                  <p className="text-gray-400 dark:text-gray-700 mt-4">
+                  <p className="text-gray-400 mt-4">
                     Este código mostrará el botón del chatbot automáticamente en
                     la esquina inferior derecha. Puedes personalizar todo desde
                     el panel: colores, fuente, tamaño y respuestas.
