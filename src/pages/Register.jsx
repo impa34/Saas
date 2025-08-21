@@ -70,7 +70,7 @@ function Register() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center px-4">
       <div className="bg-gray-700 shadow-xl rounded-2xl p-8 max-w-md w-full">
-        <h2 className="text-3xl font-semibold mb-6 text-center text-gray-900 dark:text-white">Registrarse</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-center text-white">Registrarse</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -121,7 +121,7 @@ function Register() {
 
           <button
             type="submit"
-            className="w-full bg-purple-600 hover:bg-purple-700 text-gray-900 dark:text-white font-semibold py-2 rounded-sm transition duration-200"
+            className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-sm transition duration-200"
           >
             Registrarse
           </button>
@@ -135,7 +135,7 @@ function Register() {
           <img src="/google.webp" alt="Google" className="w-5 h-5" /> Registrarse con Google
         </button>
 
-        <p className="text-sm text-center text-gray-900 dark:text-white mt-4">
+        <p className="text-sm text-center text-white mt-4">
           ¿Ya tienes cuenta?{" "}
           <Link to="/login" className="text-purple-600 hover:underline">
             Iniciar sesión
