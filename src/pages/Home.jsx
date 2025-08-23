@@ -361,7 +361,7 @@ useEffect(() => {
               <h2 className="text-xl font-bold mb-4 text-center">
                 ¿Eliminar chatbot?
               </h2>
-              <p className="text-sm text-gray-300 dark:text-gray-700 mb-6 text-center">
+              <p className="text-sm text-gray-300 mb-6 text-center">
                 Esta acción no se puede deshacer. ¿Estás seguro de que deseas
                 continuar?
               </p>
