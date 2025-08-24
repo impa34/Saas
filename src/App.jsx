@@ -9,6 +9,7 @@ import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import TelegramIntegration from "./pages/TelegramIntegration"
 import About from "./pages/About";
 import Redirecting from "./pages/Redirecting";
 import PaymentSuccess from "./pages/PaymentSuccess";
@@ -47,6 +48,7 @@ function App() {
       <Route path="/pricing" element={<Pricing />}></Route>
       <Route path="/about" element={<About />}></Route>
       <Route path="/contact" element={<Contact />}></Route>
+       <Route path="/telegram" element={<TelegramIntegration />}></Route>
       <Route path="/privacy" element={<Privacy />}></Route>
       <Route path="/terms" element={<Terms />}></Route>
       <Route path="/redirecting" element={<Redirecting />}></Route>
