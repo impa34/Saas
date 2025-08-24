@@ -283,6 +283,14 @@ useEffect(() => {
               >
                 {bot.name}
               </h3>
+              <button
+  onClick={() => navigate(`/telegram/${bot._id}`)}
+  className="bg-sky-600 hover:bg-sky-700 px-4 text-white py-1 rounded-md text-sm flex items-center gap-2"
+>
+  <img src="/icons/telegram.svg" alt="telegram" className="w-4 h-4" />
+  Telegram
+</button>
+
               <p className="text-sm text-gray-400 mb-1">
                 Prompts configurados: <strong>{bot.prompts.length}</strong>
               </p>
