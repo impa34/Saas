@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
+import Navbar from "../components/Navbar";
 
 function TelegramIntegration() {
   const { botId } = useParams();
@@ -32,13 +33,14 @@ function TelegramIntegration() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col p-8">
+      <Navbar />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="max-w-2xl mx-auto bg-gray-100 dark:bg-gray-800 p-6 rounded-xl shadow-md"
       >
-        <h1 className="text-3xl font-bold text-sky-500 mb-4 text-center">
+        <h1 className="text-3xl font-bold text-purple-600 mb-4 text-center">
           Integrar tu chatbot con Telegram
         </h1>
 
@@ -71,11 +73,12 @@ function TelegramIntegration() {
         <button
           onClick={saveToken}
           disabled={loading}
-          className="w-full bg-sky-600 hover:bg-sky-700 text-white py-2 rounded-md transition"
+          className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-md transition"
         >
           {loading ? "Guardando..." : "Guardar Token"}
         </button>
       </motion.div>
+      <Footer />
     </div>
   );
 }
