@@ -15,97 +15,99 @@ function Home() {
   const [statsByBot, setStatsByBot] = useState({});
   const [showModal, setShowModal] = useState(false); // ⬅ Modal visible
   const [botToDelete, setBotToDelete] = useState(null);
-  const isProOrFull = localStorage.getItem("status") === "pro" || localStorage.getItem("status") === "full"
+  const isProOrFull =
+    localStorage.getItem("status") === "pro" ||
+    localStorage.getItem("status") === "full";
   const { logout } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-  const token = localStorage.getItem("token");
-  if (!token) {
-    window.location.href = "/login";
-    return;
-  }
-
-  const authHeader = { Authorization: `Bearer ${token}` };
-
-  // 1) Verificar sesión
-  fetch("https://saas-backend-xrkb.onrender.com/api/auth/home", {
-    headers: authHeader,
-  })
-    .then((r) => r.json())
-    .catch(() => {
-      localStorage.removeItem("token");
+    const token = localStorage.getItem("token");
+    if (!token) {
       window.location.href = "/login";
-    });
-
-  // 2) Cargar datos del usuario
-  const fetchUser = async () => {
-    try {
-      const res = await fetch("https://saas-backend-xrkb.onrender.com/api/user/me", {
-        headers: authHeader,
-      });
-      const user = await res.json();
-      setUser(user);
-      localStorage.setItem("status", user.status || "Free");
-    } catch (e) {
-      console.error("Error al cargar usuario", e);
+      return;
     }
-  };
 
-  fetchUser();
-}, []); // 👈 solo al montar
+    const authHeader = { Authorization: `Bearer ${token}` };
 
+    // 1) Verificar sesión
+    fetch("https://saas-backend-xrkb.onrender.com/api/auth/home", {
+      headers: authHeader,
+    })
+      .then((r) => r.json())
+      .catch(() => {
+        localStorage.removeItem("token");
+        window.location.href = "/login";
+      });
+
+    // 2) Cargar datos del usuario
+    const fetchUser = async () => {
+      try {
+        const res = await fetch(
+          "https://saas-backend-xrkb.onrender.com/api/user/me",
+          {
+            headers: authHeader,
+          }
+        );
+        const user = await res.json();
+        setUser(user);
+        localStorage.setItem("status", user.status || "Free");
+      } catch (e) {
+        console.error("Error al cargar usuario", e);
+      }
+    };
+
+    fetchUser();
+  }, []); // 👈 solo al montar
 
   useEffect(() => {
-  const token = localStorage.getItem("token");
-  if (!token) return;
+    const token = localStorage.getItem("token");
+    if (!token) return;
 
-  const fetchBots = async () => {
-    try {
-      const { data } = await axios.get(
-        "https://saas-backend-xrkb.onrender.com/api/chatbots",
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
-      setBots(data);
-    } catch (e) {
-      console.error(e);
-      localStorage.removeItem("token");
-      window.location.href = "/login";
-    }
-  };
-
-  fetchBots();
-}, []); // 👈 solo al montar
-
-
-useEffect(() => {
-  const token = localStorage.getItem("token");
-  if (!token || bots.length === 0) return;
-
-  const fetchStats = async (id) => {
-    try {
-      const res = await fetch(
-        `https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/stats`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
-      if (!res.ok) {
-        console.error("Error al obtener stats del bot", id);
-        return;
+    const fetchBots = async () => {
+      try {
+        const { data } = await axios.get(
+          "https://saas-backend-xrkb.onrender.com/api/chatbots",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+        setBots(data);
+      } catch (e) {
+        console.error(e);
+        localStorage.removeItem("token");
+        window.location.href = "/login";
       }
-      const data = await res.json();
-      setStatsByBot((prev) => ({ ...prev, [id]: data }));
-    } catch (error) {
-      console.error("Stats fetch error:", error);
-    }
-  };
+    };
 
-  bots.forEach((bot) => fetchStats(bot._id));
-}, [bots]); // 👈 se dispara cuando cambian los bots
+    fetchBots();
+  }, []); // 👈 solo al montar
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token || bots.length === 0) return;
+
+    const fetchStats = async (id) => {
+      try {
+        const res = await fetch(
+          `https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/stats`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+        if (!res.ok) {
+          console.error("Error al obtener stats del bot", id);
+          return;
+        }
+        const data = await res.json();
+        setStatsByBot((prev) => ({ ...prev, [id]: data }));
+      } catch (error) {
+        console.error("Stats fetch error:", error);
+      }
+    };
+
+    bots.forEach((bot) => fetchStats(bot._id));
+  }, [bots]); // 👈 se dispara cuando cambian los bots
 
   const deleteBot = async (id) => {
     await fetch(`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}`, {
@@ -118,7 +120,7 @@ useEffect(() => {
     setBots(bots.filter((bot) => bot._id !== id));
   };
 
-    const confirmDelete = (id) => {
+  const confirmDelete = (id) => {
     setBotToDelete(id);
     setShowModal(true);
   };
@@ -127,7 +129,6 @@ useEffect(() => {
 
   const logoutButtonClasses =
     "text-white bg-red-600 hover:bg-red-700 p-2 rounded-md transition flex items-center justify-center";
-
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col overflow-x-hidden">
@@ -202,13 +203,12 @@ useEffect(() => {
           <AnimatePresence>
             {showIntegration && (
               <motion.div
-  initial={{ opacity: 0, height: 0 }}
-  animate={{ opacity: 1, height: "auto"}}
-  exit={{ opacity: 0, height: 0 }}
-  transition={{ duration: 0.3 }}
-  className="overflow-hidden mt-4"
->
-
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden mt-4"
+              >
                 <div className="text-sm text-gray-700 dark:text-gray-300 text-center">
                   <p className="mb-4">
                     Pega este fragmento en el{" "}
@@ -218,13 +218,12 @@ useEffect(() => {
                     de tu sitio:
                   </p>
 
-                 <pre className="bg-black text-green-400 p-4 rounded-md text-xs text-left w-full overflow-x-auto whitespace-pre-wrap break-words">
-{`<script 
+                  <pre className="bg-black text-green-400 p-4 rounded-md text-xs text-left w-full overflow-x-auto whitespace-pre-wrap break-words">
+                    {`<script 
   src="https://talochatbot.com/widget.js" 
   data-chatbot-id="TU_CHATBOT_ID">
 </script>`}
-</pre>
-
+                  </pre>
 
                   <p className="text-gray-400 mt-4">
                     Este código mostrará el botón del chatbot automáticamente en
@@ -284,12 +283,16 @@ useEffect(() => {
                 {bot.name}
               </h3>
               <button
-  onClick={() => navigate(`/telegram/${bot._id}`)}
-  className="bg-sky-600 hover:bg-sky-700 px-4 text-white py-1 rounded-md text-sm flex items-center gap-2"
->
-  <img src="/telegramlogo.webp" alt="telegram" className="w-4 h-4" />
-  Telegram
-</button>
+                onClick={() => navigate(`/telegram/${bot._id}`)}
+                className="absolute top-2 right-2 bg-sky-600 hover:bg-sky-700 px-3 py-1 rounded-md text-white text-sm flex items-center gap-2"
+              >
+                <img
+                  src="/telegramlogo.webp"
+                  alt="telegram"
+                  className="w-4 h-4"
+                />
+                Telegram
+              </button>
 
               <p className="text-sm text-gray-400 mb-1">
                 Prompts configurados: <strong>{bot.prompts.length}</strong>
@@ -321,42 +324,56 @@ useEffect(() => {
                   Eliminar
                 </button>
                 {isProOrFull ? (
-  <div className="mt-3 text-xs text-gray-600 dark:text-gray-300">
-    {statsByBot[bot._id] ? (
-      <>
-      <h3 className="font-semibold">Estadísticas</h3>
-        <p>🗨️ Conversaciones: {statsByBot[bot._id].totalConversations || 0}</p>
-        <p>💬 Mensajes: {statsByBot[bot._id].totalMessages || 0}</p>
-        <p>🤖 Mensajes Bot: {statsByBot[bot._id].botMessages || 0}</p>
-        <p>👤 Mensajes Usuario: {statsByBot[bot._id].userMessages || 0}</p>
-        <p>
-          📊 Promedio/conversación:{" "}
-          {typeof statsByBot[bot._id].averageMessages === "number"
-            ? statsByBot[bot._id].averageMessages.toFixed(1)
-            : "0.0"}
-        </p>
-        <p>
-          ⏱️ Última:{" "}
-          {statsByBot[bot._id].lastInteraction
-            ? new Date(statsByBot[bot._id].lastInteraction).toLocaleString()
-            : "Nunca"}
-        </p>
-      </>
-    ) : (
-      <p className="text-gray-400">Cargando estadísticas...</p>
-    )}
-  </div>
-) : (
-  <p className="mt-3 text-xs text-gray-400">
-    📊 Estadísticas solo disponibles para usuarios Pro o Full
-  </p>
-)}
+                  <div className="mt-3 text-xs text-gray-600 dark:text-gray-300">
+                    {statsByBot[bot._id] ? (
+                      <>
+                        <h3 className="font-semibold">Estadísticas</h3>
+                        <p>
+                          🗨️ Conversaciones:{" "}
+                          {statsByBot[bot._id].totalConversations || 0}
+                        </p>
+                        <p>
+                          💬 Mensajes: {statsByBot[bot._id].totalMessages || 0}
+                        </p>
+                        <p>
+                          🤖 Mensajes Bot:{" "}
+                          {statsByBot[bot._id].botMessages || 0}
+                        </p>
+                        <p>
+                          👤 Mensajes Usuario:{" "}
+                          {statsByBot[bot._id].userMessages || 0}
+                        </p>
+                        <p>
+                          📊 Promedio/conversación:{" "}
+                          {typeof statsByBot[bot._id].averageMessages ===
+                          "number"
+                            ? statsByBot[bot._id].averageMessages.toFixed(1)
+                            : "0.0"}
+                        </p>
+                        <p>
+                          ⏱️ Última:{" "}
+                          {statsByBot[bot._id].lastInteraction
+                            ? new Date(
+                                statsByBot[bot._id].lastInteraction
+                              ).toLocaleString()
+                            : "Nunca"}
+                        </p>
+                      </>
+                    ) : (
+                      <p className="text-gray-400">Cargando estadísticas...</p>
+                    )}
+                  </div>
+                ) : (
+                  <p className="mt-3 text-xs text-gray-400">
+                    📊 Estadísticas solo disponibles para usuarios Pro o Full
+                  </p>
+                )}
               </div>
             </motion.div>
           ))}
         </div>
       </main>
-            <AnimatePresence>
+      <AnimatePresence>
         {showModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <motion.div
