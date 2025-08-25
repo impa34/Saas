@@ -17,11 +17,12 @@ function TelegramIntegration() {
     setLoading(true);
     setError("");
     try {
-      const res = await axios.post(
-        `https://saas-backend-xrkb.onrender.com/api/chatbots/${botId}/telegram`,
-        { token },
-        { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
-      );
+     const res = await axios.post(
+  `https://saas-backend-xrkb.onrender.com/api/chatbots/${botId}/integrations/telegram`,
+  { token },
+  { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+);
+
       if (res.status === 200) {
         setSuccess(true);
         setTimeout(() => navigate("/home"), 2000);
@@ -33,7 +34,7 @@ function TelegramIntegration() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col p-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col">
       <Navbar />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
