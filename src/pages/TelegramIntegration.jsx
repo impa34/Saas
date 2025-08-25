@@ -40,7 +40,7 @@ function TelegramIntegration() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-2xl mx-auto bg-gray-100 dark:bg-gray-800 p-6 rounded-xl shadow-md"
+        className="max-w-2xl mx-auto mt-2 bg-gray-100 dark:bg-gray-800 p-6 rounded-xl shadow-md"
       >
         <h1 className="text-3xl font-bold text-purple-600 mb-4 text-center">
           Integrar tu chatbot con Telegram
