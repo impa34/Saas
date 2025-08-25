@@ -48,7 +48,7 @@ function App() {
       <Route path="/pricing" element={<Pricing />}></Route>
       <Route path="/about" element={<About />}></Route>
       <Route path="/contact" element={<Contact />}></Route>
-       <Route path="/telegram" element={<TelegramIntegration />}></Route>
+      <Route path="/telegram/:botId" element={<TelegramIntegration />} />
       <Route path="/privacy" element={<Privacy />}></Route>
       <Route path="/terms" element={<Terms />}></Route>
       <Route path="/redirecting" element={<Redirecting />}></Route>
