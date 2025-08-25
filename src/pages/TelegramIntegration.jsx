@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer"
 
 function TelegramIntegration() {
   const { botId } = useParams();
