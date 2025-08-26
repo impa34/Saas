@@ -269,7 +269,7 @@ function Home() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.05 * bots.indexOf(bot) }}
-              className="bg-gray-100 dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-purple-500/30 transition duration-300"
+              className="relative bg-gray-100 dark:bg-gray-800 p-5 rounded-lg shadow-md hover:shadow-purple-500/30 transition duration-300"
             >
               <h3
                 onClick={() =>
