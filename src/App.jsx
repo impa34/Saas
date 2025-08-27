@@ -1,4 +1,5 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate, Outlet } from "react-router-dom";
+import { useEffect } from "react";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
@@ -19,10 +20,27 @@ import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./pages/Profile";
 
 function App() {
+  useEffect(() => {
+    // Config global para el widget
+    window.TALO_CHATBOT_ID = "68aed2bbcff629d8c3784c64";
+
+    // Crear la etiqueta <script>
+    const script = document.createElement("script");
+    script.src = "https://www.talochatbot.com/widget.js"; // ⚡ ponlo con https
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    // cleanup para que no se duplique
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
   const PrivateRoute = ({ children }) => {
     const token = localStorage.getItem("token");
     return token ? children : <Navigate to="/login" />;
   };
+  
   return (
     <Routes>
       
@@ -53,6 +71,7 @@ function App() {
       <Route path="/terms" element={<Terms />}></Route>
       <Route path="/redirecting" element={<Redirecting />}></Route>
       <Route path="*" element={<p>404 - No encontrado</p>} />
+      <Outlet />
     </Routes>
   );
 }
