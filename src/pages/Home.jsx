@@ -282,7 +282,7 @@ function Home() {
               >
                 {bot.name}
               </h3>
-              <button
+              {(localStorage.getItem("status") === "full") ? (<button
                 onClick={() => navigate(`/telegram/${bot._id}`)}
                 className="absolute top-2 right-2 bg-sky-600 hover:bg-sky-700 px-3 py-1 rounded-md text-white text-sm flex items-center gap-2"
               >
@@ -292,7 +292,7 @@ function Home() {
                   className="w-4 h-4"
                 />
                 Telegram
-              </button>
+              </button> ) : (<p></p>)}
 
               <p className="text-sm text-gray-400 mb-1">
                 Prompts configurados: <strong>{bot.prompts.length}</strong>
