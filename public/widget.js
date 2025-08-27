@@ -5,7 +5,12 @@
   }
   if (!chatbotId) return;
 
+  // Evita crear el botón si ya existe
+  if (document.getElementById("talo-chatbot-button")) return;
+
+  // Crear botón
   const button = document.createElement("div");
+  button.id = "talo-chatbot-button"; // ID único para evitar duplicados
   button.innerText = "💬";
   Object.assign(button.style, {
     position: "fixed",
@@ -25,6 +30,7 @@
   });
   document.body.appendChild(button);
 
+  // Crear iframe
   const iframe = document.createElement("iframe");
   iframe.src = `https://www.talochatbot.com/embed/${chatbotId}`;
   Object.assign(iframe.style, {
@@ -61,6 +67,7 @@
     }
   });
 
+  // Cierra si se hace clic fuera del iframe y botón
   document.addEventListener("mousedown", (e) => {
     const clickInsideIframe = e.target === iframe || iframe.contains(e.target);
     const clickOnButton = e.target === button || button.contains(e.target);

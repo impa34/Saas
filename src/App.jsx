@@ -20,24 +20,18 @@ import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./pages/Profile";
 
 function App() {
-  useEffect(() => {
-    // Config global para el widget
-    window.TALO_CHATBOT_ID = "68aed2bbcff629d8c3784c64";
+useEffect(() => {
+  if (document.getElementById("talo-widget-script")) return; // ya existe, no cargar otra vez
 
-    // Crear la etiqueta <script>
-    const script = document.createElement("script");
-    script.src = "https://www.talochatbot.com/widget.js";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
+  window.TALO_CHATBOT_ID = "68aed2bbcff629d8c3784c64";
 
-    // limpiar para evitar duplicados en HMR
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
+  const script = document.createElement("script");
+  script.id = "talo-widget-script";
+  script.src = "https://www.talochatbot.com/widget.js";
+  script.async = true;
+  script.defer = true;
+  document.body.appendChild(script);
+}, []);
   const PrivateRoute = ({ children }) => {
     const token = localStorage.getItem("token");
     return token ? children : <Navigate to="/login" />;
