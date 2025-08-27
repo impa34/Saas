@@ -1,5 +1,8 @@
 (function () {
-  const chatbotId = document.currentScript.getAttribute("data-chatbot-id");
+  let chatbotId = document.currentScript?.getAttribute("data-chatbot-id");
+  if (!chatbotId && window.TALO_CHATBOT_ID) {
+    chatbotId = window.TALO_CHATBOT_ID;
+  }
   if (!chatbotId) return;
 
   const button = document.createElement("div");
@@ -58,7 +61,6 @@
     }
   });
 
-  // Cierra si se hace clic fuera del iframe y botón
   document.addEventListener("mousedown", (e) => {
     const clickInsideIframe = e.target === iframe || iframe.contains(e.target);
     const clickOnButton = e.target === button || button.contains(e.target);
