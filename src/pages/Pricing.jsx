@@ -109,7 +109,7 @@ export default function Pricing() {
       </button>
 
       <div className="text-center mb-12 px-4">
-        <h1 className="text-4xl font-bold mb-4">Selecciona tu plan</h1>
+        <h1 className="text-4xl text-gray-900 dark:text-white font-bold mb-4">Selecciona tu plan</h1>
         <p className="text-gray-300">
           Empieza gratis y mejora cuando lo necesites. Sin permanencia.
         </p>
