@@ -20,7 +20,7 @@
     width: "50px",
     height: "50px",
     borderRadius: "50%",
-    backgroundColor: "#007bff",
+    backgroundColor: "#ad46ff",
     color: "#fff",
     display: "flex",
     justifyContent: "center",
