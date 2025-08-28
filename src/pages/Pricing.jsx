@@ -22,7 +22,7 @@ const plans = [
     title: "Full",
     price: "19€/mes",
     features: [
-      "Todo lo incluido en Pro",
+      "Bot de Telegram",
       "Descarga de conversaciones",
       "Soporte para archivos de hoja de cálculo",
     ],

@@ -80,18 +80,23 @@ function Profile() {
     {user.status === "full" && (
       <>
         <li>Integración con Google Calendar</li>
+        <li>Recordatorios por email</li>
         <li>Soporte para archivos Excel</li>
+        <li>Bot de Telegram</li>
         <li>Descargar conversaciones en CSV</li>
         <li>Estadísticas de uso detalladas</li>
         <li>Personalización avanzada (colores, fuente, tamaño)</li>
         <li>Prompts ilimitados</li>
         <li>Prioridad en soporte</li>
+        
       </>
     )}
         {user.status === "lifetime" && (
       <>
         <li>Integración con Google Calendar</li>
+        <li>Recordatorios por email</li>
         <li>Soporte para archivos Excel</li>
+        <li>Bot de Telegram</li>
         <li>Descargar conversaciones en CSV</li>
         <li>Estadísticas de uso detalladas</li>
         <li>Personalización avanzada (colores, fuente, tamaño)</li>
@@ -102,6 +107,8 @@ function Profile() {
 
     {user.status === "pro" && (
       <>
+      <li>Integración con Google Calendar</li>
+      <li>Recordatorios por email</li>
         <li>Estadísticas de uso detalladas</li>
         <li>Personalización avanzada (colores, fuente, tamaño)</li>
         <li>Prompts ilimitados</li>

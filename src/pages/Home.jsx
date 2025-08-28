@@ -282,7 +282,7 @@ function Home() {
               >
                 {bot.name}
               </h3>
-              {(localStorage.getItem("status") === "full") ? (<button
+              {(localStorage.getItem("status") === "full") || (localStorage.getItem("status") === "lifetime")  ? (<button
                 onClick={() => navigate(`/telegram/${bot._id}`)}
                 className="absolute top-2 right-2 bg-sky-600 hover:bg-sky-700 px-3 py-1 rounded-md text-white text-sm flex items-center gap-2"
               >
