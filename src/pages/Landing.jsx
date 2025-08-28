@@ -80,13 +80,13 @@ function Landing() {
             {
               name: "Pro",
               price: "9€/mes",
-              features: ["Estadísticas detalladas", "Diseño personalizable", "Prompts ilimitados"],
+              features: ["Estadísticas detalladas", "Integración de Google Calendar", "Prompts ilimitados"],
               color: "purple",
             },
             {
               name: "Full",
               price: "19€/mes",
-              features: ["Todo de Pro", "Integración de Google Calendar y Excel",  "Historial de conversaciones"],
+              features: ["Todo de Pro", "Integración de Telegram y Excel",  "Historial de conversaciones"],
               color: "purple",
             },
             {
