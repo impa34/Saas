@@ -9,49 +9,24 @@ export default function Pricing() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
-  const plans = [
+const rawPlans = [
   {
-    title: "Pro",
-    price: "9€/mes",
-    features: [
-      "Prompts ilimitados",
-      "Personalización del bot (colores, estadísticas, fuentes)",
-      "Integración de Google Calendar",
-    ],
-    cta: "Hazte Pro",
+    key: "pro",
     bg: "bg-blue-800",
-    textColor: "text-gray-900 dark:text-white",
     border: "border-blue-500",
   },
   {
-    title: "Full",
-    price: "19€/mes",
-    features: [
-      "Bot de Telegram",
-      "Descarga de conversaciones",
-      "Soporte para archivos de hoja de cálculo",
-    ],
-    cta: "Obtener Full",
+    key: "full",
     bg: "bg-purple-700",
-    textColor: "text-gray-900 dark:text-white",
     border: "border-purple-500",
-    badge: "Mejor oferta",
   },
   {
-    title: "Lifetime",
-    price: "79€ único pago",
-    features: [
-      "Todo lo incluido en Full",
-      "Sin pagos recurrentes",
-      "Soporte prioritario",
-    ],
-    cta: "Comprar acceso vitalicio",
+    key: "lifetime",
     bg: "bg-yellow-700",
-    textColor: "text-gray-900 dark:text-white",
     border: "border-yellow-500",
-    badge: "Popular",
   },
 ];
+
 
 
   const redirectPlan = new URLSearchParams(location.search).get("redirectPlan");
@@ -92,7 +67,6 @@ export default function Pricing() {
     }
   };
 
-  const planKeys = ["pro", "full", "lifetime"];
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-white">
@@ -110,38 +84,37 @@ export default function Pricing() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto py-5 px-4 md:px-8">
-        {planKeys.map((key) => {
-          const plan = t(`pricing.plans.${key}`, { returnObjects: true });
-          return (
-<div
-  key={plan.title}
-  className={`flex flex-col justify-between rounded-2xl shadow-lg p-6 border h-full ${plans.bg} ${plans.border} transition hover:scale-105 duration-300 relative`}
->
-              {plans.badge && (
-                <div className="absolute top-4 right-4 bg-white text-black text-xs font-semibold px-2 py-1 rounded-full shadow">
-                  {plans.badge}
-                </div>
-              )}
+       {rawPlans.map(({ key, bg, border }) => {
+  const plan = t(`pricing.plans.${key}`, { returnObjects: true });
+  return (
+    <div
+      key={plan.title}
+      className={`flex flex-col justify-between rounded-2xl shadow-lg p-6 border h-full ${bg} ${border} transition hover:scale-105 duration-300 relative`}
+    >
+      {plan.badge && (
+        <div className="absolute top-4 right-4 bg-white text-black text-xs font-semibold px-2 py-1 rounded-full shadow">
+          {plan.badge}
+        </div>
+      )}
+      <div>
+        <h2 className="text-2xl font-semibold mb-2">{plan.title}</h2>
+        <p className="text-3xl font-bold mb-6">{plan.price}</p>
+        <ul className="space-y-2 mb-6">
+          {plan.features.map((feature, i) => (
+            <li key={i} className="text-sm">{feature}</li>
+          ))}
+        </ul>
+      </div>
+      <button
+        onClick={() => handlePlanSelect(key)}
+        className="w-full py-2 font-semibold rounded-md bg-black bg-opacity-20 hover:bg-opacity-40 transition duration-200"
+      >
+        {plan.cta}
+      </button>
+    </div>
+  );
+})}
 
-              <div>
-                <h2 className="text-2xl font-semibold mb-2">{plans.title}</h2>
-                <p className="text-3xl font-bold mb-6">{plans.price}</p>
-                <ul className="space-y-2 mb-6">
-                  {plans.features.map((feature, i) => (
-                    <li key={i} className="text-sm">{feature}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <button
-                onClick={() => handlePlanSelect(key)}
-                className="w-full py-2 font-semibold rounded-md bg-black bg-opacity-20 hover:bg-opacity-40 transition duration-200"
-              >
-                {plans.cta}
-              </button>
-            </div>
-          );
-        })}
       </div>
 
       <div className="text-center mt-8 px-4 text-gray-700 dark:text-gray-300 text-sm">
