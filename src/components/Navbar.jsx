@@ -1,19 +1,23 @@
 import { useNavigate, Link } from "react-router-dom";
-import {useState} from "react"
+import { useState } from "react";
 import { useAuth } from "../context/AuthProvider";
 import { Globe } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
-
 import { HiUserCircle, HiLogin, HiLogout, HiUser, HiViewGrid } from "react-icons/hi";
+import { useTranslation } from "react-i18next";
 
 function Navbar() {
   const navigate = useNavigate();
   const { isLoggedIn, logout } = useAuth();
-  const [language, setLanguage] = useState("es"); 
+  const { i18n } = useTranslation();
+
+  const [language, setLanguage] = useState(i18n.language || "es");
+
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "es" ? "en" : "es"));
-    // opcional: guardar en localStorage para persistir
-    localStorage.setItem("lang", language === "es" ? "en" : "es");
+    const newLang = language === "es" ? "en" : "es";
+    setLanguage(newLang);
+    i18n.changeLanguage(newLang);   // 👈 aquí el cambio real
+    localStorage.setItem("lang", newLang);
   };
 
   const iconButtonClasses =
@@ -24,31 +28,28 @@ function Navbar() {
 
   return (
     <nav className="flex justify-between items-center px-4 md:px-8 py-4 bg-gray-100 dark:bg-gray-800 shadow-md">
-    <a href="/landing" className="flex items-center">
-  {/* Logo claro (visible en light mode) */}
-  <img
-    src="/logo1.webp"
-    alt="Talobot logo"
-    className="h-12 ml-2 w-auto hidden dark:block"
-  />
-
-  {/* Logo oscuro (visible en dark mode) */}
-  <img
-    src="/logo1_dark.webp"
-    alt="Talobot logo dark"
-    className="h-12 ml-2 w-auto dark:hidden"
-  />
-</a>
-<ThemeToggle className="hidden"/>
+      <a href="/landing" className="flex items-center">
+        <img
+          src="/logo1.webp"
+          alt="Talobot logo"
+          className="h-12 ml-2 w-auto hidden dark:block"
+        />
+        <img
+          src="/logo1_dark.webp"
+          alt="Talobot logo dark"
+          className="h-12 ml-2 w-auto dark:hidden"
+        />
+      </a>
+      <ThemeToggle className="hidden" />
       <div className="ml-auto flex items-center">
         <div className="hidden md:flex space-x-4 text-sm text-gray-700 dark:text-gray-300 mr-6">
-                <button
-        onClick={toggleLanguage}
-        className="flex items-center gap-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition"
-      >
-        <Globe size={18} />
-        <span>{language === "es" ? "ES" : "EN"}</span>
-      </button>
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition"
+          >
+            <Globe size={18} />
+            <span>{language === "es" ? "ES" : "EN"}</span>
+          </button>
           <Link to="/pricing" className="hover:text-gray-900 dark:text-white transition">
             Planes
           </Link>
