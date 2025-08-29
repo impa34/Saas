@@ -54,7 +54,31 @@ const resources = {
         "No monthly fees"
       ],
 
-      plan_button: "Start now"
+      plan_button: "Start now",
+            why_card1_title: "Automated scheduling",
+      why_card1_desc: "Schedule meetings automatically with Google Calendar and AI.",
+      why_card2_title: "Personalized smart prompts",
+      why_card2_desc: "Design unique AI-powered interactions tailored to your business.",
+      why_card3_title: "Data synchronization",
+      why_card3_desc: "Connect Excel and manage customer data like a professional.",
+      features: {
+  calendar: {
+    name: "Google Calendar",
+    description: "Connect with Google Calendar and automatically schedule appointments."
+  },
+  email: {
+    name: "Email Capture",
+    description: "Automatically collect emails and client data."
+  },
+  branding: {
+    name: "Customization",
+    description: "Adjust the chatbot style to match your brand image."
+  },
+  analytics: {
+    name: "Analytics",
+    description: "Get metrics about usage, messages, and conversions."
+  }
+}
     }
   },
   es: {
@@ -109,7 +133,32 @@ const resources = {
         "Sin mensualidades"
       ],
 
-      plan_button: "Empezar ahora"
+      plan_button: "Empezar ahora",
+       why_card1_title: "Agenda automatizada",
+      why_card1_desc: "Programa reuniones automáticamente con Google Calendar e IA.",
+      why_card2_title: "Prompts inteligentes personalizados",
+      why_card2_desc: "Diseña interacciones únicas con IA adaptadas a tu negocio.",
+      why_card3_title: "Sincronización de datos",
+      why_card3_desc: "Conecta Excel y gestiona datos de clientes como un profesional.",
+      features: {
+  calendar: {
+    name: "Google Calendar",
+    description: "Conecta con Google Calendar y agenda citas automáticamente."
+  },
+  email: {
+    name: "Captura de Email",
+    description: "Recoge automáticamente los correos y datos de tus clientes."
+  },
+  branding: {
+    name: "Personalización",
+    description: "Ajusta el estilo del chatbot según la imagen de tu marca."
+  },
+  analytics: {
+    name: "Estadísticas",
+    description: "Obtén métricas sobre uso, mensajes y conversiones."
+  }
+}
+
     }
   }
 };
