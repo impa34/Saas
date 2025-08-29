@@ -1,24 +1,16 @@
 import { useNavigate, Link } from "react-router-dom";
-import { useState } from "react";
 import { useAuth } from "../context/AuthProvider";
 import { Globe } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { HiUserCircle, HiLogin, HiLogout, HiUser, HiViewGrid } from "react-icons/hi";
 import { useTranslation } from "react-i18next";
+import { useLanguage } from "../context/LanguageContext"; // 🔑 importar contexto
 
 function Navbar() {
   const navigate = useNavigate();
   const { isLoggedIn, logout } = useAuth();
-  const { t, i18n } = useTranslation();
-
-  const [language, setLanguage] = useState(i18n.language || "es");
-
-  const toggleLanguage = () => {
-    const newLang = language === "es" ? "en" : "es";
-    setLanguage(newLang);
-    i18n.changeLanguage(newLang);
-    localStorage.setItem("lang", newLang);
-  };
+  const { t } = useTranslation();
+  const { language, toggleLanguage } = useLanguage(); // 🔑 usar contexto global
 
   const iconButtonClasses =
     "text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
@@ -43,13 +35,13 @@ function Navbar() {
       <ThemeToggle className="hidden" />
       <div className="ml-auto flex items-center">
         <div className="hidden md:flex space-x-4 text-sm text-gray-700 dark:text-gray-300 mr-6">
-      <button
-        onClick={toggleLanguage}
-        className="flex items-center gap-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition"
-      >
-        <Globe size={18} />
-        <span>{language === "es" ? "ES" : "EN"}</span>
-      </button>
+          <button
+            onClick={toggleLanguage} // 🔑 usar toggle global
+            className="flex items-center gap-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition"
+          >
+            <Globe size={18} />
+            <span>{language === "es" ? "ES" : "EN"}</span>
+          </button>
           <Link to="/pricing" className="hover:text-gray-900 dark:text-white transition">
             {t("navbar.pricing")}
           </Link>
