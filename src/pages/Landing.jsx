@@ -6,11 +6,12 @@ import Footer from "../components/Footer";
 import FeatureCardSection from "../components/FeaturedCardSection";
 import InteractiveFeatureSection from "../components/InteractiveFeatureSection";
 import {Helmet} from "react-helmet"
+import { useTranslation } from "react-i18next";
 import {motion} from "framer-motion"
 
 function Landing() {
   const navigate = useNavigate();
-
+const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col">
@@ -39,9 +40,9 @@ function Landing() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
         className="relative z-10">
-          <Typewriter text="Tu asistente de chat personal para tu negocio." speed={60} />
+          <Typewriter text={t("hero_title")} speed={60} />
           <p className="text-lg md:text-xl text-gray-300 mb-6 py-6">
-            Genera tu chatbot inteligente con IA en minutos.
+            {t("hero_subtitle")}
           </p>
           <button
             onClick={() => navigate("/register")}
