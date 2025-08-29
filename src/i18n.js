@@ -737,8 +737,7 @@ const resources = {
         edit: "Editar",
       },
     },
-    },
-    "terms": {
+     "terms": {
   "back": "Volver",
   "title": "Términos de Uso",
   "lastUpdated": "Última actualización: 2 de agosto de 2025",
@@ -780,6 +779,8 @@ const resources = {
     }
   }
 }
+    },
+   
     
   },
 };
