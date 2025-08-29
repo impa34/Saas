@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
+import WithLanguage from "../components/WithLanguage";
 
 export default function Pricing() {
   const { t } = useTranslation();
@@ -69,7 +70,8 @@ const rawPlans = [
 
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-white">
+    <WithLanguage>
+      <div className="min-h-screen bg-white dark:bg-gray-900 text-white">
       <Navbar />
       <button
         onClick={() => navigate(-1)}
@@ -123,5 +125,7 @@ const rawPlans = [
 
       <Footer />
     </div>
+    </WithLanguage>
+    
   );
 }
