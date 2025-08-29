@@ -347,6 +347,48 @@ const resources = {
           errorMsg: "Error cancelling",
         },
       },
+      "terms": {
+  "back": "Back",
+  "title": "Terms of Use",
+  "lastUpdated": "Last updated: August 2, 2025",
+  "sections": {
+    "intro": {
+      "content": "Welcome to Talobot. By accessing or using our website and services, you agree to be bound by these Terms of Use and all applicable laws and regulations. If you do not agree with any of these terms, you should not use our services."
+    },
+    "useOfService": {
+      "title": "1. Use of the service",
+      "content": "By using Talobot, you agree not to use the service for any illegal or unauthorized purpose. You commit not to violate any local, national, or international laws during the use of our services."
+    },
+    "intellectualProperty": {
+      "title": "2. Intellectual property",
+      "content": "All content available on our website, including but not limited to text, images, logos, and software, is the property of Talobot or its licensors and is protected by copyright laws and other intellectual property laws."
+    },
+    "userAccounts": {
+      "title": "3. User accounts",
+      "content": "You are responsible for maintaining the confidentiality of your access credentials. We reserve the right to suspend or delete accounts that violate these terms or engage in suspicious activities."
+    },
+    "limitationOfLiability": {
+      "title": "4. Limitation of liability",
+      "content": "Talobot will not be liable for any indirect, incidental, or consequential damages resulting from the use or inability to use the service. We do not guarantee that the service will be error-free or uninterrupted."
+    },
+    "modifications": {
+      "title": "5. Modifications",
+      "content": "We reserve the right to modify these Terms of Use at any time. We will publish changes on this page and notify you if the changes are significant. Continued use of the service after changes are posted implies your acceptance."
+    },
+    "applicableLaw": {
+      "title": "6. Applicable law",
+      "content": "These terms are governed by the laws of Spain. Any dispute related to the service will be resolved in the courts of that country."
+    },
+    "contact": {
+      "title": "7. Contact",
+      "content": "If you have questions about these Terms of Use, you can contact us:",
+      "items": [
+        "Email: <a href='mailto:talochatbot@gmail.com' class='text-purple-300 underline'>talochatbot@gmail.com</a>",
+        "Website: <a href='https://talochatbot.com' target='_blank' class='text-purple-300 underline'>https://talochatbot.com</a>"
+      ]
+    }
+  }
+}
     },
   },
   es: {
@@ -696,7 +738,48 @@ const resources = {
       },
     },
     },
-    
+    "terms": {
+  "back": "Volver",
+  "title": "Términos de Uso",
+  "lastUpdated": "Última actualización: 2 de agosto de 2025",
+  "sections": {
+    "intro": {
+      "content": "Bienvenido a Talobot. Al acceder o utilizar nuestro sitio web y servicios, aceptas estar sujeto a estos Términos de Uso y a todas las leyes y regulaciones aplicables. Si no estás de acuerdo con alguno de estos términos, no debes utilizar nuestros servicios."
+    },
+    "useOfService": {
+      "title": "1. Uso del servicio",
+      "content": "Al usar Talobot, aceptas no utilizar el servicio para ningún propósito ilegal o no autorizado. Te comprometes a no violar ninguna ley local, nacional o internacional durante el uso de nuestros servicios."
+    },
+    "intellectualProperty": {
+      "title": "2. Propiedad intelectual",
+      "content": "Todo el contenido disponible en nuestro sitio web, incluyendo pero no limitado a texto, imágenes, logotipos y software, es propiedad de Talobot o de sus licenciantes y está protegido por leyes de derechos de autor y otras leyes de propiedad intelectual."
+    },
+    "userAccounts": {
+      "title": "3. Cuentas de usuario",
+      "content": "Eres responsable de mantener la confidencialidad de tus credenciales de acceso. Nos reservamos el derecho de suspender o eliminar cuentas que violen estos términos o realicen actividades sospechosas."
+    },
+    "limitationOfLiability": {
+      "title": "4. Limitación de responsabilidad",
+      "content": "Talobot no será responsable de ningún daño indirecto, incidental o consecuente que resulte del uso o la imposibilidad de usar el servicio. No garantizamos que el servicio esté libre de errores o interrupciones."
+    },
+    "modifications": {
+      "title": "5. Modificaciones",
+      "content": "Nos reservamos el derecho de modificar estos Términos de Uso en cualquier momento. Publicaremos los cambios en esta página y te notificaremos si los cambios son significativos. El uso continuo del servicio tras la publicación de cambios implica tu aceptación."
+    },
+    "applicableLaw": {
+      "title": "6. Ley aplicable",
+      "content": "Estos términos se rigen por las leyes de España. Cualquier disputa relacionada con el servicio será resuelta en los tribunales de dicho país."
+    },
+    "contact": {
+      "title": "7. Contacto",
+      "content": "Si tienes preguntas sobre estos Términos de Uso, puedes contactarnos:",
+      "items": [
+        "Email: <a href='mailto:talochatbot@gmail.com' class='text-purple-300 underline'>talochatbot@gmail.com</a>",
+        "Sitio web: <a href='https://talochatbot.com' target='_blank' class='text-purple-300 underline'>https://talochatbot.com</a>"
+      ]
+    }
+  }
+}
     
   },
 };
