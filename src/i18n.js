@@ -388,6 +388,22 @@ const resources = {
       ]
     }
   }
+},
+"contact": {
+  "back": "Back",
+  "title": "Contact Us",
+  "description": "We'd love to hear from you. Whether it's a question, comment, or collaboration proposal, write to us without obligation!",
+  "form": {
+    "name": "Your name",
+    "email": "Your email address",
+    "message": "Your message",
+    "send": "Send message",
+    "success": "Message sent successfully!"
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email address"
+  }
 }
     },
   },
@@ -777,6 +793,22 @@ const resources = {
         "Sitio web: <a href='https://talochatbot.com' target='_blank' class='text-purple-300 underline'>https://talochatbot.com</a>"
       ]
     }
+  }
+},
+"contact": {
+  "back": "Volver",
+  "title": "Contáctanos",
+  "description": "Nos encantaría saber de ti. Ya sea una duda, comentario o propuesta de colaboración, ¡escríbenos sin compromiso!",
+  "form": {
+    "name": "Tu nombre",
+    "email": "Tu correo electrónico",
+    "message": "Tu mensaje",
+    "send": "Enviar mensaje",
+    "success": "¡Mensaje enviado correctamente!"
+  },
+  "validation": {
+    "required": "Este campo es obligatorio",
+    "email": "Por favor ingresa un email válido"
   }
 }
     },
