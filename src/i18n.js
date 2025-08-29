@@ -245,118 +245,120 @@ const resources = {
         },
       },
 
-home: {
-  title: "Your Chatbots",
-  newBot: "+ New Chatbot",
-  botLimitMsg: "🚫 Free plan only allows one chatbot. Upgrade to create more.",
-  integration: {
-    toggle: "How to embed your chatbot on your website?",
-    description1: "Paste this snippet in the",
-    description2: "of your site:",
-    codeSnippet: `<script 
+      home: {
+        title: "Your Chatbots",
+        newBot: "+ New Chatbot",
+        botLimitMsg:
+          "🚫 Free plan only allows one chatbot. Upgrade to create more.",
+        integration: {
+          toggle: "How to embed your chatbot on your website?",
+          description1: "Paste this snippet in the",
+          description2: "of your site:",
+          codeSnippet: `<script 
   src="https://talochatbot.com/widget.js" 
   data-chatbot-id="YOUR_CHATBOT_ID">
 </script>`,
-    footer: "This code will display the chatbot button automatically in the bottom-right corner. You can customize everything from the dashboard: colors, font, size, and responses."
-  },
-  deleteModal: {
-    title: "Delete chatbot?",
-    message: "This action cannot be undone. Are you sure you want to continue?",
-    confirm: "Yes, delete",
-    cancel: "No, go back"
-  },
-  stats: {
-    loading: "Loading statistics...",
-    restricted: "📊 Statistics only available for Pro or Full users",
-    title: "Statistics",
-    conversations: "🗨️ Conversations",
-    messages: "💬 Messages",
-    botMessages: "🤖 Bot Messages",
-    userMessages: "👤 User Messages",
-    average: "📊 Avg/messages per conversation",
-    lastInteraction: "⏱️ Last",
-    never: "Never"
-  },
-  buttons: {
-    home: "Home",
-    profile: "Profile",
-    logout: "Logout",
-    telegram: "Telegram",
-    chat: "Chat",
-    edit: "Edit"
-  }
-},
-profile: {
-  loading: "Loading profile...",
-  back: "Home",
-  title: "Your profile",
-  labels: {
-    username: "Username",
-    email: "Email",
-    status: "Current plan"
-  },
-  planIncludes: "Your plan includes:",
-  plans: {
-    free: [
-      "1 basic chatbot",
-      "Up to 5 prompts",
-      "No design customization",
-      "No statistics"
-    ],
-    pro: [
-      "Google Calendar integration",
-      "Email reminders",
-      "Detailed usage statistics",
-      "Advanced customization (colors, font, size)",
-      "Unlimited prompts"
-    ],
-    full: [
-      "Google Calendar integration",
-      "Email reminders",
-      "Excel support",
-      "Telegram bot",
-      "Download conversations in CSV",
-      "Detailed usage statistics",
-      "Advanced customization (colors, font, size)",
-      "Unlimited prompts",
-      "Priority support"
-    ],
-    lifetime: [
-      "Google Calendar integration",
-      "Email reminders",
-      "Excel support",
-      "Telegram bot",
-      "Download conversations in CSV",
-      "Detailed usage statistics",
-      "Advanced customization (colors, font, size)",
-      "Unlimited prompts",
-      "Priority support"
-    ]
-  },
-  cancelSubscription: "Cancel subscription",
-  cancelModal: {
-    title: "Cancel subscription?",
-    message: "This action cannot be undone. Are you sure you want to continue?",
-    confirm: "Yes, cancel",
-    cancel: "No, go back",
-    confirmMsg: "Subscription successfully cancelled",
-    errorMsg: "Error cancelling"
-  }
-}
-
-
+          footer:
+            "This code will display the chatbot button automatically in the bottom-right corner. You can customize everything from the dashboard: colors, font, size, and responses.",
+        },
+        deleteModal: {
+          title: "Delete chatbot?",
+          message:
+            "This action cannot be undone. Are you sure you want to continue?",
+          confirm: "Yes, delete",
+          cancel: "No, go back",
+        },
+        stats: {
+          loading: "Loading statistics...",
+          restricted: "📊 Statistics only available for Pro or Full users",
+          title: "Statistics",
+          conversations: "🗨️ Conversations",
+          messages: "💬 Messages",
+          botMessages: "🤖 Bot Messages",
+          userMessages: "👤 User Messages",
+          average: "📊 Avg/messages per conversation",
+          lastInteraction: "⏱️ Last",
+          never: "Never",
+        },
+        buttons: {
+          home: "Home",
+          profile: "Profile",
+          logout: "Logout",
+          telegram: "Telegram",
+          chat: "Chat",
+          edit: "Edit",
+        },
+      },
+      profile: {
+        loading: "Loading profile...",
+        back: "Home",
+        title: "Your profile",
+        labels: {
+          username: "Username",
+          email: "Email",
+          status: "Current plan",
+        },
+        planIncludes: "Your plan includes:",
+        plans: {
+          free: [
+            "1 basic chatbot",
+            "Up to 5 prompts",
+            "No design customization",
+            "No statistics",
+          ],
+          pro: [
+            "Google Calendar integration",
+            "Email reminders",
+            "Detailed usage statistics",
+            "Advanced customization (colors, font, size)",
+            "Unlimited prompts",
+          ],
+          full: [
+            "Google Calendar integration",
+            "Email reminders",
+            "Excel support",
+            "Telegram bot",
+            "Download conversations in CSV",
+            "Detailed usage statistics",
+            "Advanced customization (colors, font, size)",
+            "Unlimited prompts",
+            "Priority support",
+          ],
+          lifetime: [
+            "Google Calendar integration",
+            "Email reminders",
+            "Excel support",
+            "Telegram bot",
+            "Download conversations in CSV",
+            "Detailed usage statistics",
+            "Advanced customization (colors, font, size)",
+            "Unlimited prompts",
+            "Priority support",
+          ],
+        },
+        cancelSubscription: "Cancel subscription",
+        cancelModal: {
+          title: "Cancel subscription?",
+          message:
+            "This action cannot be undone. Are you sure you want to continue?",
+          confirm: "Yes, cancel",
+          cancel: "No, go back",
+          confirmMsg: "Subscription successfully cancelled",
+          errorMsg: "Error cancelling",
+        },
+      },
     },
   },
   es: {
     translation: {
-      home: "Inicio",
+      home_nav: "Inicio",
       login: "Iniciar sesión",
       logout: "Cerrar sesión",
       register: "Registrarse",
       dashboard: "Panel",
       plans: "Precios",
       settings: "Configuración",
-      profile: "Perfil",
+      profile_nav: "Perfil",
       save: "Guardar",
       cancel: "Cancelar",
       delete: "Eliminar",
@@ -487,8 +489,7 @@ profile: {
           logout: "Cerrar sesión",
         },
       },
-    },
-    pricing: {
+      pricing: {
       back: "Volver",
       selectPlanTitle: "Selecciona tu plan",
       selectPlanSubtitle:
@@ -651,47 +652,52 @@ profile: {
       },
     },
     home: {
-  title: "Tus Chatbots",
-  newBot: "+ Nuevo Chatbot",
-  botLimitMsg: "🚫 El plan gratuito solo permite un chatbot. Actualiza tu plan para crear más.",
-  integration: {
-    toggle: "¿Cómo integrar tu chatbot en tu página web?",
-    description1: "Pega este fragmento en el",
-    description2: "de tu sitio:",
-    codeSnippet: `<script 
+      title: "Tus Chatbots",
+      newBot: "+ Nuevo Chatbot",
+      botLimitMsg:
+        "🚫 El plan gratuito solo permite un chatbot. Actualiza tu plan para crear más.",
+      integration: {
+        toggle: "¿Cómo integrar tu chatbot en tu página web?",
+        description1: "Pega este fragmento en el",
+        description2: "de tu sitio:",
+        codeSnippet: `<script 
   src="https://talochatbot.com/widget.js" 
   data-chatbot-id="TU_CHATBOT_ID">
 </script>`,
-    footer: "Este código mostrará el botón del chatbot automáticamente en la esquina inferior derecha. Puedes personalizar todo desde el panel: colores, fuente, tamaño y respuestas."
-  },
-  deleteModal: {
-    title: "¿Eliminar chatbot?",
-    message: "Esta acción no se puede deshacer. ¿Estás seguro de que deseas continuar?",
-    confirm: "Sí, eliminar",
-    cancel: "No, volver"
-  },
-  stats: {
-    loading: "Cargando estadísticas...",
-    restricted: "📊 Estadísticas solo disponibles para usuarios Pro o Full",
-    title: "Estadísticas",
-    conversations: "🗨️ Conversaciones",
-    messages: "💬 Mensajes",
-    botMessages: "🤖 Mensajes Bot",
-    userMessages: "👤 Mensajes Usuario",
-    average: "📊 Promedio/conversación",
-    lastInteraction: "⏱️ Última",
-    never: "Nunca"
-  },
-  buttons: {
-    home: "Página principal",
-    profile: "Perfil",
-    logout: "Cerrar sesión",
-    telegram: "Telegram",
-    chat: "Chat",
-    edit: "Editar"
-  }
-}
-
+        footer:
+          "Este código mostrará el botón del chatbot automáticamente en la esquina inferior derecha. Puedes personalizar todo desde el panel: colores, fuente, tamaño y respuestas.",
+      },
+      deleteModal: {
+        title: "¿Eliminar chatbot?",
+        message:
+          "Esta acción no se puede deshacer. ¿Estás seguro de que deseas continuar?",
+        confirm: "Sí, eliminar",
+        cancel: "No, volver",
+      },
+      stats: {
+        loading: "Cargando estadísticas...",
+        restricted: "📊 Estadísticas solo disponibles para usuarios Pro o Full",
+        title: "Estadísticas",
+        conversations: "🗨️ Conversaciones",
+        messages: "💬 Mensajes",
+        botMessages: "🤖 Mensajes Bot",
+        userMessages: "👤 Mensajes Usuario",
+        average: "📊 Promedio/conversación",
+        lastInteraction: "⏱️ Última",
+        never: "Nunca",
+      },
+      buttons: {
+        home: "Página principal",
+        profile: "Perfil",
+        logout: "Cerrar sesión",
+        telegram: "Telegram",
+        chat: "Chat",
+        edit: "Editar",
+      },
+    },
+    },
+    
+    
   },
 };
 
@@ -702,9 +708,9 @@ i18n.use(initReactI18next).init({
     escapeValue: false,
   },
   detection: {
-    order: ['localStorage', 'navigator'],
-    caches: ['localStorage']
-  }
+    order: ["localStorage", "navigator"],
+    caches: ["localStorage"],
+  },
 });
 
 export default i18n;
