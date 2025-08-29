@@ -115,19 +115,19 @@ export default function Pricing() {
           return (
 <div
   key={plan.title}
-  className={`flex flex-col justify-between rounded-2xl shadow-lg p-6 border h-full ${plan.bg} ${plan.border} transition hover:scale-105 duration-300 relative`}
+  className={`flex flex-col justify-between rounded-2xl shadow-lg p-6 border h-full ${plans.bg} ${plans.border} transition hover:scale-105 duration-300 relative`}
 >
-              {plan.badge && (
+              {plans.badge && (
                 <div className="absolute top-4 right-4 bg-white text-black text-xs font-semibold px-2 py-1 rounded-full shadow">
-                  {plan.badge}
+                  {plans.badge}
                 </div>
               )}
 
               <div>
-                <h2 className="text-2xl font-semibold mb-2">{plan.title}</h2>
-                <p className="text-3xl font-bold mb-6">{plan.price}</p>
+                <h2 className="text-2xl font-semibold mb-2">{plans.title}</h2>
+                <p className="text-3xl font-bold mb-6">{plans.price}</p>
                 <ul className="space-y-2 mb-6">
-                  {plan.features.map((feature, i) => (
+                  {plans.features.map((feature, i) => (
                     <li key={i} className="text-sm">{feature}</li>
                   ))}
                 </ul>
@@ -137,7 +137,7 @@ export default function Pricing() {
                 onClick={() => handlePlanSelect(key)}
                 className="w-full py-2 font-semibold rounded-md bg-black bg-opacity-20 hover:bg-opacity-40 transition duration-200"
               >
-                {plan.cta}
+                {plans.cta}
               </button>
             </div>
           );
