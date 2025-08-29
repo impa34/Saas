@@ -11,7 +11,7 @@ import {motion} from "framer-motion"
 
 function Landing() {
   const navigate = useNavigate();
-const { t } = useTranslation();
+const { t, i18n } = useTranslation();
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col">
@@ -35,22 +35,27 @@ const { t } = useTranslation();
         style={{ backgroundImage: "url('/hero1.webp')" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-80"></div>
-        <motion.div 
-        initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-        className="relative z-10">
-          <Typewriter text={t("hero_title")} speed={60} />
-          <p className="text-lg md:text-xl text-gray-300 mb-6 py-6">
-            {t("hero_subtitle")}
-          </p>
-          <button
-            onClick={() => navigate("/register")}
-            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition"
-          >
-            ¡Pruébalo gratis!
-          </button>
-        </motion.div>
+<motion.div
+  initial={{ opacity: 0, y: 15 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5 }}
+  className="relative z-10"
+>
+  <Typewriter 
+    key={i18n.language}   // 👈 forzar nuevo montaje al cambiar idioma
+    text={t("hero_title")} 
+    speed={60} 
+  />
+  <p className="text-lg md:text-xl text-gray-300 mb-6 py-6">
+    {t("hero_subtitle")}
+  </p>
+  <button
+    onClick={() => navigate("/register")}
+    className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition"
+  >
+    {t("try_free")}
+  </button>
+</motion.div>
       </header>
          <section className="bg-purple-600 text-white py-12 text-center">
         <h2 className="text-3xl font-bold mb-4">¿Listo para mejorar tu atención al cliente?</h2>
