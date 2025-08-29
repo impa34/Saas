@@ -33,7 +33,11 @@ useEffect(() => {
   script.async = true;
   script.defer = true;
   document.body.appendChild(script);
-}, [language]);
+}, []);
+
+useEffect(() => {
+
+}, [language])
   const PrivateRoute = ({ children }) => {
     const token = localStorage.getItem("token");
     return token ? children : <Navigate to="/login" />;
