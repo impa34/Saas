@@ -4,32 +4,49 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
-      navbar: {
-        home: "Home",
-        about: "About",
-        contact: "Contact",
-        language: "Language"
-      }
+      home: "Home",
+      login: "Login",
+      logout: "Logout",
+      register: "Register",
+      dashboard: "Dashboard",
+      pricing: "Pricing",
+      settings: "Settings",
+      profile: "Profile",
+      save: "Save",
+      cancel: "Cancel",
+      delete: "Delete",
+      confirm: "Confirm",
+      language: "Language",
     }
   },
   es: {
     translation: {
-      navbar: {
-        home: "Inicio",
-        about: "Acerca de",
-        contact: "Contacto",
-        language: "Idioma"
-      }
+      home: "Inicio",
+      login: "Iniciar sesión",
+      logout: "Cerrar sesión",
+      register: "Registrarse",
+      dashboard: "Panel",
+      pricing: "Precios",
+      settings: "Configuración",
+      profile: "Perfil",
+      save: "Guardar",
+      cancel: "Cancelar",
+      delete: "Eliminar",
+      confirm: "Confirmar",
+      language: "Idioma",
     }
   }
 };
 
-i18n.use(initReactI18next).init({
-  resources,
-  lng: "es", // idioma inicial
-  interpolation: {
-    escapeValue: false
-  }
-});
+i18n
+  .use(initReactI18next)
+  .init({
+    resources,
+    lng: "es",
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false
+    }
+  });
 
 export default i18n;
