@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import i18n from "../i18n";
 
-const LanguageContext = createContext();
+// Exporta el contexto para que pueda ser importado en otros archivos
+export const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState("es");
@@ -10,7 +11,7 @@ export const LanguageProvider = ({ children }) => {
   useEffect(() => {
     i18n.changeLanguage(language);
     localStorage.setItem("lang", language);
-    document.documentElement.lang = language; // También actualiza el atributo lang del HTML
+    document.documentElement.lang = language;
   }, [language]);
 
   // Toggle para cambiar idioma
@@ -39,4 +40,5 @@ export const LanguageProvider = ({ children }) => {
   );
 };
 
+// Exporta el hook useLanguage
 export const useLanguage = () => useContext(LanguageContext);

@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { useLanguage } from "../context/LanguageProvider"; // Importa useLanguage
 
 export default function Pricing() {
-  const { t, i18n } = useTranslation(); // Añade i18n aquí
+  const { t } = useTranslation(); // Añade i18n aquí
   const { language } = useLanguage(); // Obtén el lenguaje del contexto
   const navigate = useNavigate();
   const location = useLocation();

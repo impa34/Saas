@@ -18,11 +18,11 @@ import PaymentCancel from "./pages/PaymentCancel";
 import Checkout from "./pages/Checkout"
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./pages/Profile";
-import { LanguageContext } from "./context/LanguageProvider";
+import { useLanguage } from "./context/LanguageProvider"; 
 
 function App() {  // Recibe language como prop
   const [key, setKey] = useState(0); // Clave para forzar re-renderización
-const { language } = useContext(LanguageContext);
+ const { language } = useLanguage();
 
   useEffect(() => {
     // Cambiar la clave cada vez que el idioma cambie
