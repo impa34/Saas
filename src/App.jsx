@@ -44,7 +44,7 @@ useEffect(() => {
   };
   
   return (
-    <div key={language}>
+    <>
     <Routes>
       
       <Route path="/" element={<Navigate to="/landing" />} />
@@ -76,7 +76,7 @@ useEffect(() => {
       <Route path="*" element={<p>404 - No encontrado</p>} />
     </Routes>
     
-    </div>
+    </>
 
   );
 }
