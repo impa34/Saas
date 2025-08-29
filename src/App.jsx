@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
@@ -18,9 +18,11 @@ import PaymentCancel from "./pages/PaymentCancel";
 import Checkout from "./pages/Checkout"
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./pages/Profile";
+import { LanguageContext } from "./context/LanguageProvider";
 
-function App({ language }) {  // Recibe language como prop
+function App() {  // Recibe language como prop
   const [key, setKey] = useState(0); // Clave para forzar re-renderización
+const { language } = useContext(LanguageContext);
 
   useEffect(() => {
     // Cambiar la clave cada vez que el idioma cambie
