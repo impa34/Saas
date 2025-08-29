@@ -1,5 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
+import { Globe } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 import { HiUserCircle, HiLogin, HiLogout, HiUser, HiViewGrid } from "react-icons/hi";
@@ -7,6 +8,12 @@ import { HiUserCircle, HiLogin, HiLogout, HiUser, HiViewGrid } from "react-icons
 function Navbar() {
   const navigate = useNavigate();
   const { isLoggedIn, logout } = useAuth();
+  const [language, setLanguage] = useState("es"); 
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === "es" ? "en" : "es"));
+    // opcional: guardar en localStorage para persistir
+    localStorage.setItem("lang", language === "es" ? "en" : "es");
+  };
 
   const iconButtonClasses =
     "text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
@@ -34,6 +41,13 @@ function Navbar() {
 <ThemeToggle className="hidden"/>
       <div className="ml-auto flex items-center">
         <div className="hidden md:flex space-x-4 text-sm text-gray-700 dark:text-gray-300 mr-6">
+                <button
+        onClick={toggleLanguage}
+        className="flex items-center gap-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition"
+      >
+        <Globe size={18} />
+        <span>{language === "es" ? "ES" : "EN"}</span>
+      </button>
           <Link to="/pricing" className="hover:text-gray-900 dark:text-white transition">
             Planes
           </Link>
