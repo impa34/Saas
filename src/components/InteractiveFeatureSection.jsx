@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-const featureIds = ["calendar", "email", "branding", "analytics"];
+const featureIds = ["calendar", "email", "customization", "analytics"];
 
 export default function InteractiveFeatureSection() {
   const { t } = useTranslation();
