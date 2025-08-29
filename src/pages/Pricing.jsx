@@ -5,8 +5,10 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "../context/LanguageProvider"; // Importa useLanguage
+import { useLanguageRefresh } from '../hooks/useLanguageRefresh';
 
 export default function Pricing() {
+   const refreshKey = useLanguageRefresh();
   const { t } = useTranslation(); // Añade i18n aquí
   const { language } = useLanguage(); // Obtén el lenguaje del contexto
   const navigate = useNavigate();
@@ -69,7 +71,7 @@ export default function Pricing() {
   };
 
   return (
-    <div key={language} className="min-h-screen bg-white dark:bg-gray-900 text-white">
+    <div key={refreshKey} className="min-h-screen bg-white dark:bg-gray-900 text-white">
       {/* Añade key={language} al div principal para forzar re-render */}
       <Navbar />
       <button
