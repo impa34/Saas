@@ -51,7 +51,7 @@ function Navbar() {
             <span>{language === "es" ? t("navbar.language.es") : t("navbar.language.en")}</span>
           </button>
           <Link to="/pricing" className="hover:text-gray-900 dark:text-white transition">
-            {t("navbar.plans")}
+            {t("navbar.pricing")}
           </Link>
           <Link to="/about" className="hover:text-gray-900 dark:text-white transition">
             {t("navbar.about")}
