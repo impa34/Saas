@@ -6,11 +6,10 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useLanguage } from "../context/LanguageProvider";
+
 
 function Profile() {
   const { t } = useTranslation();
-    const { language, changeLanguage } = useLanguage();
   const [user, setUser] = useState(null);
   const [cancelMsg, setCancelMsg] = useState("");
   const [showModal, setShowModal] = useState(false);
