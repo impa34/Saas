@@ -18,8 +18,10 @@ import PaymentCancel from "./pages/PaymentCancel";
 import Checkout from "./pages/Checkout"
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./pages/Profile";
+import { useLanguage } from "./context/LanguageProvider";
 
 function App() {
+  const language = useLanguage()
 useEffect(() => {
   if (document.getElementById("talo-widget-script")) return; // ya existe, no cargar otra vez
 
@@ -31,13 +33,14 @@ useEffect(() => {
   script.async = true;
   script.defer = true;
   document.body.appendChild(script);
-}, []);
+}, [language]);
   const PrivateRoute = ({ children }) => {
     const token = localStorage.getItem("token");
     return token ? children : <Navigate to="/login" />;
   };
   
   return (
+    <div key={language}>
     <Routes>
       
       <Route path="/" element={<Navigate to="/landing" />} />
@@ -69,6 +72,8 @@ useEffect(() => {
       <Route path="*" element={<p>404 - No encontrado</p>} />
     </Routes>
     
+    </div>
+
   );
 }
 
