@@ -1,16 +1,16 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
-import { Globe } from "lucide-react";
+import { Globe, ChevronDown } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { HiUserCircle, HiLogin, HiLogout, HiUser, HiViewGrid } from "react-icons/hi";
 import { useTranslation } from "react-i18next";
-import { useLanguage } from "../context/LanguageProvider"; // 🔑 importar contexto
+import { useLanguage } from "../context/LanguageProvider";
 
 function Navbar() {
   const navigate = useNavigate();
   const { isLoggedIn, logout } = useAuth();
   const { t } = useTranslation();
-  const { language, toggleLanguage } = useLanguage(); // 🔑 usar contexto global
+  const { language, toggleLanguage, changeLanguage } = useLanguage();
 
   const iconButtonClasses =
     "text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
@@ -34,14 +34,30 @@ function Navbar() {
       </a>
       <ThemeToggle className="hidden" />
       <div className="ml-auto flex items-center">
-        <div className="hidden md:flex space-x-4 text-sm text-gray-700 dark:text-gray-300 mr-6">
-          <button
-            onClick={toggleLanguage} // 🔑 usar toggle global
-            className="flex items-center gap-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition"
-          >
-            <Globe size={18} />
-            <span>{language === "es" ? "ES" : "EN"}</span>
-          </button>
+        <div className="hidden md:flex space-x-4 text-sm text-gray-700 dark:text-gray-300 mr-6 items-center">
+          {/* Selector de idioma mejorado con dropdown */}
+          <div className="relative group">
+            <button className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition">
+              <Globe size={18} />
+              <span>{language === "es" ? "ES" : "EN"}</span>
+              <ChevronDown size={16} />
+            </button>
+            <div className="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-700 rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+              <button
+                onClick={() => changeLanguage("es")}
+                className={`block w-full text-left px-4 py-2 text-sm ${language === "es" ? "bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200" : "hover:bg-gray-100 dark:hover:bg-gray-600"}`}
+              >
+                Español
+              </button>
+              <button
+                onClick={() => changeLanguage("en")}
+                className={`block w-full text-left px-4 py-2 text-sm ${language === "en" ? "bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-200" : "hover:bg-gray-100 dark:hover:bg-gray-600"}`}
+              >
+                English
+              </button>
+            </div>
+          </div>
+          
           <Link to="/pricing" className="hover:text-gray-900 dark:text-white transition">
             {t("navbar.pricing")}
           </Link>

@@ -4,19 +4,30 @@ import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
-import { useLanguage } from "../context/LanguageProvider"; // 🔑 importar contexto
 
 export default function Pricing() {
   const { t } = useTranslation();
-  const { language } = useLanguage(); // 🔑 idioma global
   const navigate = useNavigate();
   const location = useLocation();
+const rawPlans = [
+  {
+    key: "pro",
+    bg: "bg-blue-800",
+    border: "border-blue-500",
+  },
+  {
+    key: "full",
+    bg: "bg-purple-700",
+    border: "border-purple-500",
+  },
+  {
+    key: "lifetime",
+    bg: "bg-yellow-700",
+    border: "border-yellow-500",
+  },
+];
 
-  const rawPlans = [
-    { key: "pro", bg: "bg-blue-800", border: "border-blue-500" },
-    { key: "full", bg: "bg-purple-700", border: "border-purple-500" },
-    { key: "lifetime", bg: "bg-yellow-700", border: "border-yellow-500" },
-  ];
+
 
   const redirectPlan = new URLSearchParams(location.search).get("redirectPlan");
 
@@ -56,6 +67,7 @@ export default function Pricing() {
     }
   };
 
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-white">
       <Navbar />
@@ -67,45 +79,42 @@ export default function Pricing() {
       </button>
 
       <div className="text-center mb-12 px-4">
-        <h1 className="text-4xl text-gray-900 dark:text-white font-bold mb-4">
-          {t("pricing.selectPlanTitle")}
-        </h1>
+        <h1 className="text-4xl text-gray-900 dark:text-white font-bold mb-4">{t("pricing.selectPlanTitle")}</h1>
         <p className="text-gray-300">{t("pricing.selectPlanSubtitle")}</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto py-5 px-4 md:px-8">
-        {rawPlans.map(({ key, bg, border }) => {
-          const plan = t(`pricing.plans.${key}`, { returnObjects: true });
-          return (
-            <div
-              key={plan.title}
-              className={`flex flex-col justify-between rounded-2xl shadow-lg p-6 border h-full ${bg} ${border} transition hover:scale-105 duration-300 relative`}
-            >
-              {plan.badge && (
-                <div className="absolute top-4 right-4 bg-white text-black text-xs font-semibold px-2 py-1 rounded-full shadow">
-                  {plan.badge}
-                </div>
-              )}
-              <div>
-                <h2 className="text-2xl font-semibold mb-2">{plan.title}</h2>
-                <p className="text-3xl font-bold mb-6">{plan.price}</p>
-                <ul className="space-y-2 mb-6">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="text-sm">
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <button
-                onClick={() => handlePlanSelect(key)}
-                className="w-full py-2 font-semibold rounded-md bg-black bg-opacity-20 hover:bg-opacity-40 transition duration-200"
-              >
-                {plan.cta}
-              </button>
-            </div>
-          );
-        })}
+       {rawPlans.map(({ key, bg, border }) => {
+  const plan = t(`pricing.plans.${key}`, { returnObjects: true });
+  return (
+    <div
+      key={plan.title}
+      className={`flex flex-col justify-between rounded-2xl shadow-lg p-6 border h-full ${bg} ${border} transition hover:scale-105 duration-300 relative`}
+    >
+      {plan.badge && (
+        <div className="absolute top-4 right-4 bg-white text-black text-xs font-semibold px-2 py-1 rounded-full shadow">
+          {plan.badge}
+        </div>
+      )}
+      <div>
+        <h2 className="text-2xl font-semibold mb-2">{plan.title}</h2>
+        <p className="text-3xl font-bold mb-6">{plan.price}</p>
+        <ul className="space-y-2 mb-6">
+          {plan.features.map((feature, i) => (
+            <li key={i} className="text-sm">{feature}</li>
+          ))}
+        </ul>
+      </div>
+      <button
+        onClick={() => handlePlanSelect(key)}
+        className="w-full py-2 font-semibold rounded-md bg-black bg-opacity-20 hover:bg-opacity-40 transition duration-200"
+      >
+        {plan.cta}
+      </button>
+    </div>
+  );
+})}
+
       </div>
 
       <div className="text-center mt-8 px-4 text-gray-700 dark:text-gray-300 text-sm">
