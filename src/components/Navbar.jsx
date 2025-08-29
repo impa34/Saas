@@ -45,7 +45,7 @@ function Navbar() {
         <div className="hidden md:flex space-x-4 text-sm text-gray-700 dark:text-gray-300 mr-6">
       <button
         onClick={toggleLanguage}
-        className="flex items-center gap-2 px-3 py-1 mb-4 bg-white/10 hover:bg-white/20 rounded-lg transition"
+        className="flex items-center gap-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition"
       >
         <Globe size={18} />
         <span>{language === "es" ? "ES" : "EN"}</span>
