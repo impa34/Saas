@@ -11,7 +11,7 @@ export default function ThemeToggle() {
       aria-label="Cambiar tema"
       title="Cambiar tema"
     >
-      {theme === "dark" ? "☀️ Claro" : "🌙 Oscuro"}
+      {theme === "dark" ? "☀️" : "🌙"}
     </button>
   );
 }

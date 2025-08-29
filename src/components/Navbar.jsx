@@ -51,7 +51,7 @@ function Navbar() {
             <span>{language === "es" ? t("navbar.language.es") : t("navbar.language.en")}</span>
           </button>
           <Link to="/pricing" className="hover:text-gray-900 dark:text-white transition">
-            {t("navbar.pricing")}
+            {t("navbar.plans")}
           </Link>
           <Link to="/about" className="hover:text-gray-900 dark:text-white transition">
             {t("navbar.about")}
@@ -75,7 +75,7 @@ function Navbar() {
               onClick={() => navigate("/profile")}
               className={iconButtonClasses}
               aria-label={t("navbar.aria.profile")}
-              title={t("navbar.profile")}
+              title={t("navbar.profile_nav")}
             >
               <HiUser size={24} />
             </button>
