@@ -43,13 +43,13 @@ function Navbar() {
       <ThemeToggle className="hidden" />
       <div className="ml-auto flex items-center">
         <div className="hidden md:flex space-x-4 text-sm text-gray-700 dark:text-gray-300 mr-6">
-          <button
-            onClick={toggleLanguage}
-            className="flex items-center gap-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition"
-          >
-            <Globe size={18} />
-            <span>{language === "es" ? t("navbar.language.es") : t("navbar.language.en")}</span>
-          </button>
+      <button
+        onClick={toggleLanguage}
+        className="flex items-center gap-2 px-3 py-1 mb-2 bg-white/10 hover:bg-white/20 rounded-lg transition"
+      >
+        <Globe size={18} />
+        <span>{language === "es" ? "ES" : "EN"}</span>
+      </button>
           <Link to="/pricing" className="hover:text-gray-900 dark:text-white transition">
             {t("navbar.pricing")}
           </Link>

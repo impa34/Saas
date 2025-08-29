@@ -1,22 +1,20 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { I18nProvider } from "react-i18next"; // si usas i18next
 import i18n from "../i18n"; // tu configuración de i18next
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState("es"); // idioma por defecto
+  const [language, setLanguage] = useState("es");
 
-  // Cambiar idioma
-  const changeLanguage = (lang) => {
-    setLanguage(lang);
-    i18n.changeLanguage(lang);
-    localStorage.setItem("language", lang);
+  const toggleLanguage = () => {
+    const newLang = language === "es" ? "en" : "es";
+    setLanguage(newLang);
+    i18n.changeLanguage(newLang);
+    localStorage.setItem("lang", newLang);
   };
 
-  // Leer idioma guardado al montar
   useEffect(() => {
-    const savedLang = localStorage.getItem("language");
+    const savedLang = localStorage.getItem("lang");
     if (savedLang) {
       setLanguage(savedLang);
       i18n.changeLanguage(savedLang);
@@ -24,11 +22,10 @@ export const LanguageProvider = ({ children }) => {
   }, []);
 
   return (
-    <LanguageContext.Provider value={{ language, changeLanguage }}>
+    <LanguageContext.Provider value={{ language, toggleLanguage }}>
       {children}
     </LanguageContext.Provider>
   );
 };
 
-// Hook para usar contexto más fácilmente
 export const useLanguage = () => useContext(LanguageContext);

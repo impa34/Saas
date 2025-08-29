@@ -9,6 +9,50 @@ export default function Pricing() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
+  const plans = [
+  {
+    title: "Pro",
+    price: "9€/mes",
+    features: [
+      "Prompts ilimitados",
+      "Personalización del bot (colores, estadísticas, fuentes)",
+      "Integración de Google Calendar",
+    ],
+    cta: "Hazte Pro",
+    bg: "bg-blue-800",
+    textColor: "text-gray-900 dark:text-white",
+    border: "border-blue-500",
+  },
+  {
+    title: "Full",
+    price: "19€/mes",
+    features: [
+      "Bot de Telegram",
+      "Descarga de conversaciones",
+      "Soporte para archivos de hoja de cálculo",
+    ],
+    cta: "Obtener Full",
+    bg: "bg-purple-700",
+    textColor: "text-gray-900 dark:text-white",
+    border: "border-purple-500",
+    badge: "Mejor oferta",
+  },
+  {
+    title: "Lifetime",
+    price: "79€ único pago",
+    features: [
+      "Todo lo incluido en Full",
+      "Sin pagos recurrentes",
+      "Soporte prioritario",
+    ],
+    cta: "Comprar acceso vitalicio",
+    bg: "bg-yellow-700",
+    textColor: "text-gray-900 dark:text-white",
+    border: "border-yellow-500",
+    badge: "Popular",
+  },
+];
+
 
   const redirectPlan = new URLSearchParams(location.search).get("redirectPlan");
 
@@ -69,10 +113,10 @@ export default function Pricing() {
         {planKeys.map((key) => {
           const plan = t(`pricing.plans.${key}`, { returnObjects: true });
           return (
-            <div
-              key={key}
-              className={`flex flex-col justify-between rounded-2xl shadow-lg p-6 border h-full ${plan.bg || ""} ${plan.border || ""} transition hover:scale-105 duration-300 relative`}
-            >
+<div
+  key={plan.title}
+  className={`flex flex-col justify-between rounded-2xl shadow-lg p-6 border h-full ${plan.bg} ${plan.border} transition hover:scale-105 duration-300 relative`}
+>
               {plan.badge && (
                 <div className="absolute top-4 right-4 bg-white text-black text-xs font-semibold px-2 py-1 rounded-full shadow">
                   {plan.badge}
