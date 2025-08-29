@@ -1,24 +1,26 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import i18n from "../i18n"; // tu configuración de i18next
+import i18n from "../i18n";
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState("es");
 
+  // Cada vez que language cambie, sincroniza con i18n
+  useEffect(() => {
+    i18n.changeLanguage(language);
+    localStorage.setItem("lang", language);
+  }, [language]);
+
+  // Toggle para cambiar idioma
   const toggleLanguage = () => {
-    const newLang = language === "es" ? "en" : "es";
-    setLanguage(newLang);
-    i18n.changeLanguage(newLang);
-    localStorage.setItem("lang", newLang);
+    setLanguage(prev => (prev === "es" ? "en" : "es"));
   };
 
+  // Carga el idioma guardado al inicio
   useEffect(() => {
     const savedLang = localStorage.getItem("lang");
-    if (savedLang) {
-      setLanguage(savedLang);
-      i18n.changeLanguage(savedLang);
-    }
+    if (savedLang) setLanguage(savedLang);
   }, []);
 
   return (
