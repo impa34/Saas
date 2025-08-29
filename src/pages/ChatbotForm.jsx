@@ -4,6 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiDocumentDownload } from "react-icons/hi";
+import { useTranslation } from "react-i18next";
+
 
 function ChatbotForm() {
   const { id } = useParams();
@@ -22,6 +24,7 @@ function ChatbotForm() {
   const [stats, setStats] = useState("");
   const [showPromptLimitMsg, setShowPromptLimitMsg] = useState(false);
   const [showValidationModal, setShowValidationModal] = useState(false);
+  const { t } = useTranslation();
   const isFull = status === "full" || status === "lifetime";
   const isProOrFull =
     status === "full" || status === "pro" || status === "lifetime";
@@ -176,7 +179,12 @@ function ChatbotForm() {
     );
   };
 
-  const StepBadge = ({ n, label }) => (
+  const handleGoogleConnect = () => {
+    const token = localStorage.getItem("token");
+    window.location.href = `https://saas-backend-xrkb.onrender.com/api/google-auth?auth=${token}`;
+  };
+
+    const StepBadge = ({ n, label }) => (
     <div className="flex items-center gap-2">
       <span
         className={`w-6 h-6 flex items-center justify-center rounded-full text-sm font-bold ${
@@ -189,19 +197,14 @@ function ChatbotForm() {
     </div>
   );
 
-  const handleGoogleConnect = () => {
-    const token = localStorage.getItem("token");
-    window.location.href = `https://saas-backend-xrkb.onrender.com/api/google-auth?auth=${token}`;
-  };
-
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col">
       <main className="flex-1 flex flex-col items-center p-6">
         {/* --------- Indicator --------- */}
         <div className="flex gap-6 mb-8">
-          <StepBadge n={1} label="Info" />
-          <StepBadge n={2} label="Prompts" />
-          <StepBadge n={3} label="Confirm" />
+          <StepBadge n={1} label={t("chatbotForm.steps.info")} />
+          <StepBadge n={2} label={t("chatbotForm.steps.prompts")} />
+          <StepBadge n={3} label={t("chatbotForm.steps.confirm")} />
         </div>
 
         {/* --------- Form --------- */}
@@ -222,12 +225,12 @@ function ChatbotForm() {
                 transition={{ duration: 0.3 }}
                 className="space-y-4"
               >
-                <h2 className="text-xl font-bold">Ajustes del bot</h2>
+                <h2 className="text-xl font-bold">{t("chatbotForm.step1.title")}</h2>
 
                 <input
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Nombre del bot"
+                  placeholder={t("chatbotForm.step1.name")}
                   className="w-full bg-gray-700 px-4 py-2 rounded focus:ring-2 focus:ring-purple-500"
                   required
                 />
@@ -240,7 +243,7 @@ function ChatbotForm() {
                   />
                 ) : (
                   <p className="text-gray-400 italic">
-                    Integración con Excel solo disponible para usuarios Full
+                    {t("chatbotForm.step1.excelLimited")}
                   </p>
                 )}
                 {fileName && (
@@ -254,12 +257,11 @@ function ChatbotForm() {
                       onClick={handleGoogleConnect}
                       className="w-full bg-green-600 hover:bg-green-700 py-2 rounded"
                     >
-                      Conectar con Google Calendar
+                      {t("chatbotForm.step1.googleConnect")}
                     </button>
                   ) : (
                     <p className="text-gray-400 italic ">
-                      Integración Google Calendar solo disponible para usuarios
-                      Pro o Full
+                      {t("chatbotForm.step1.googleLimited")}
                     </p>
                   )
                 ) : (
@@ -268,13 +270,13 @@ function ChatbotForm() {
                     onClick={handleGoogleConnect}
                     className="w-full bg-green-600 hover:bg-green-700 py-2 rounded"
                   >
-                    Conectar con Google
+                    {t("chatbotForm.step1.connectGoogle")}
                   </button>
                 )}
                 {isProOrFull ? (
                   <div className="space-y-4">
                     <label className="block">
-                      Color del fondo:
+                      {t("chatbotForm.step1.customization.bgColor")}
                       <input
                         type="color"
                         value={bgColor}
@@ -283,7 +285,7 @@ function ChatbotForm() {
                       />
                     </label>
                     <label className="block">
-                      Color del texto:
+                      {t("chatbotForm.step1.customization.textColor")}
                       <input
                         type="color"
                         value={textColor}
@@ -292,7 +294,7 @@ function ChatbotForm() {
                       />
                     </label>
                     <label className="block">
-                      Fuente:
+                      {t("chatbotForm.step1.customization.font")}
                       <select
                         value={font}
                         onChange={(e) => setFont(e.target.value)}
@@ -305,7 +307,7 @@ function ChatbotForm() {
                       </select>
                     </label>
                     <label className="block">
-                      Tamaño de fuente:
+                      {t("chatbotForm.step1.customization.fontSize")}
                       <input
                         className="ml-2 mt-2 text-black rounded-sm px-1 size-12"
                         value={fontSize}
@@ -318,13 +320,12 @@ function ChatbotForm() {
                       onClick={handleSaveConfig}
                       className="bg-purple-600 hover:bg-purple-700 text-gray-900 dark:text-white px-4 py-2 rounded transition duration-200"
                     >
-                      Guardar cambios
+                      {t("chatbotForm.step1.customization.save")}
                     </button>
                   </div>
                 ) : (
                   <p className="text-gray-400 italic">
-                    Personalización del bot solo disponible para los usuarios
-                    Pro y Full
+                    {t("chatbotForm.step1.customizationLimited")}
                   </p>
                 )}
               </motion.div>
@@ -341,7 +342,7 @@ function ChatbotForm() {
                 transition={{ duration: 0.3 }}
                 className="space-y-4"
               >
-                <h2 className="text-xl font-bold">Prompts</h2>
+                <h2 className="text-xl font-bold">{t("chatbotForm.step2.title")}</h2>
                 {prompts.map((p, i) => (
                   <div key={i} className="flex gap-2 flex-wrap">
                     <input
@@ -349,7 +350,7 @@ function ChatbotForm() {
                       onChange={(e) =>
                         updatePrompt(i, "question", e.target.value)
                       }
-                      placeholder="Pregunta"
+                      placeholder={t("chatbotForm.step2.question")}
                       className="flex-grow min-w-[120px] max-w-[45%] bg-gray-700 px-3 py-2 rounded"
                       required
                     />
@@ -358,7 +359,7 @@ function ChatbotForm() {
                       onChange={(e) =>
                         updatePrompt(i, "answer", e.target.value)
                       }
-                      placeholder="Respuesta"
+                      placeholder={t("chatbotForm.step2.answer")}
                       className="flex-grow min-w-[120px] max-w-[45%] bg-gray-700 px-3 py-2 rounded"
                       required
                     />
@@ -373,7 +374,7 @@ function ChatbotForm() {
                 ))}
                 {showPromptLimitMsg && (
                   <div className="bg-red-600 text-gray-900 dark:text-white px-4 py-2 rounded-md text-sm mb-2">
-                    🚫 El plan gratuito solo permite hasta 5 prompts.
+                    {t("chatbotForm.step2.limitMessage")}
                   </div>
                 )}
                 <button
@@ -387,7 +388,7 @@ function ChatbotForm() {
                   }}
                   className="bg-gray-600 hover:bg-gray-700 px-4 py-1 rounded text-sm"
                 >
-                  + Añadir línea
+                  {t("chatbotForm.step2.addLine")}
                 </button>
               </motion.div>
             )}
@@ -407,18 +408,17 @@ function ChatbotForm() {
                     className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white p-6 rounded-xl shadow-lg w-full max-w-md"
                   >
                     <h2 className="text-xl font-bold mb-4 text-center">
-                      Campos incompletos
+                      {t("chatbotForm.validationModal.title")}
                     </h2>
                     <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 text-center">
-                      Todos los prompts deben tener pregunta y respuesta antes
-                      de continuar.
+                      {t("chatbotForm.validationModal.message")}
                     </p>
                     <div className="flex justify-center">
                       <button
                         onClick={() => setShowValidationModal(false)}
                         className="bg-purple-600 hover:bg-purple-700 text-gray-900 dark:text-white py-2 px-4 rounded-md transition"
                       >
-                        OK
+                        {t("chatbotForm.validationModal.ok")}
                       </button>
                     </div>
                   </motion.div>
@@ -437,16 +437,18 @@ function ChatbotForm() {
                 transition={{ duration: 0.3 }}
                 className="space-y-4"
               >
-                <h2 className="text-xl font-bold mb-2">Review</h2>
+                <h2 className="text-xl font-bold mb-2">{t("chatbotForm.step3.title")}</h2>
 
-                <p className="text-purple-400 font-semibold">Nombre: {name}</p>
-                <p>Prompts: {prompts.length}</p>
+                <p className="text-purple-400 font-semibold">{t("chatbotForm.step3.name")} {name}</p>
+                <p>{t("chatbotForm.step3.promptsCount")} {prompts.length}</p>
 
                 <p>
-                  {fileName ? `File: ${fileName}` : "Ningún archivo cargado"}
+                  {fileName ? `${t("chatbotForm.step3.file")} ${fileName}` : t("chatbotForm.step3.noFile")}
                 </p>
                 <p className="text-sm text-gray-400">
-                  Click “{id ? "Update" : "Create"}” para finalizar.
+                  {t("chatbotForm.step3.finalize", { 
+                    action: id ? t("chatbotForm.step3.actions.update") : t("chatbotForm.step3.actions.create")
+                  })}
                 </p>
                 {status === "full" && id && (
                   <div>
@@ -454,7 +456,7 @@ function ChatbotForm() {
                       href={`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}/conversations/export`}
                       className={iconButtonClasses}
                     >
-                      <HiDocumentDownload size={24} /> Conversaciones del bot
+                      <HiDocumentDownload size={24} /> {t("chatbotForm.step3.conversations")}
                     </a>
                   </div>
                 )}
@@ -470,29 +472,28 @@ function ChatbotForm() {
                   {isProOrFull ? (
                     <div>
                       <h3 className="text-lg font-bold mb-2">
-                        Estadísticas del bot
+                        {t("chatbotForm.step3.stats.title")}
                       </h3>
-                      <p>Conversaciones: {stats.totalConversations || "0"}</p>
-                      <p>Mensajes totales: {stats.totalMessages || "0"}</p>
-                      <p>Mensajes del bot: {stats.botMessages || "0"}</p>
-                      <p>Mensajes del usuario: {stats.userMessages || "0"}</p>
+                      <p>{t("chatbotForm.step3.stats.conversations")} {stats.totalConversations || "0"}</p>
+                      <p>{t("chatbotForm.step3.stats.totalMessages")} {stats.totalMessages || "0"}</p>
+                      <p>{t("chatbotForm.step3.stats.botMessages")} {stats.botMessages || "0"}</p>
+                      <p>{t("chatbotForm.step3.stats.userMessages")} {stats.userMessages || "0"}</p>
                       <p>
-                        Promedio por conversación:{" "}
+                        {t("chatbotForm.step3.stats.avgPerConversation")}{" "}
                         {typeof stats.averageMessages === "number"
                           ? stats.averageMessages.toFixed(1)
                           : "0.0"}
                       </p>
                       <p>
-                        Última interacción:{" "}
+                        {t("chatbotForm.step3.stats.lastInteraction")}{" "}
                         {stats.lastInteraction
                           ? new Date(stats.lastInteraction).toLocaleString()
-                          : "Nunca"}
+                          : t("chatbotForm.step3.stats.never")}
                       </p>{" "}
                     </div>
                   ) : (
                     <p className="">
-                      Estadísticas del bot solo disponibles para usuarios Pro o
-                      Full
+                      {t("chatbotForm.step3.statsLimited")}
                     </p>
                   )}
                 </motion.div>
@@ -507,7 +508,7 @@ function ChatbotForm() {
                 onClick={prev}
                 className="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded transition duration-200"
               >
-                Atrás
+                {t("chatbotForm.navigation.back")}
               </button>
             )}
             {step === 1 && (
@@ -516,7 +517,7 @@ function ChatbotForm() {
                 onClick={() => navigate("/home")}
                 className="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded transition duration-200"
               >
-                Atrás
+                {t("chatbotForm.navigation.back")}
               </button>
             )}
             {step < 3 && (
@@ -525,7 +526,7 @@ function ChatbotForm() {
                 onClick={next}
                 className="px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded transition duration-200"
               >
-                Siguiente
+                {t("chatbotForm.navigation.next")}
               </button>
             )}
 
@@ -541,11 +542,11 @@ function ChatbotForm() {
               >
                 {loading
                   ? id
-                    ? "Actualizando..."
-                    : "Creando..."
+                    ? t("chatbotForm.navigation.updating")
+                    : t("chatbotForm.navigation.creating")
                   : id
-                  ? "Actualizar"
-                  : "Crear"}
+                  ? t("chatbotForm.navigation.update")
+                  : t("chatbotForm.navigation.create")}
               </button>
             )}
           </div>
@@ -560,6 +561,7 @@ function ChatbotForm() {
       <Footer />
     </div>
   );
+
 }
 
 export default ChatbotForm;

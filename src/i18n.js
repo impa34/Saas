@@ -404,6 +404,76 @@ const resources = {
     "required": "This field is required",
     "email": "Please enter a valid email address"
   }
+},
+"chatbotForm": {
+  "steps": {
+    "info": "Info",
+    "prompts": "Prompts",
+    "confirm": "Confirm"
+  },
+  "step1": {
+    "title": "Bot Settings",
+    "name": "Bot name",
+    "excelIntegration": "Excel integration (CSV, XLSX)",
+    "excelLimited": "Excel integration only available for Full users",
+    "googleConnect": "Connect with Google Calendar",
+    "googleLimited": "Google Calendar integration only available for Pro or Full users",
+    "connectGoogle": "Connect with Google",
+    "customization": {
+      "bgColor": "Background color:",
+      "textColor": "Text color:",
+      "font": "Font:",
+      "fontSize": "Font size:",
+      "save": "Save changes"
+    },
+    "customizationLimited": "Bot customization only available for Pro and Full users"
+  },
+  "step2": {
+    "title": "Prompts",
+    "question": "Question",
+    "answer": "Answer",
+    "addLine": "+ Add line",
+    "limitMessage": "🚫 The free plan only allows up to 5 prompts."
+  },
+  "step3": {
+    "title": "Review",
+    "name": "Name:",
+    "promptsCount": "Prompts:",
+    "file": "File:",
+    "noFile": "No file uploaded",
+    "finalize": "Click \"{{action}}\" to finish.",
+    "actions": {
+      "create": "Create",
+      "update": "Update"
+    },
+    "conversations": "Bot conversations",
+    "stats": {
+      "title": "Bot statistics",
+      "conversations": "Conversations:",
+      "totalMessages": "Total messages:",
+      "botMessages": "Bot messages:",
+      "userMessages": "User messages:",
+      "avgPerConversation": "Average per conversation:",
+      "lastInteraction": "Last interaction:",
+      "never": "Never"
+    },
+    "statsLimited": "Bot statistics only available for Pro or Full users"
+  },
+  "validationModal": {
+    "title": "Incomplete fields",
+    "message": "All prompts must have both question and answer before continuing.",
+    "ok": "OK"
+  },
+  "navigation": {
+    "back": "Back",
+    "next": "Next",
+    "creating": "Creating...",
+    "updating": "Updating...",
+    "create": "Create",
+    "update": "Update"
+  },
+  "success": "Bot created successfully!",
+  "successUpdate": "Bot updated successfully!"
 }
     },
   },
@@ -810,6 +880,76 @@ const resources = {
     "required": "Este campo es obligatorio",
     "email": "Por favor ingresa un email válido"
   }
+},
+"chatbotForm": {
+  "steps": {
+    "info": "Info",
+    "prompts": "Prompts",
+    "confirm": "Confirmar"
+  },
+  "step1": {
+    "title": "Ajustes del bot",
+    "name": "Nombre del bot",
+    "excelIntegration": "Integración con Excel (CSV, XLSX)",
+    "excelLimited": "Integración con Excel solo disponible para usuarios Full",
+    "googleConnect": "Conectar con Google Calendar",
+    "googleLimited": "Integración Google Calendar solo disponible para usuarios Pro o Full",
+    "connectGoogle": "Conectar con Google",
+    "customization": {
+      "bgColor": "Color del fondo:",
+      "textColor": "Color del texto:",
+      "font": "Fuente:",
+      "fontSize": "Tamaño de fuente:",
+      "save": "Guardar cambios"
+    },
+    "customizationLimited": "Personalización del bot solo disponible para los usuarios Pro y Full"
+  },
+  "step2": {
+    "title": "Prompts",
+    "question": "Pregunta",
+    "answer": "Respuesta",
+    "addLine": "+ Añadir línea",
+    "limitMessage": "🚫 El plan gratuito solo permite hasta 5 prompts."
+  },
+  "step3": {
+    "title": "Review",
+    "name": "Nombre:",
+    "promptsCount": "Prompts:",
+    "file": "Archivo:",
+    "noFile": "Ningún archivo cargado",
+    "finalize": "Click \"{{action}}\" para finalizar.",
+    "actions": {
+      "create": "Crear",
+      "update": "Actualizar"
+    },
+    "conversations": "Conversaciones del bot",
+    "stats": {
+      "title": "Estadísticas del bot",
+      "conversations": "Conversaciones:",
+      "totalMessages": "Mensajes totales:",
+      "botMessages": "Mensajes del bot:",
+      "userMessages": "Mensajes del usuario:",
+      "avgPerConversation": "Promedio por conversación:",
+      "lastInteraction": "Última interacción:",
+      "never": "Nunca"
+    },
+    "statsLimited": "Estadísticas del bot solo disponibles para usuarios Pro o Full"
+  },
+  "validationModal": {
+    "title": "Campos incompletos",
+    "message": "Todos los prompts deben tener pregunta y respuesta antes de continuar.",
+    "ok": "OK"
+  },
+  "navigation": {
+    "back": "Atrás",
+    "next": "Siguiente",
+    "creating": "Creando...",
+    "updating": "Actualizando...",
+    "create": "Crear",
+    "update": "Actualizar"
+  },
+  "success": "¡Bot creado correctamente!",
+  "successUpdate": "¡Bot actualizado correctamente!"
 }
     },
    
