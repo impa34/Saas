@@ -697,11 +697,14 @@ profile: {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: "es",
-  fallbackLng: "en",
+  fallbackLng: "es",
   interpolation: {
     escapeValue: false,
   },
+  detection: {
+    order: ['localStorage', 'navigator'],
+    caches: ['localStorage']
+  }
 });
 
 export default i18n;
