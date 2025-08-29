@@ -78,7 +78,67 @@ const resources = {
     name: "Analytics",
     description: "Get metrics about usage, messages, and conversions."
   }
+},
+featureCards: [
+  {
+    title: "24/7 Effortless Support",
+    desc: "Your bot responds anytime, even when your business is closed."
+  },
+  {
+    title: "Set Up in Minutes",
+    desc: "Just write basic questions and answers, the AI takes care of the rest."
+  },
+  {
+    title: "100% Customizable Design",
+    desc: "Colors, typography, and style adapted to your brand."
+  },
+  {
+    title: "Scalable & Cost-effective",
+    desc: "Serve hundreds of customers at once without hiring more staff."
+  },
+  {
+    title: "Smart Integrations",
+    desc: "Connect with Google Calendar, Excel, and other tools you already use."
+  },
+  {
+    title: "Insightful Analytics",
+    desc: "Understand what your customers ask and improve your services."
+  }
+],
+featureCards_title: "Everything you need in a single chatbot",
+footer: {
+  pricing: "Pricing",
+  about: "About",
+  contact: "Contact",
+  privacy: "Privacy Policy",
+  terms: "Terms of Use",
+  copyright: "© 2025 - Talobot. All rights reserved."
+},
+navbar: {
+  pricing: "Pricing",
+  about: "About",
+  contact: "Contact",
+  dashboard: "Dashboard",
+  profile: "Profile",
+  login: "Login",
+  register: "Register",
+  logout: "Logout",
+  language: {
+    es: "ES",
+    en: "EN"
+  },
+  aria: {
+    dashboard: "Go to dashboard",
+    profile: "Profile",
+    login: "Login",
+    register: "Register",
+    logout: "Logout"
+  }
 }
+,
+
+
+
     }
   },
   es: {
@@ -157,7 +217,66 @@ const resources = {
     name: "Estadísticas",
     description: "Obtén métricas sobre uso, mensajes y conversiones."
   }
+},
+featureCards: [
+  {
+    title: "Atención 24/7 sin esfuerzo",
+    desc: "Tu bot responde en cualquier momento, incluso cuando tu negocio está cerrado."
+  },
+  {
+    title: "Configúralo en minutos",
+    desc: "Solo escribe preguntas y respuestas básicas, la IA se encarga del resto."
+  },
+  {
+    title: "Diseño 100% personalizable",
+    desc: "Colores, tipografía y estilo adaptados a tu marca."
+  },
+  {
+    title: "Escalable y económico",
+    desc: "Atiende a cientos de clientes a la vez sin contratar más personal."
+  },
+  {
+    title: "Integraciones inteligentes",
+    desc: "Conecta con Google Calendar, Excel y otras herramientas que ya usas."
+  },
+  {
+    title: "Estadísticas útiles",
+    desc: "Entiende qué preguntan tus clientes y mejora tus servicios."
+  }
+],
+featureCards_title: "Todo lo que necesitas en un solo chatbot",
+footer: {
+  pricing: "Planes",
+  about: "Acerca de",
+  contact: "Contacto",
+  privacy: "Políticas de privacidad",
+  terms: "Términos de uso",
+  copyright: "© 2025 - Talobot. Todos los derechos reservados."
 }
+,
+navbar: {
+  pricing: "Planes",
+  about: "Acerca de",
+  contact: "Contacto",
+  dashboard: "Panel",
+  profile: "Perfil",
+  login: "Iniciar sesión",
+  register: "Registrarse",
+  logout: "Cerrar sesión",
+  language: {
+    es: "ES",
+    en: "EN"
+  },
+  aria: {
+    dashboard: "Ir al panel",
+    profile: "Perfil",
+    login: "Iniciar sesión",
+    register: "Registrarse",
+    logout: "Cerrar sesión"
+  }
+}
+
+
 
     }
   }

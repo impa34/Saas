@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { IoMdSend } from "react-icons/io";
 import axios from "axios";
 
 
@@ -10,6 +11,8 @@ function ChatbotEmbed() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
 
+  const iconButtonClasses =
+    "text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
   useEffect(() => {
     axios.get(`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}`).then((res) => setBot(res.data));
   }, [id]);
@@ -139,7 +142,7 @@ function ChatbotEmbed() {
           fontFamily: bot.config?.font,
         }}
       >
-        Enviar
+        <IoMdSend  className={iconButtonClasses}/>
       </button>
     </div>
   </div>

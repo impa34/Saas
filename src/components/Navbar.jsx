@@ -9,14 +9,14 @@ import { useTranslation } from "react-i18next";
 function Navbar() {
   const navigate = useNavigate();
   const { isLoggedIn, logout } = useAuth();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [language, setLanguage] = useState(i18n.language || "es");
 
   const toggleLanguage = () => {
     const newLang = language === "es" ? "en" : "es";
     setLanguage(newLang);
-    i18n.changeLanguage(newLang);   // 👈 aquí el cambio real
+    i18n.changeLanguage(newLang);
     localStorage.setItem("lang", newLang);
   };
 
@@ -48,16 +48,16 @@ function Navbar() {
             className="flex items-center gap-2 px-3 py-1 bg-white/10 hover:bg-white/20 rounded-lg transition"
           >
             <Globe size={18} />
-            <span>{language === "es" ? "ES" : "EN"}</span>
+            <span>{language === "es" ? t("navbar.language.es") : t("navbar.language.en")}</span>
           </button>
           <Link to="/pricing" className="hover:text-gray-900 dark:text-white transition">
-            Planes
+            {t("navbar.pricing")}
           </Link>
           <Link to="/about" className="hover:text-gray-900 dark:text-white transition">
-            Acerca de
+            {t("navbar.about")}
           </Link>
           <Link to="/contact" className="hover:text-gray-900 dark:text-white transition">
-            Contacto
+            {t("navbar.contact")}
           </Link>
         </div>
 
@@ -66,16 +66,16 @@ function Navbar() {
             <button
               onClick={() => navigate("/home")}
               className={iconButtonClasses}
-              aria-label="Ir al panel"
-              title="Panel"
+              aria-label={t("navbar.aria.dashboard")}
+              title={t("navbar.dashboard")}
             >
               <HiViewGrid size={24} />
             </button>
             <button
               onClick={() => navigate("/profile")}
               className={iconButtonClasses}
-              aria-label="Perfil"
-              title="Perfil"
+              aria-label={t("navbar.aria.profile")}
+              title={t("navbar.profile")}
             >
               <HiUser size={24} />
             </button>
@@ -85,8 +85,8 @@ function Navbar() {
                 navigate("/landing");
               }}
               className={logoutButtonClasses}
-              aria-label="Cerrar sesión"
-              title="Cerrar sesión"
+              aria-label={t("navbar.aria.logout")}
+              title={t("navbar.logout")}
             >
               <HiLogout size={24} />
             </button>
@@ -96,16 +96,16 @@ function Navbar() {
             <button
               onClick={() => navigate("/login")}
               className={iconButtonClasses}
-              aria-label="Iniciar sesión"
-              title="Iniciar sesión"
+              aria-label={t("navbar.aria.login")}
+              title={t("navbar.login")}
             >
               <HiLogin size={24} />
             </button>
             <button
               onClick={() => navigate("/register")}
               className={iconButtonClasses}
-              aria-label="Registrarse"
-              title="Registrarse"
+              aria-label={t("navbar.aria.register")}
+              title={t("navbar.register")}
             >
               <HiUserCircle size={24} />
             </button>
