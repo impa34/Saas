@@ -12,7 +12,7 @@ function ChatbotEmbed() {
   const [input, setInput] = useState("");
 
   const iconButtonClasses =
-    "text-white bg-purple-600 hover:bg-purple-700 p-2 rounded-md transition flex items-center justify-center";
+    "text-white p-2 rounded-md transition flex items-center justify-center";
   useEffect(() => {
     axios.get(`https://saas-backend-xrkb.onrender.com/api/chatbots/${id}`).then((res) => setBot(res.data));
   }, [id]);
