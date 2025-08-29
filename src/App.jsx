@@ -18,10 +18,8 @@ import PaymentCancel from "./pages/PaymentCancel";
 import Checkout from "./pages/Checkout"
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./pages/Profile";
-import { useLanguage } from "./context/LanguageProvider";
 
-function App() {
-  const { language } = useLanguage();
+function App({ language }) {  // Recibe language como prop
   const [key, setKey] = useState(0); // Clave para forzar re-renderización
 
   useEffect(() => {

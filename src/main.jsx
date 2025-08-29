@@ -6,13 +6,14 @@ import App from "./App.jsx";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import "./i18n";
 import { LanguageProvider } from "./context/LanguageProvider.jsx";
+import AppWrapper from "./AppWrapper.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <AuthProvider>
       <ThemeProvider>
         <LanguageProvider>
-          <App />
+          <AppWrapper />
         </LanguageProvider>
       </ThemeProvider>
     </AuthProvider>
