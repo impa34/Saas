@@ -10,11 +10,11 @@ import { LanguageProvider } from "./context/LanguageProvider.jsx";
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <AuthProvider>
-      <LanguageProvider>
-        <ThemeProvider>
+      <ThemeProvider>
+        <LanguageProvider>
           <App />
-        </ThemeProvider>
-      </LanguageProvider>
+        </LanguageProvider>
+      </ThemeProvider>
     </AuthProvider>
   </BrowserRouter>
 );

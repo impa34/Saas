@@ -5,13 +5,12 @@ const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState("es");
-  const [update, forceUpdate] = useState(0); // Para forzar re-renderización
 
   // Cada vez que language cambie, sincroniza con i18n
   useEffect(() => {
     i18n.changeLanguage(language);
     localStorage.setItem("lang", language);
-    forceUpdate(prev => prev + 1); // Forzar re-renderización
+    document.documentElement.lang = language; // También actualiza el atributo lang del HTML
   }, [language]);
 
   // Toggle para cambiar idioma
@@ -27,11 +26,14 @@ export const LanguageProvider = ({ children }) => {
   // Carga el idioma guardado al inicio
   useEffect(() => {
     const savedLang = localStorage.getItem("lang");
-    if (savedLang) setLanguage(savedLang);
+    if (savedLang) {
+      setLanguage(savedLang);
+      i18n.changeLanguage(savedLang);
+    }
   }, []);
 
   return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, changeLanguage, update }}>
+    <LanguageContext.Provider value={{ language, toggleLanguage, changeLanguage }}>
       {children}
     </LanguageContext.Provider>
   );

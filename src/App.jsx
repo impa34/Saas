@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
@@ -21,63 +21,64 @@ import Profile from "./pages/Profile";
 import { useLanguage } from "./context/LanguageProvider";
 
 function App() {
-  const language = useLanguage()
-useEffect(() => {
-  if (document.getElementById("talo-widget-script")) return; // ya existe, no cargar otra vez
+  const { language } = useLanguage();
+  const [key, setKey] = useState(0); // Clave para forzar re-renderización
 
-  window.TALO_CHATBOT_ID = "68aed2bbcff629d8c3784c64";
+  useEffect(() => {
+    // Cambiar la clave cada vez que el idioma cambie
+    setKey(prevKey => prevKey + 1);
+  }, [language]);
 
-  const script = document.createElement("script");
-  script.id = "talo-widget-script";
-  script.src = "https://www.talochatbot.com/widget.js";
-  script.async = true;
-  script.defer = true;
-  document.body.appendChild(script);
-}, []);
+  useEffect(() => {
+    if (document.getElementById("talo-widget-script")) return;
 
-useEffect(() => {
+    window.TALO_CHATBOT_ID = "68aed2bbcff629d8c3784c64";
 
-}, [language])
+    const script = document.createElement("script");
+    script.id = "talo-widget-script";
+    script.src = "https://www.talochatbot.com/widget.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }, []);
+
   const PrivateRoute = ({ children }) => {
     const token = localStorage.getItem("token");
     return token ? children : <Navigate to="/login" />;
   };
   
   return (
-    <>
-    <Routes>
-      
-      <Route path="/" element={<Navigate to="/landing" />} />
-      <Route path="/landing" element={<Landing />}></Route>
-      <Route path="/login" element={<Login />}></Route>
-      <Route path="/register" element={<Register />}></Route>
-      <Route path="/checkout" element={<Checkout />}></Route>
-      <Route
-        path="/home"
-        element={
-          <PrivateRoute>
-            <Home />
-          </PrivateRoute>
-        }
-      ></Route>
-      <Route path="/payment-success" element={<PaymentSuccess />} />
-      <Route path="/payment-cancel" element={<PaymentCancel />} />
-      <Route path="/form" element={<ChatbotForm />}></Route>
-      <Route path="/embed/:id" element={<ChatbotEmbed />}></Route>
-      <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>}></Route>
-      <Route path="/edit/:id" element={<ChatbotForm />}></Route>
-      <Route path="/pricing" element={<Pricing />}></Route>
-      <Route path="/about" element={<About />}></Route>
-      <Route path="/contact" element={<Contact />}></Route>
-      <Route path="/telegram/:botId" element={<TelegramIntegration />} />
-      <Route path="/privacy" element={<Privacy />}></Route>
-      <Route path="/terms" element={<Terms />}></Route>
-      <Route path="/redirecting" element={<Redirecting />}></Route>
-      <Route path="*" element={<p>404 - No encontrado</p>} />
-    </Routes>
-    
-    </>
-
+    <div key={key}> {/* Esto forzará re-renderización completa cuando language cambie */}
+      <Routes>
+        <Route path="/" element={<Navigate to="/landing" />} />
+        <Route path="/landing" element={<Landing />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/checkout" element={<Checkout />}></Route>
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        ></Route>
+        <Route path="/payment-success" element={<PaymentSuccess />} />
+        <Route path="/payment-cancel" element={<PaymentCancel />} />
+        <Route path="/form" element={<ChatbotForm />}></Route>
+        <Route path="/embed/:id" element={<ChatbotEmbed />}></Route>
+        <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>}></Route>
+        <Route path="/edit/:id" element={<ChatbotForm />}></Route>
+        <Route path="/pricing" element={<Pricing />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/telegram/:botId" element={<TelegramIntegration />} />
+        <Route path="/privacy" element={<Privacy />}></Route>
+        <Route path="/terms" element={<Terms />}></Route>
+        <Route path="/redirecting" element={<Redirecting />}></Route>
+        <Route path="*" element={<p>404 - No encontrado</p>} />
+      </Routes>
+    </div>
   );
 }
 
