@@ -4,7 +4,7 @@ import { Globe } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { HiUserCircle, HiLogin, HiLogout, HiUser, HiViewGrid } from "react-icons/hi";
 import { useTranslation } from "react-i18next";
-import { useLanguage } from "../context/LanguageContext"; // 🔑 importar contexto
+import { useLanguage } from "../context/LanguageProvider"; // 🔑 importar contexto
 
 function Navbar() {
   const navigate = useNavigate();
