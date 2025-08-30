@@ -142,7 +142,7 @@ function ChatbotEmbed() {
           fontFamily: bot.config?.font,
         }}
       >
-        <IoMdSend size={40} className={iconButtonClasses}/>
+        <IoMdSend size={32} className={iconButtonClasses}/>
       </button>
     </div>
   </div>
