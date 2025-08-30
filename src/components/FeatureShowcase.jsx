@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const FeatureShowcase = () => {
 
     const navigate = useNavigate()
-    
+
   return (
     <section className="py-16 bg-gradient-to-br from-purple-900 via-gray-900 to-gray-900 text-white">
       <div className="container mx-auto px-4">
@@ -81,21 +81,21 @@ const FeatureShowcase = () => {
               className="relative"
             >
               {/* Imagen principal - Dashboard */}
-              <div className="relative z-10 rounded-xl overflow-hidden shadow-2xl">
-                <img
-                  src="/dashboard-preview.webp" // Reemplaza con tu imagen
-                  alt="Dashboard de Talobot"
-                  className="w-full h-auto rounded-xl"
-                />
-                <div className="absolute inset-0 bg-purple-900 bg-opacity-20"></div>
-              </div>
+<div className="relative z-10 rounded-xl overflow-hidden shadow-2xl max-w-md mx-auto">
+  <img
+    src="/dashboard-preview.webp"
+    alt="Dashboard de Talobot"
+    className="w-full h-auto rounded-xl"
+  />
+  <div className="absolute inset-0 bg-purple-900 bg-opacity-20"></div>
+</div>
 
               {/* Imagen flotante 1 - Chatbot en acción */}
               <motion.div
                 initial={{ x: 50, y: 50, opacity: 0 }}
                 whileInView={{ x: -20, y: -20, opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="absolute top-10 -right-10 z-20 w-48 h-48 rounded-lg overflow-hidden shadow-xl border-2 border-white"
+                className="absolute top-20 -right-10 z-20 w-48 h-48 rounded-lg overflow-hidden shadow-xl border-2 border-white"
               >
                 <img
                   src="/chat-preview.webp" // Reemplaza con tu imagen
@@ -109,7 +109,7 @@ const FeatureShowcase = () => {
                 initial={{ x: -50, y: 50, opacity: 0 }}
                 whileInView={{ x: 20, y: -20, opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.5 }}
-                className="absolute bottom-10 -left-10 z-20 w-40 h-40 rounded-lg overflow-hidden shadow-xl border-2 border-white"
+                className="absolute bottom-10 -left-5 z-20 w-40 h-40 rounded-lg overflow-hidden shadow-xl"
               >
                 <img
                   src="/integrations-preview.webp" // Reemplaza con tu imagen
