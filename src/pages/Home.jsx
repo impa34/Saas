@@ -317,7 +317,7 @@ function Home() {
                 onClick={() => confirmDelete(bot._id)}
                 className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-1 rounded-md text-sm"
               >
-                {t("home.deleteModal.confirm")}
+                {t("home.deleteModal.button")}
               </button>
 
               {isProOrFull ? (

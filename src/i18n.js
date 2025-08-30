@@ -265,6 +265,7 @@ const resources = {
           title: "Delete chatbot?",
           message:
             "This action cannot be undone. Are you sure you want to continue?",
+          button:"Delete",
           confirm: "Yes, delete",
           cancel: "No, go back",
         },
@@ -812,6 +813,7 @@ const resources = {
         title: "¿Eliminar chatbot?",
         message:
           "Esta acción no se puede deshacer. ¿Estás seguro de que deseas continuar?",
+          button:"Eliminar",
         confirm: "Sí, eliminar",
         cancel: "No, volver",
       },
