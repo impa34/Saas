@@ -109,7 +109,7 @@ const FeatureShowcase = () => {
                 initial={{ x: -50, y: 50, opacity: 0 }}
                 whileInView={{ x: 20, y: -20, opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.5 }}
-                className="absolute bottom-10 z-20 w-40 h-40 rounded-lg overflow-hidden shadow-xl"
+                className="absolute bottom-10 -left-10 z-20 w-40 h-40 rounded-lg overflow-hidden shadow-xl"
               >
                 <img
                   src="/integrations-preview.webp" // Reemplaza con tu imagen
