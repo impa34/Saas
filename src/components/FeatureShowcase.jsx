@@ -95,7 +95,7 @@ const FeatureShowcase = () => {
                 initial={{ x: 50, y: 50, opacity: 0 }}
                 whileInView={{ x: -20, y: -20, opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="absolute top-20 -right-8 z-20 w-52 h-52 rounded-lg overflow-hidden shadow-xl border-2 border-white"
+                className="absolute top-32 -right-8 z-20 w-60 h-60 rounded-lg overflow-hidden shadow-xl border-2 border-white"
               >
                 <img
                   src="/chat-preview.webp" // Reemplaza con tu imagen
