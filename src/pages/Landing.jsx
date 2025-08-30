@@ -68,7 +68,7 @@ const { t, i18n } = useTranslation();
           {t("cta_button")}
         </button>
       </section>
-
+<FeatureShowcase />
       {/* Características destacadas */}
       <InteractiveFeatureSection />
 
@@ -79,7 +79,7 @@ const { t, i18n } = useTranslation();
       </section>
 
       <FeatureCardSection />
-      <FeatureShowcase />
+      
 
       {/* Planes */}
       <section className="bg-white dark:bg-gray-900 py-20 px-4">
