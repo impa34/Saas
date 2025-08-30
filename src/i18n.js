@@ -488,6 +488,23 @@ const resources = {
     "text1": "Getting started is very easy: just name your bot, add the frequently asked questions your customers might have, and provide the answers. You don't need perfect answers, as the AI takes care of understanding variations and nuances. With Talobot, you can offer 24/7 support without hiring more staff, making your business more scalable and efficient.",
     "text2": "The free plan gives you one chatbot and five questions so you can see how it works. You can upgrade your subscription whenever you want."
   }
+},
+"telegramIntegration": {
+  "title": "Integrate your chatbot with Telegram",
+  "steps": {
+    "1": "Open Telegram and search for <strong>@BotFather</strong>.",
+    "2": "Type <code>/newbot</code> and follow the steps to create a bot.",
+    "3": "Choose a name and a unique @username for your bot.",
+    "4": "At the end, BotFather will give you a <strong>Token</strong> like this:",
+    "5": "Paste that token in the field below and save the configuration."
+  },
+  "tokenExample": "123456789:ABCdefGhIJKlmNoPQRstuVWxyZ",
+  "tokenLabel": "Telegram Token",
+  "tokenPlaceholder": "Enter your BotFather token here",
+  "error": "Error saving token. Please verify it's correct.",
+  "success": "✅ Integration successful, redirecting...",
+  "saveButton": "Save Token",
+  "savingButton": "Saving..."
 }
     },
   },
@@ -978,6 +995,23 @@ const resources = {
     "text1": "Empezar es muy fácil: solo nombra tu bot, añade las preguntas frecuentes que puedan hacer tus clientes y proporciona las respuestas. No necesitas respuestas perfectas, ya que la IA se encarga de entender variaciones y matices. Con Talobot, puedes ofrecer atención 24/7 sin contratar más personal, haciendo tu negocio más escalable y eficiente.",
     "text2": "El plan gratuito te da un chatbot y cinco preguntas para que veas como funciona, puedes ampliar tu suscripción cuando lo desees."
   }
+},
+"telegramIntegration": {
+  "title": "Integrar tu chatbot con Telegram",
+  "steps": {
+    "1": "Abre Telegram y busca <strong>@BotFather</strong>.",
+    "2": "Escribe <code>/newbot</code> y sigue los pasos para crear un bot.",
+    "3": "Elige un nombre y un @username único para tu bot.",
+    "4": "Al final, BotFather te dará un <strong>Token</strong> como este:",
+    "5": "Pega ese token en el campo de abajo y guarda la configuración."
+  },
+  "tokenExample": "123456789:ABCdefGhIJKlmNoPQRstuVWxyZ",
+  "tokenLabel": "Token de Telegram",
+  "tokenPlaceholder": "Introduce aquí el token de BotFather",
+  "error": "Error al guardar el token. Verifica que sea correcto.",
+  "success": "✅ Integración exitosa, redirigiendo...",
+  "saveButton": "Guardar Token",
+  "savingButton": "Guardando..."
 }
     },
    
