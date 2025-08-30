@@ -8,6 +8,7 @@ import InteractiveFeatureSection from "../components/InteractiveFeatureSection";
 import {Helmet} from "react-helmet"
 import { useTranslation } from "react-i18next";
 import {motion} from "framer-motion"
+import FeatureShowcase from "../components/FeatureShowcase";
 
 function Landing() {
   const navigate = useNavigate();
@@ -78,6 +79,7 @@ const { t, i18n } = useTranslation();
       </section>
 
       <FeatureCardSection />
+      <FeatureShowcase />
 
       {/* Planes */}
       <section className="bg-white dark:bg-gray-900 py-20 px-4">
