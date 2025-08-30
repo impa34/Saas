@@ -495,7 +495,7 @@ const resources = {
     "1": "Open Telegram and search for <strong>@BotFather</strong>.",
     "2": "Type <code>/newbot</code> and follow the steps to create a bot.",
     "3": "Choose a name and a unique @username for your bot.",
-    "4": "At the end, BotFather will give you a <strong>Token</strong> like this:",
+    "4": "At the end, BotFather will give you a Token like this:",
     "5": "Paste that token in the field below and save the configuration."
   },
   "tokenExample": "123456789:ABCdefGhIJKlmNoPQRstuVWxyZ",
@@ -1002,7 +1002,7 @@ const resources = {
     "1": "Abre Telegram y busca <strong>@BotFather</strong>.",
     "2": "Escribe <code>/newbot</code> y sigue los pasos para crear un bot.",
     "3": "Elige un nombre y un @username único para tu bot.",
-    "4": "Al final, BotFather te dará un <strong>Token</strong> como este:",
+    "4": "Al final, BotFather te dará un Token como este:",
     "5": "Pega ese token en el campo de abajo y guarda la configuración."
   },
   "tokenExample": "123456789:ABCdefGhIJKlmNoPQRstuVWxyZ",
