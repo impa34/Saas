@@ -75,7 +75,7 @@ const resources = {
           name: "Email Capture",
           description: "Automatically collect emails and client data.",
         },
-        branding: {
+        customization: {
           name: "Customization",
           description: "Adjust the chatbot style to match your brand image.",
         },
@@ -474,6 +474,19 @@ const resources = {
   },
   "success": "Bot created successfully!",
   "successUpdate": "Bot updated successfully!"
+},
+"about": {
+  "back": "Back",
+  "title": "About Talobot",
+  "description": "Talobot is an AI-powered assistant that helps your business connect with customers in a smarter and more efficient way.",
+  "mission": {
+    "text": "Our mission is to simplify support and automation through natural and intelligent conversations. Whether you're a small team or a large enterprise, Talobot adapts to your needs. Enjoy seamless integrations like Google Calendar or Excel, along with a fully customizable interface to match your brand."
+  },
+  "howItWorks": {
+    "title": "How does it work?",
+    "text1": "Getting started is very easy: just name your bot, add the frequently asked questions your customers might have, and provide the answers. You don't need perfect answers, as the AI takes care of understanding variations and nuances. With Talobot, you can offer 24/7 support without hiring more staff, making your business more scalable and efficient.",
+    "text2": "The free plan gives you one chatbot and five questions so you can see how it works. You can upgrade your subscription whenever you want."
+  }
 }
     },
   },
@@ -551,7 +564,7 @@ const resources = {
           description:
             "Recoge automáticamente los correos y datos de tus clientes.",
         },
-        branding: {
+        customization: {
           name: "Personalización",
           description:
             "Ajusta el estilo del chatbot según la imagen de tu marca.",
@@ -950,6 +963,19 @@ const resources = {
   },
   "success": "¡Bot creado correctamente!",
   "successUpdate": "¡Bot actualizado correctamente!"
+},
+"about": {
+  "back": "Volver",
+  "title": "Sobre Talobot",
+  "description": "Talobot es un asistente con inteligencia artificial que ayuda a tu negocio a conectar con los clientes de forma más inteligente y eficiente.",
+  "mission": {
+    "text": "Nuestra misión es simplificar el soporte y la automatización mediante conversaciones naturales e inteligentes. Ya seas un pequeño equipo o una gran empresa, Talobot se adapta a tus necesidades. Disfruta de integraciones fluidas como Google Calendar o Excel, junto con una interfaz completamente personalizable para adaptarse a tu marca."
+  },
+  "howItWorks": {
+    "title": "¿Cómo funciona?",
+    "text1": "Empezar es muy fácil: solo nombra tu bot, añade las preguntas frecuentes que puedan hacer tus clientes y proporciona las respuestas. No necesitas respuestas perfectas, ya que la IA se encarga de entender variaciones y matices. Con Talobot, puedes ofrecer atención 24/7 sin contratar más personal, haciendo tu negocio más escalable y eficiente.",
+    "text2": "El plan gratuito te da un chatbot y cinco preguntas para que veas como funciona, puedes ampliar tu suscripción cuando lo desees."
+  }
 }
     },
    
