@@ -1,6 +1,8 @@
 (function () {
   // No crear botón dentro de iframe
   if (window.self !== window.top) return;
+  const excludedPaths = ["/embed"];
+  if (excludedPaths.some(path => window.location.pathname.startsWith(path))) return;
 
   let chatbotId = document.currentScript?.getAttribute("data-chatbot-id");
   if (!chatbotId && window.TALO_CHATBOT_ID) {
