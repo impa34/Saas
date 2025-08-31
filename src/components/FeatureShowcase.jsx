@@ -1,9 +1,10 @@
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const FeatureShowcase = () => {
-
-    const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <section className="py-16 bg-gradient-to-br from-purple-900 via-gray-900 to-gray-900 text-white">
@@ -17,7 +18,7 @@ const FeatureShowcase = () => {
               transition={{ duration: 0.7 }}
               className="text-4xl md:text-5xl font-bold mb-6"
             >
-              Llevamos la inteligencia artificial a tu negocio
+              {t("featureShowcase.title")}
             </motion.h2>
             
             <motion.p
@@ -26,7 +27,7 @@ const FeatureShowcase = () => {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-lg text-purple-200 mb-6"
             >
-              Con Talobot, transforma la manera en que interactúas con tus clientes mediante chatbots inteligentes y personalizables.
+              {t("featureShowcase.description")}
             </motion.p>
 
             <motion.div
@@ -39,21 +40,21 @@ const FeatureShowcase = () => {
                 <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center mr-4">
                   <span className="text-white font-bold">✓</span>
                 </div>
-                <span>Respuestas instantáneas 24/7</span>
+                <span>{t("featureShowcase.features.24/7")}</span>
               </div>
               
               <div className="flex items-center">
                 <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center mr-4">
                   <span className="text-white font-bold">✓</span>
                 </div>
-                <span>Integración con tus herramientas favoritas</span>
+                <span>{t("featureShowcase.features.integrations")}</span>
               </div>
               
               <div className="flex items-center">
                 <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center mr-4">
                   <span className="text-white font-bold">✓</span>
                 </div>
-                <span>Personalización total para tu marca</span>
+                <span>{t("featureShowcase.features.customization")}</span>
               </div>
             </motion.div>
 
@@ -67,7 +68,7 @@ const FeatureShowcase = () => {
                 onClick={() => navigate("/register")}
                 className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition transform hover:scale-105"
               >
-                Comenzar ahora
+                {t("featureShowcase.cta")}
               </button>
             </motion.div>
           </div>
@@ -81,14 +82,14 @@ const FeatureShowcase = () => {
               className="relative"
             >
               {/* Imagen principal - Dashboard */}
-<div className="relative z-10 rounded-xl overflow-hidden shadow-2xl max-w-md mx-auto">
-  <img
-    src="/dashboard-preview.webp"
-    alt="Dashboard de Talobot"
-    className="w-full h-auto rounded-xl"
-  />
-  <div className="absolute inset-0 bg-purple-900 bg-opacity-20"></div>
-</div>
+              <div className="relative z-10 rounded-xl overflow-hidden shadow-2xl max-w-md mx-auto">
+                <img
+                  src="/dashboard-preview.webp"
+                  alt="Dashboard de Talobot"
+                  className="w-full h-auto rounded-xl"
+                />
+                <div className="absolute inset-0 bg-purple-900 bg-opacity-20"></div>
+              </div>
 
               {/* Imagen flotante 1 - Chatbot en acción */}
               <motion.div
@@ -98,7 +99,7 @@ const FeatureShowcase = () => {
                 className="absolute top-32 -right-8 z-20 w-60 h-60 rounded-lg overflow-hidden shadow-xl border-2 border-white"
               >
                 <img
-                  src="/chat-preview.webp" // Reemplaza con tu imagen
+                  src="/chat-preview.webp"
                   alt="Chatbot en acción"
                   className="w-full h-full object-cover"
                 />
@@ -112,7 +113,7 @@ const FeatureShowcase = () => {
                 className="absolute bottom-10 -left-10 z-20 w-40 h-40 rounded-lg overflow-hidden shadow-xl"
               >
                 <img
-                  src="/integrations-preview.webp" // Reemplaza con tu imagen
+                  src="/integrations-preview.webp"
                   alt="Integraciones de Talobot"
                   className="w-full h-full object-cover"
                 />
@@ -129,4 +130,4 @@ const FeatureShowcase = () => {
   );
 };
 
-export default FeatureShowcase
+export default FeatureShowcase;

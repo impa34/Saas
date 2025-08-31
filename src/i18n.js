@@ -505,6 +505,16 @@ const resources = {
   "success": "✅ Integration successful, redirecting...",
   "saveButton": "Save Token",
   "savingButton": "Saving..."
+},
+"featureShowcase": {
+  "title": "We bring artificial intelligence to your business",
+  "description": "With Talobot, transform the way you interact with your customers through intelligent and customizable chatbots.",
+  "features": {
+    "24/7": "Instant responses 24/7",
+    "integrations": "Integration with your favorite tools",
+    "customization": "Complete customization for your brand"
+  },
+  "cta": "Get started now"
 }
     },
   },
@@ -1012,6 +1022,16 @@ const resources = {
   "success": "✅ Integración exitosa, redirigiendo...",
   "saveButton": "Guardar Token",
   "savingButton": "Guardando..."
+},
+"featureShowcase": {
+  "title": "Llevamos la inteligencia artificial a tu negocio",
+  "description": "Con Talobot, transforma la manera en que interactúas con tus clientes mediante chatbots inteligentes y personalizables.",
+  "features": {
+    "24/7": "Respuestas instantáneas 24/7",
+    "integrations": "Integración con tus herramientas favoritas",
+    "customization": "Personalización total para tu marca"
+  },
+  "cta": "Comenzar ahora"
 }
     },
    
