@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { getNames } from "country-list";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -7,9 +8,17 @@ function Register() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const [country, setCountry] = useState(""); // 🌍 País
+  const [timeZone, setTimeZone] = useState("UTC");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
+  const countries = getNames();
 
+  useEffect(() => {
+    // Detecta automáticamente la zona horaria del navegador
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    setTimeZone(tz);
+  }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -34,13 +43,22 @@ function Register() {
     }
 
     try {
-      const res = await fetch("https://saas-backend-xrkb.onrender.com/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, email, password }),
-      });
+      const res = await fetch(
+        "https://saas-backend-xrkb.onrender.com/api/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username,
+            email,
+            password,
+            country,
+            timeZone,
+          }),
+        }
+      );
 
       const data = await res.json();
 
@@ -64,13 +82,16 @@ function Register() {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = "https://saas-backend-xrkb.onrender.com/api/google-auth";
+    window.location.href =
+      "https://saas-backend-xrkb.onrender.com/api/google-auth";
   };
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center px-4">
       <div className="bg-gray-700 shadow-xl rounded-2xl p-8 max-w-md w-full">
-        <h2 className="text-3xl font-semibold mb-6 text-center text-white">Registrarse</h2>
+        <h2 className="text-3xl font-semibold mb-6 text-center text-white">
+          Registrarse
+        </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
@@ -106,6 +127,20 @@ function Register() {
             required
           />
 
+          <select
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            className="w-full px-4 py-2 border text-gray-900 dark:text-white border-gray-300 rounded-sm focus:outline-none bg-gray-700 focus:ring-2 focus:ring-purple-500"
+            required
+          >
+            <option value="">Selecciona tu país</option>
+            {countries.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+
           {/* Mensajes de error / éxito */}
           {error && (
             <div className="text-red-400 text-sm bg-red-900/40 px-4 py-2 rounded-md border border-red-600">
@@ -132,7 +167,8 @@ function Register() {
           onClick={handleGoogleLogin}
           className="flex items-center w-full justify-center gap-2 bg-white text-gray-800 px-4 py-2 mt-2 rounded-sm shadow hover:shadow-md hover:bg-gray-200 transition duration-200"
         >
-          <img src="/google.webp" alt="Google" className="w-5 h-5" /> Registrarse con Google
+          <img src="/google.webp" alt="Google" className="w-5 h-5" />{" "}
+          Registrarse con Google
         </button>
 
         <p className="text-sm text-center text-white mt-4">
