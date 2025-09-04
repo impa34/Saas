@@ -294,7 +294,7 @@ function Home() {
             )}
 
             <p className="text-sm text-gray-400 mb-1">
-              Prompts configurados: <strong>{bot.prompts.length}</strong>
+              {t("home.prompts")}: <strong>{bot.prompts.length}</strong>
             </p>
             <p className="text-xs text-gray-500 mb-3">ID: {bot._id}</p>
 

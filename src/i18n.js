@@ -248,6 +248,7 @@ const resources = {
       home: {
         title: "Your Chatbots",
         newBot: "+ New Chatbot",
+        prompts:"Configured prompts",
         botLimitMsg:
           "🚫 Free plan only allows one chatbot. Upgrade to create more.",
         integration: {
@@ -823,6 +824,7 @@ const resources = {
     home: {
       title: "Tus Chatbots",
       newBot: "+ Nuevo Chatbot",
+      prompts:"Prompts configurados",
       botLimitMsg:
         "🚫 El plan gratuito solo permite un chatbot. Actualiza tu plan para crear más.",
       integration: {
