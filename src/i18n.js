@@ -516,7 +516,9 @@ const resources = {
     "customization": "Complete customization for your brand"
   },
   "cta": "Get started now"
-}
+},
+    video_title: "See how it works",
+    video_subtitle: "Learn how to use Talobot in minutes with this quick tutorial."
     },
   },
   es: {
@@ -1034,7 +1036,9 @@ const resources = {
     "customization": "Personalización total para tu marca"
   },
   "cta": "Comenzar ahora"
-}
+},
+video_title: "Mira cómo funciona",
+    video_subtitle: "Aprende a usar Talobot en minutos con este tutorial rápido."
     },
    
     

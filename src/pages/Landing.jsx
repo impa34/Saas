@@ -72,6 +72,8 @@ const { t, i18n } = useTranslation();
       {/* Características destacadas */}
       <InteractiveFeatureSection />
 
+
+
       {/* Why Choose Us */}
       <section className="bg-gray-100 dark:bg-gray-800 py-12 text-center px-4">
         <h3 className="text-3xl font-semibold mb-6">{t("why_choose_us")}</h3>
@@ -134,7 +136,27 @@ const { t, i18n } = useTranslation();
       </section>
 
       {/* CTA final */}
-   
+               {/* Sección Video Tutorial */}
+      <section className="bg-gray-50 dark:bg-gray-900 py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+            {t("video_title", "Mira cómo funciona")}
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+            {t("video_subtitle", "Aprende a usar Talobot en minutos con este tutorial.")}
+          </p>
+          <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-w-16 aspect-h-9">
+            <iframe
+              className="w-full h-[400px] md:h-[500px] rounded-2xl"
+              src="https://www.youtube.com/embed/katUo1ieDNU"
+              title="Tutorial Talobot"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
