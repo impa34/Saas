@@ -68,7 +68,7 @@ function Landing() {
           </button>
         </motion.div>
       </header>
-      <SlidesSection />
+
       <section className="bg-purple-600 text-white py-12 text-center">
         <h2 className="text-3xl font-bold mb-4">{t("cta_title")}</h2>
         <p className="text-lg mb-6">{t("cta_subtitle")}</p>
@@ -79,7 +79,9 @@ function Landing() {
           {t("cta_button")}
         </button>
       </section>
+
       <FeatureShowcase />
+      <SlidesSection />
       {/* Características destacadas */}
       <InteractiveFeatureSection />
 
