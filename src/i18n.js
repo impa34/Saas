@@ -518,7 +518,15 @@ const resources = {
   "cta": "Get started now"
 },
     video_title: "See how it works",
-    video_subtitle: "Learn how to use Talobot in minutes with this quick tutorial."
+    video_subtitle: "Learn how to use Talobot in minutes with this quick tutorial.",
+     
+    slides_title: "Get started in 3 easy steps",
+    slide1_title: "Create your chatbot",
+    slide1_text: "Register and set up your assistant in minutes.",
+    slide2_title: "Train with your info",
+    slide2_text: "Upload your data or FAQs so it knows your business.",
+    slide3_title: "Automate your business",
+    slide3_text: "Save time and boost sales with smart automation."
     },
   },
   es: {
@@ -1038,7 +1046,14 @@ const resources = {
   "cta": "Comenzar ahora"
 },
 video_title: "Mira cómo funciona",
-    video_subtitle: "Aprende a usar Talobot en minutos con este tutorial rápido."
+    video_subtitle: "Aprende a usar Talobot en minutos con este tutorial rápido.",
+    slides_title: "Empieza en 3 pasos fáciles",
+    slide1_title: "Crea tu chatbot",
+    slide1_text: "Regístrate y configura tu asistente en minutos.",
+    slide2_title: "Entrénalo con tu info",
+    slide2_text: "Sube tus datos o preguntas frecuentes para que conozca tu negocio.",
+    slide3_title: "Automatiza tu negocio",
+    slide3_text: "Ahorra tiempo y aumenta tus ventas con la automatización inteligente."
     },
    
     

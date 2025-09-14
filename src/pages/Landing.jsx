@@ -5,27 +5,37 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import FeatureCardSection from "../components/FeaturedCardSection";
 import InteractiveFeatureSection from "../components/InteractiveFeatureSection";
-import {Helmet} from "react-helmet"
+import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 import FeatureShowcase from "../components/FeatureShowcase";
+import SlidesSection from "../components/SlidesSection";
 
 function Landing() {
   const navigate = useNavigate();
-const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex flex-col">
       <Helmet>
         <title>Talobot | Chatbots con IA para tu negocio</title>
-        <script src="http://www.talochatbot.com/widget.js" data-chatbot-id="686e55ac28801949c4df3ba9" ></script>
+        <script
+          src="http://www.talochatbot.com/widget.js"
+          data-chatbot-id="686e55ac28801949c4df3ba9"
+        ></script>
         <meta
           name="description"
           content="Crea tu chatbot con IA en minutos. Mejora la atención al cliente sin conocimientos técnicos."
         />
-        <meta name="keywords" content="chatbot, ia, atención al cliente, automatización, negocios" />
+        <meta
+          name="keywords"
+          content="chatbot, ia, atención al cliente, automatización, negocios"
+        />
         <meta property="og:title" content="Talobot | Chatbots con IA" />
-        <meta property="og:description" content="Chatbots inteligentes para negocios, fáciles de crear." />
+        <meta
+          property="og:description"
+          content="Chatbots inteligentes para negocios, fáciles de crear."
+        />
         <meta property="og:url" content="https://www.talochatbot.com" />
       </Helmet>
       <Navbar />
@@ -36,29 +46,30 @@ const { t, i18n } = useTranslation();
         style={{ backgroundImage: "url('/hero1.webp')" }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-80"></div>
-<motion.div
-  initial={{ opacity: 0, y: 15 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5 }}
-  className="relative z-10"
->
-  <Typewriter 
-    key={i18n.language}   // 👈 forzar nuevo montaje al cambiar idioma
-    text={t("hero_title")} 
-    speed={60} 
-  />
-  <p className="text-lg md:text-xl text-gray-300 mb-6 py-6">
-    {t("hero_subtitle")}
-  </p>
-  <button
-    onClick={() => navigate("/register")}
-    className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition"
-  >
-    {t("hero_cta")}
-  </button>
-</motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="relative z-10"
+        >
+          <Typewriter
+            key={i18n.language} // 👈 forzar nuevo montaje al cambiar idioma
+            text={t("hero_title")}
+            speed={60}
+          />
+          <p className="text-lg md:text-xl text-gray-300 mb-6 py-6">
+            {t("hero_subtitle")}
+          </p>
+          <button
+            onClick={() => navigate("/register")}
+            className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition"
+          >
+            {t("hero_cta")}
+          </button>
+        </motion.div>
       </header>
-       <section className="bg-purple-600 text-white py-12 text-center">
+      <SlidesSection />
+      <section className="bg-purple-600 text-white py-12 text-center">
         <h2 className="text-3xl font-bold mb-4">{t("cta_title")}</h2>
         <p className="text-lg mb-6">{t("cta_subtitle")}</p>
         <button
@@ -68,11 +79,9 @@ const { t, i18n } = useTranslation();
           {t("cta_button")}
         </button>
       </section>
-<FeatureShowcase />
+      <FeatureShowcase />
       {/* Características destacadas */}
       <InteractiveFeatureSection />
-
-
 
       {/* Why Choose Us */}
       <section className="bg-gray-100 dark:bg-gray-800 py-12 text-center px-4">
@@ -81,7 +90,6 @@ const { t, i18n } = useTranslation();
       </section>
 
       <FeatureCardSection />
-      
 
       {/* Planes */}
       <section className="bg-white dark:bg-gray-900 py-20 px-4">
@@ -136,27 +144,6 @@ const { t, i18n } = useTranslation();
       </section>
 
       {/* CTA final */}
-               {/* Sección Video Tutorial */}
-      <section className="bg-gray-50 dark:bg-gray-900 py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            {t("video_title", "Mira cómo funciona")}
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-            {t("video_subtitle", "Aprende a usar Talobot en minutos con este tutorial.")}
-          </p>
-          <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-w-16 aspect-h-9">
-            <iframe
-              className="w-full h-[400px] md:h-[500px] rounded-2xl"
-              src="https://www.youtube.com/embed/katUo1ieDNU"
-              title="Tutorial Talobot"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>
