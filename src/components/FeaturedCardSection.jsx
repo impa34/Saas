@@ -28,7 +28,7 @@ function FeatureCardSection() {
                 <div className="bg-purple-600 p-3 rounded-xl mb-4">
                   <Icon className="w-6 h-6 text-gray-900 dark:text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
+                
                 <p className="text-gray-400 text-sm">{f.desc}</p>
               </motion.div>
             );
