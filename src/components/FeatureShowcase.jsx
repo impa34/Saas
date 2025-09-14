@@ -18,7 +18,7 @@ const FeatureShowcase = () => {
               transition={{ duration: 0.7 }}
               className="text-4xl md:text-5xl font-bold mb-6"
             >
-              
+              {t("featureShowcase.title")}
             </motion.h2>
             
             <motion.p

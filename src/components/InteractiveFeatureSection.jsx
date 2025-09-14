@@ -67,9 +67,7 @@ export default function InteractiveFeatureSection() {
                   alt={t(`features.${activeFeature}.name`)}
                   className="mx-auto w-64 h-auto mb-6 rounded"
                 />
-                <h3 className="text-2xl font-semibold text-purple-400 mb-2">
-                  {t(`features.${activeFeature}.name`)}
-                </h3>
+             
                 <p className="text-gray-700 dark:text-gray-300 text-md">
                   {t(`features.${activeFeature}.description`)}
                 </p>
