@@ -34,7 +34,7 @@ function SlidesSection() {
               <img
                 src={steps[index].img}
                 alt=""
-                className="w-[22rem] h-[22rem] md:w-[26rem] md:h-[26rem] mb-4 object-contain"// 👈 imágenes grandes
+                className="w-[22rem] h-[22rem] mb-4 object-contain" //// 👈 imágenes grandes
               />
               <h3 className="text-2xl font-semibold mb-1">{t(steps[index].title)}</h3>
               <p className="text-gray-600 dark:text-gray-300 text-base max-w-lg mx-auto mb-3">
