@@ -7,7 +7,7 @@ const FeatureShowcase = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="py-16 bg-gradient-to-br from-purple-900 via-gray-900 to-gray-900 text-white">
+    <section className="py-16 bg-gradient-to-br bg-gray-100 dark:from-purple-900 dark:via-gray-900 dark:to-gray-900 text-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-12">
           {/* Texto a la izquierda */}

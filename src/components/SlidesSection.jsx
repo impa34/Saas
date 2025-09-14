@@ -16,7 +16,7 @@ function SlidesSection() {
   const prevSlide = () => setIndex((prev) => (prev - 1 + steps.length) % steps.length);
 
   return (
-    <section className="bg-gray-100 dark:bg-gray-800 py-16">
+    <section className="bg-gray-100 dark:bg-gray-900 py-16">
       <div className="max-w-4xl mx-auto text-center relative">
         <h2 className="text-3xl font-bold mb-10">{t("slides_title")}</h2>
 
