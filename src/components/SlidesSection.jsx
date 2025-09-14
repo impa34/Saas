@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 const steps = [
-  { key: "slide1", img: "/slide1.svg", title: "slide1_title", text: "slide1_text" },
-  { key: "slide2", img: "/slide2.svg", title: "slide2_title", text: "slide2_text" },
-  { key: "slide3", img: "/slide3.svg", title: "slide3_title", text: "slide3_text" },
+  { key: "slide1", img: "/slide1.webp", title: "slide1_title", text: "slide1_text" },
+  { key: "slide2", img: "/slide2.webp", title: "slide2_title", text: "slide2_text" },
+  { key: "slide3", img: "/slide3.webp", title: "slide3_title", text: "slide3_text" },
 ];
 
 function SlidesSection() {
