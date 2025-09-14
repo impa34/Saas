@@ -26,7 +26,7 @@ function SlidesSection() {
 
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-900 text-center">
-      <h2 className="text-3xl font-bold mb-8">{t("steps_title")}</h2>
+      <h2 className="text-3xl font-bold mb-8">{t("slides_title")}</h2>
 
       <motion.div
         key={index}
@@ -47,10 +47,10 @@ function SlidesSection() {
 
       {/* Botones navegación */}
       <div className="flex justify-center mt-6 space-x-4">
-        <button onClick={prev} className="p-2 rounded-full bg-purple-100 hover:bg-purple-200">
+        <button onClick={prev} className="p-2 rounded-full bg-purple-500 hover:bg-purple-700">
           <ArrowLeft />
         </button>
-        <button onClick={next} className="p-2 rounded-full bg-purple-100 hover:bg-purple-200">
+        <button onClick={next} className="p-2 rounded-full bg-purple-500 hover:bg-purple-700">
           <ArrowRight />
         </button>
       </div>
