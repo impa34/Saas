@@ -2,63 +2,68 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-const steps = [
-  { key: "slide1", img: "/slide1.webp", title: "slide1_title", text: "slide1_text" },
-  { key: "slide2", img: "/slide2.webp", title: "slide2_title", text: "slide2_text" },
-  { key: "slide3", img: "/slide3.webp", title: "slide3_title", text: "slide3_text" },
-];
 
 function SlidesSection() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [index, setIndex] = useState(0);
 
-  const nextSlide = () => setIndex((prev) => (prev + 1) % steps.length);
-  const prevSlide = () => setIndex((prev) => (prev - 1 + steps.length) % steps.length);
+  // 👇 Dos versiones de los pasos, una por idioma
+  const steps = i18n.language === "es"
+    ? [
+        { img: "slide1.webp", title: "1. Crea tu Chatbot", desc: "Regístrate y configura tu asistente en minutos." },
+        { img: "slide2.webp", title: "2. Entrénalo con tu info", desc: "Sube tus datos o preguntas frecuentes para que conozca tu negocio." },
+        { img: "slide3.webp", title: "3. Automatiza tu negocio", desc: "Ahorra tiempo y aumenta tus ventas con la automatización inteligente." },
+      ]
+    : [
+        { img: "slide1en.webp", title: "1. Create your chatbot", desc: "Register and set up your assistant in minutes." },
+        { img: "slide2en.webp", title: "2. Train with your info", desc: "Upload your data or FAQs so it knows your business." },
+        { img: "slide3en.webp", title: "3. Automate your business", desc: "Save time and boost sales with smart automation." },
+      ];
+
+  const next = () => setIndex((prev) => (prev + 1) % steps.length);
+  const prev = () => setIndex((prev) => (prev - 1 + steps.length) % steps.length);
 
   return (
-    <section className="bg-gray-100 dark:bg-gray-900 py-12">
-      <div className="max-w-4xl mx-auto text-center relative">
-        <h2 className="text-3xl font-bold mb-8">{t("slides_title")}</h2>
+    <section className="py-16 bg-gray-50 dark:bg-gray-900 text-center">
+      <h2 className="text-3xl font-bold mb-8">{t("steps_title")}</h2>
 
-        {/* Carrusel */}
-        <div className="overflow-hidden relative h-[28rem] flex items-center justify-center">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={steps[index].key}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
-              className="absolute inset-0 flex flex-col items-center justify-center px-4"
-            >
-              <img
-                src={steps[index].img}
-                alt=""
-                className="w-[22rem] h-[22rem] mb-4 object-contain" //// 👈 imágenes grandes
-              />
-              <h3 className="text-2xl font-semibold mb-1">{t(steps[index].title)}</h3>
-              <p className="text-gray-600 dark:text-gray-300 text-base max-w-lg mx-auto mb-3">
-                {t(steps[index].text)}
-              </p>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -50 }}
+        transition={{ duration: 0.4 }}
+        className="flex flex-col items-center"
+      >
+        <img
+          src={steps[index].img}
+          alt={steps[index].title}
+          className="w-[22rem] h-[22rem] md:w-[26rem] md:h-[26rem] mb-4 object-contain"
+        />
+        <h3 className="text-xl font-semibold">{steps[index].title}</h3>
+        <p className="text-gray-700 dark:text-gray-300">{steps[index].desc}</p>
+      </motion.div>
 
-        {/* Botones de navegación compactos */}
-        <div className="flex justify-center gap-4 mt-4">
-          <button
-            onClick={prevSlide}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-3 py-2 rounded-lg"
-          >
-            ◀
-          </button>
-          <button
-            onClick={nextSlide}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-3 py-2 rounded-lg"
-          >
-            ▶
-          </button>
-        </div>
+      {/* Botones navegación */}
+      <div className="flex justify-center mt-6 space-x-4">
+        <button onClick={prev} className="p-2 rounded-full bg-purple-100 hover:bg-purple-200">
+          <ArrowLeft />
+        </button>
+        <button onClick={next} className="p-2 rounded-full bg-purple-100 hover:bg-purple-200">
+          <ArrowRight />
+        </button>
+      </div>
+
+      {/* Indicadores tipo slider */}
+      <div className="flex justify-center mt-4 space-x-2">
+        {steps.map((_, i) => (
+          <span
+            key={i}
+            className={`w-3 h-3 rounded-full ${
+              i === index ? "bg-purple-600" : "bg-gray-300"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
